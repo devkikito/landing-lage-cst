@@ -86,12 +86,13 @@ export default function HomePage() {
         darkImage="/img/Banner.png"
         className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center mb-20"
       >
-        <div className="max-w-[73.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10">
+        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
           <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
-            <h1 className="font-semibold mt-10 text-3xl lg:text-3xl leading-tight text-cinza-800">
-              Método CST, treinamento completo para estudantes e profissionais da saúde!
+            <h1 className="mt-10 text-6xl  leading-tight text-branco-100">
+              Método CST, treinamento completo para{" "}
+              <span className="font-bold">estudantes e profissionais da saúde!</span>
             </h1>
-            <div className="mt-3 mb-4 lg:mb-16 text-xl text-cinza-800 font-normal leading-7 tracking-wide pr-10">
+            <div className="mt-2 mb-4 text-base text-branco-100 font-normal leading-7 tracking-wide max-w-[30rem]">
               Primeiro tratamento para demência não medicamentoso e baseado na ciência brasileira.
             </div>
             <div>

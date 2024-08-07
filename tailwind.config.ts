@@ -19,6 +19,16 @@ const config: Config = {
         sarabun: ["var(--font-sarabun)"],
         epilogue: ["var(--font-epilogue)"],
       },
+      fontSize: {
+        sm: "0.8rem",
+        base: "1rem", //16px
+        xl: "1.125rem", //18px
+        "2xl": "1.25rem", //20px
+        "3xl": "1.5rem", //24px
+        "4xl": "1.625rem", // 26px
+        "5xl": "2.5rem", // 40px
+        "6xl": "2.875rem", // 46px
+      },
       screens: {
         "2sm": "481px",
         "max-2sm": { raw: "(max-width: 480px)" },
@@ -55,12 +65,14 @@ const config: Config = {
           "250": "rgb(var(--var-azul-250))",
           "300": "rgb(var(--var-azul-300))",
           "350": "rgb(var(--var-azul-350))",
+          "500": "rgb(var(--var-azul-500))",
         },
         cinza: {
           "100": "rgb(var(--var-cinza-100))",
           "300": "rgb(var(--var-cinza-200))",
           "500": "rgb(var(--var-cinza-500))",
           "800": "rgb(var(--var-cinza-800))",
+          "900": "rgb(var(--var-cinza-900))",
         },
       },
       backgroundImage: {

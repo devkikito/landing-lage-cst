@@ -27,65 +27,65 @@ export const BarTools = () => {
     return null;
   }
   return (
-    <div className="bg-azul-40 fixed w-full z-50">
-      <div className="max-w-[73.125rem] mx-auto px-3 2sm:px-8 flex items-center justify-between py-2 my-0">
-        <div className="flex items-center justify-center h-[1.925rem] border border-cinza-800 px-2 rounded-md ">
+    <div className="bg-azul-20 fixed w-full z-50">
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex items-center justify-between py-2 my-0">
+        <div className="flex items-center justify-center h-[1.925rem] border border-cinza-900 px-2 rounded-md ">
           <VLibras />
-          <p className="t0 text-cinza-800 pr-1 max-sm:sr-only">Acessibilidade</p>
+          <p className="t0 text-cinza-900 pr-1 max-sm:sr-only">Acessibilidade</p>
 
-          <div className="w-[1px] h-[70%] bg-cinza-800 max-sm:hidden" />
+          <div className="w-[1px] h-[70%] bg-cinza-900 max-sm:hidden" />
           <button
             onClick={() => fontSize.decrease(setHtmlFontSize)}
             aria-label="Diminuir tamanho da fonte"
-            className="text-cinza-800 t2 px-1"
+            className="text-cinza-900 t2 px-1"
           >
             <span aria-hidden="true">A-</span>
           </button>
           <button
             onClick={() => fontSize.normalize(setHtmlFontSize)}
             aria-label="Normalizar tamanho da fonte"
-            className="text-cinza-800 t2 px-1"
+            className="text-cinza-900 t2 px-1"
           >
             <span aria-hidden="true">aA</span>
           </button>
           <button
             onClick={() => fontSize.increase(setHtmlFontSize)}
             aria-label="Aumentar tamanho da fonte"
-            className="text-cinza-800 t2 px-1"
+            className="text-cinza-900 t2 px-1"
           >
             <span aria-hidden="true">A+</span>
           </button>
-          <div className="w-[1px] h-[70%] bg-cinza-800" />
+          <div className="w-[1px] h-[70%] bg-cinza-900" />
           <ChangeThemeButton />
-          <div className="w-[1px] h-[70%] bg-cinza-800" />
+          <div className="w-[1px] h-[70%] bg-cinza-900" />
           <LibrasButton />
         </div>
         <div className="flex items-center justify-center h-[1.925rem] pl-2 gap-x-4">
           <div className="flex items-center justify-center h-[1.925rem] gap-x-2 2sm:gap-x-4">
             <button onClick={() => openInNewTab("https://www.instagram.com/biomobguia/")}>
-              <IoLogoInstagram className="text-lg text-cinza-800" />
+              <IoLogoInstagram className="text-lg text-cinza-900" />
             </button>
             <button onClick={() => openInNewTab("https://www.linkedin.com/company/biomob/")}>
-              <FaLinkedinIn className="text-lg text-cinza-800" />
+              <FaLinkedinIn className="text-lg text-cinza-900" />
             </button>
             <button onClick={() => openInNewTab("https://pt-br.facebook.com/biomobguia/")}>
-              <FaFacebookF className="text-lg text-cinza-800" />
+              <FaFacebookF className="text-lg text-cinza-900" />
             </button>
             <button onClick={() => openInNewTab("https://google.com.br/")}>
-              <FaXTwitter className="text-lg text-cinza-800" />
+              <FaXTwitter className="text-lg text-cinza-900" />
             </button>
             <button onClick={() => openInNewTab("https://www.youtube.com/@biomobguia")}>
-              <FaYoutube className="text-lg text-cinza-800" />
+              <FaYoutube className="text-lg text-cinza-900" />
             </button>
-            <p className="max-sm:hidden text-lg text-cinza-800">|</p>
-            <p className="max-sm:hidden t1 roboto-font text-cinza-800">Baixe o app</p>
+            <p className="max-sm:hidden text-lg text-cinza-900">|</p>
+            <p className="max-sm:hidden t1 roboto-font text-cinza-900">Baixe o app</p>
           </div>
           <div className="max-sm:hidden flex items-center justify-center h-[1.925rem] gap-x-4">
             <button onClick={() => openInNewTab("https://apps.apple.com/br/app/biomob/id1090156739")}>
-              <FaApple className="text-lg text-cinza-800" />
+              <FaApple className="text-lg text-cinza-900" />
             </button>
             <button onClick={() => openInNewTab("https://play.google.com/store/apps/details?id=com.biomob.bioplus")}>
-              <FaGooglePlay className="text-lg text-cinza-800" />
+              <FaGooglePlay className="text-lg text-cinza-900" />
             </button>
           </div>
         </div>
