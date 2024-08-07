@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
+import { TitleDefault } from "../texts/TitleDefault";
 
 const profiles = [
   {
@@ -44,10 +45,9 @@ const ProfileCarousel = () => {
                 <Image src={profile.image} alt={profile.name} width={200} height={200} className="rounded-lg" />
               </div>
               <div className="w-full md:w-2/3">
-                <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
-                  Sócios
-                </span>
-                <h2 className="text-2xl font-semibold mb-2">{profile.name}</h2>
+                <div className="mt-4">
+                  <TitleDefault title="Sócios" subtitle={profile.name} alignment="text-left" />
+                </div>
                 <p className="mb-4">{profile.description}</p>
                 <ul className="list-disc pl-5">
                   {profile.awards.map((award, idx) => (

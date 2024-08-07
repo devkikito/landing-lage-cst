@@ -110,11 +110,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
             <div className="mb-4">
-              <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
-                Venha conhecer
-              </span>
+              <TitleDefault
+                title="Venha conhecer"
+                subtitle="CST - Terapia de estimulação Cognitiva"
+                alignment="text-left"
+              />
             </div>
-            <h2 className="text-3xl font-semibold mb-4">CST - Terapia de estimulação Cognitiva</h2>
             <p className="mb-6">
               A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em vários
               países. Consiste em um protocolo com 14 sessões temáticas e divertidas para estimular memória, linguagem,
@@ -134,47 +135,35 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
-      <div className="bg-dark-900 text-branco-100 py-12 px-6">
-        <div className="text-center mb-12">
-          <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
-            Módulos
-          </span>
-          <h2 className="text-3xl font-semibold mb-4">
-            Treinamento completo para se tornar um especialista na metodologia CST
-          </h2>
-          <p>
-            Treinamento abrangente realizado inteiramente online, oferecendo flexibilidade para se ajustar à sua agenda.
-            Os participantes receberão o manual da CST através do serviço postal para apoio adicional.
-          </p>
+      <div>
+        <div className="mb-[2.375rem]">
+          <TitleDefault
+            title="módulos"
+            subtitle="Treinamento completo para se tornar um especialista na metodologia CST"
+            description="Treinamento abrangente realizado inteiramente online, oferecendo flexibilidade para se ajustar à sua agenda. Os participantes receberão o manual da CST através do serviço postal para apoio adicional."
+            alignment="text-center"
+          />
         </div>
         <Carousel images={carousel} type="2" />
       </div>
 
       <div>
-        <ProfileCarousel />
+        <TitleDefault
+          title="Vantagens"
+          subtitle="Por que se tornar um profissional especializado na metodologia CST?"
+          alignment="text-left"
+        />
       </div>
-
-      <div className="bg-dark-900 text-branco-100 py-12 px-6">
-        <div className="text-center mb-12">
-          <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
-            Vantagens
-          </span>
-          <h2 className="text-3xl font-semibold mb-4">
-            Por que se tornar um profissional especializado na metodologia CST?
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
-          {advantagesData.map((advantage, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <Image src={advantage.image} alt={advantage.title} width={64} height={64} className="mb-4" />
-              <p className="text-lg">{advantage.title}</p>
-            </div>
-          ))}
-        </div>
-        <div className="text-center mt-8">
-          <Button text="Fazer inscrição" variant="default" />
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
+        {advantagesData.map((advantage, index) => (
+          <div key={index} className="flex flex-col items-center text-center">
+            <Image src={advantage.image} alt={advantage.title} width={64} height={64} className="mb-4" />
+            <p className="text-lg">{advantage.title}</p>
+          </div>
+        ))}
+      </div>
+      <div className="text-center mt-8">
+        <Button text="Fazer inscrição" variant="default" />
       </div>
 
       <div
@@ -183,12 +172,13 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
-              Depoimentos
-            </span>
-            <h2 className="text-3xl font-semibold mb-4">Histórias de sucesso</h2>
-            <p>Confira alguns depoimentos de quem já estudou essa metodologia.</p>
+          <div>
+            <TitleDefault
+              title="Depoimentos"
+              subtitle="Histórias de sucesso"
+              description="Confira alguns depoimentos de quem já estudou essa metodologia."
+              alignment="text-center"
+            />
           </div>
           <div className="flex justify-center mb-6">
             <div className="flex flex-wrap justify-center gap-6">
@@ -226,14 +216,20 @@ export default function HomePage() {
         </div>
       </div>
 
+      <div>
+        <ProfileCarousel />
+      </div>
+
+      <div className="my-10">
+        <TitleDefault
+          title="Investimento"
+          subtitle="Garanta sua vaga hoje mesmo!"
+          description="O treinamento será apresentado pelo grupo de pesquisadores da PUC - Rio que trouxe a CST para o Brasil."
+          alignment="text-center"
+        />
+      </div>
+
       <div className="bg-dark-900 text-branco-100 py-12 px-6">
-        <div className="text-center mb-12">
-          <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
-            Investimento
-          </span>
-          <h2 className="text-3xl font-semibold mb-4">Garanta sua vaga hoje mesmo!</h2>
-          <p>O treinamento será apresentado pelo grupo de pesquisadores da PUC - Rio que trouxe a CST para o Brasil.</p>
-        </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="bg-gray-800 p-6 rounded-lg">
             <div className="flex items-center mb-4">
