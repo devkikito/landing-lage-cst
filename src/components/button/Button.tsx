@@ -15,16 +15,16 @@ export const Button = ({ text, extraClassName, variant, ...props }: ButtonProps)
 
   const variantClass = {
     outlined: `
-      bg-transparent text-yellow-400 border border-yellow-400 rounded-[1rem]
-      hover:bg-yellow-400 hover:text-cinza-900
+      bg-transparent text-amarelo-100 border border-amarelo-100 rounded-[1rem]
+      hover:bg-amarelo-100 hover:text-cinza-900
     `,
     contact: `
-      bg-transparent text-yellow-400 border border-yellow-400 rounded-[1rem]
-      hover:bg-yellow-400 hover:text-cinza-900 flex items-center
+      bg-transparent text-amarelo-100 border border-amarelo-100 rounded-[1rem]
+      hover:bg-amarelo-100 hover:text-cinza-900 flex items-center
     `,
     default: `
-      bg-yellow-400 text-cinza-900 rounded-[1rem]
-      hover:bg-yellow-500
+      bg-amarelo-100 text-cinza-900 rounded-[1rem]
+      hover:bg-amarelo-100
     `,
   };
 

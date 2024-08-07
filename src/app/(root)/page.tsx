@@ -194,7 +194,6 @@ export default function HomePage() {
               <div className="relative w-24 h-24">
                 <Image src="/img/resultados_icone_4.png" alt="Depoimento 4" layout="fill" className="rounded-full" />
               </div>
-              {/* Adicione mais imagens conforme necessário */}
             </div>
           </div>
           <div className="text-center mb-6">
@@ -202,7 +201,7 @@ export default function HomePage() {
             <div className="flex justify-center mt-4">
               <div className="flex items-center">
                 {[...Array(5)].map((_, index) => (
-                  <svg key={index} className="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                  <svg key={index} className="w-6 h-6 text-amarelo-100" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 .288l2.833 8.718H24l-7.667 5.575L19.333 24 12 18.431 4.667 24l1.167-9.419L0 9.006h9.167L12 .288z" />
                   </svg>
                 ))}
@@ -271,7 +270,7 @@ export default function HomePage() {
           <div className="bg-gray-800 p-6 rounded-lg text-center md:text-left">
             <h3 className="text-xl font-semibold mb-4">Seu investimento</h3>
             <p className="text-lg mb-2">De R$ 3.500 por</p>
-            <p className="text-3xl font-bold text-yellow-500 mb-4">R$ 2.300</p>
+            <p className="text-3xl font-bold text-amarelo-100 mb-4">R$ 2.300</p>
             <p className="text-lg mb-6">Ou em até 5x de R$ xx no cartão</p>
             <Button text="Garantir minha vaga" variant="default" />
             <p className="mt-4 text-sm">Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp</p>

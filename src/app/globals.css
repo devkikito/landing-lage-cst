@@ -29,12 +29,16 @@
 
     /* CINZA  */
     --var-cinza-900: 24, 26, 29;
-    --var-cinza-900-2: 24, 26, 29;
+    --var-cinza-900-branco: 24, 26, 29;
+    --var-cinza-900-azul: 24, 26, 29;
     /* ANTIGO  */
     --var-cinza-100: 202, 202, 202;
     --var-cinza-300: 162, 162, 162;
     --var-cinza-500: 76, 76, 76;
     --var-cinza-800: 56, 56, 56;
+
+    /* AMARELO */
+    --var-amarelo-100: 255, 201, 74;
   }
 
   .dark {
@@ -44,12 +48,11 @@
     --var-branco-100-3: 44, 53, 90;
 
     /* AZUL  */
-    --var-azul-20: 233, 235, 255;
+    --var-azul-20: 24, 26, 29;
     --var-azul-30: 207, 223, 252;
     --var-azul-100: 108, 154, 238;
     --var-azul-500: 118, 121, 153;
     /* ANTIGO  */
-    --var-azul-20: 38, 46, 74;
     --var-azul-30: 25, 31, 52;
     --var-azul-40: 22, 27, 47;
     --var-azul-40-2: 62, 109, 157;
@@ -64,12 +67,16 @@
 
     /* CINZA  */
     --var-cinza-900: 24, 26, 29;
-    --var-cinza-900-2: 255, 255, 255;
+    --var-cinza-900-branco: 255, 255, 255;
+    --var-cinza-900-azul: 108, 154, 238;
     /* ANTIGO  */
     --var-cinza-100: 202, 202, 202;
     --var-cinza-300: 162, 162, 162;
     --var-cinza-500: 76, 76, 76;
     --var-cinza-800: 255, 255, 255;
+
+    /* AMARELO */
+    --var-amarelo-100: 255, 201, 74;
   }
 
   * {

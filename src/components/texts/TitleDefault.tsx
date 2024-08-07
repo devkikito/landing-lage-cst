@@ -16,7 +16,7 @@ export const TitleDefault: React.FC<TitleDefaultProps> = ({
   return (
     <div className={`${alignment} ${extraClassName}`}>
       <div>
-        <span className="text-base uppercase tracking-[0.28rem] border border-azul-100 rounded-[0.75rem] px-3 py-2 text-cinza-900-2 bg-azul-30">
+        <span className="text-base uppercase tracking-[0.28rem] border border-azul-100 rounded-[0.75rem] px-3 py-2 text-cinza-900-branco bg-azul-30">
           {title}
         </span>
       </div>
