@@ -96,7 +96,7 @@ export default function HomePage() {
               Primeiro tratamento para demência não medicamentoso e baseado na ciência brasileira.
             </div>
             <div>
-              <Button text="Inscreva-se" variant="rounded" />
+              <Button text="Inscreva-se" variant="outlined" />
             </div>
           </div>
           <div className="flex flex-col basis-full lg:basis-1/2 mt-6 lg:mt-16"></div>
@@ -121,7 +121,7 @@ export default function HomePage() {
               orientação e outros aspectos. Estudos mostram que seus efeitos são comparáveis aos dos medicamentos para
               demência.
             </p>
-            <Button text="Fazer inscrição" variant="subscribe" />
+            <Button text="Fazer inscrição" variant="default" />
           </div>
           <div>
             <Image
@@ -173,7 +173,7 @@ export default function HomePage() {
           ))}
         </div>
         <div className="text-center mt-8">
-          <Button text="Fazer inscrição" variant="subscribe" />
+          <Button text="Fazer inscrição" variant="default" />
         </div>
       </div>
 
@@ -218,7 +218,7 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <Button text="Ver depoimentos" variant="subscribe" />
+            <Button text="Ver depoimentos" variant="default" />
           </div>
           <div className="text-center">
             <p>O próximo depoimento pode ser o seu!</p>
@@ -277,7 +277,7 @@ export default function HomePage() {
             <p className="text-lg mb-2">De R$ 3.500 por</p>
             <p className="text-3xl font-bold text-yellow-500 mb-4">R$ 2.300</p>
             <p className="text-lg mb-6">Ou em até 5x de R$ xx no cartão</p>
-            <Button text="Garantir minha vaga" variant="subscribe" />
+            <Button text="Garantir minha vaga" variant="default" />
             <p className="mt-4 text-sm">Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp</p>
           </div>
         </div>

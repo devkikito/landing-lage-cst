@@ -56,7 +56,7 @@ export const Header = () => {
           </nav>
           <div className="flex items-center gap-4">
             <Button text="Entrar em contato" variant="contact" />
-            <Button text="Fazer inscrição" variant="subscribe" />
+            <Button text="Fazer inscrição" variant="default" />
           </div>
         </div>
       </div>
