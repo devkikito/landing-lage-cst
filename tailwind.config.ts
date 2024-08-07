@@ -17,7 +17,7 @@ const config: Config = {
         openSans: ["var(--font-open-sans)"],
         lato: ["var(--font-lato)"],
         sarabun: ["var(--font-sarabun)"],
-        montserrat: ["var(--font-montserrat)"],
+        epilogue: ["var(--font-epilogue)"],
       },
       screens: {
         "2sm": "481px",
@@ -36,50 +36,31 @@ const config: Config = {
         "max-2xl": { raw: "(max-width: 1536px)" },
       },
       colors: {
-        bg: {
-          principal: "rgb(var(--var-background-principal))",
-          marca50: "rgb(var(--var-marca-50))",
-          marca65: "rgb(var(--var-marca-65))",
-          marca80: "rgb(var(--var-marca-80))",
-          marca100: "rgb(var( --var-marca-100))",
-          marca200: "rgb(var(--var-marca-200))",
-          marca300: "rgb(var(--var-marca-300))",
-          marca400: "rgb(var(--var-marca-400))",
-          marca500: "rgb(var(--var-marca-500))",
-          marca600: "rgb(var(--var-marca-600))",
-          marca700: "rgb(var(--var-marca-700))",
-          marca800: "rgb(var(--var-marca-800))",
-          marca900: "rgb(var(--var-marca-900))",
-          marca950: "rgb(var(--var-marca-950))",
+        branco: {
+          "100": "rgb(var(--var-branco-100))",
+          "100-2": "rgb(var(--var-branco-100-2))",
+          "100-3": "rgb(var(--var-branco-100-3))",
         },
-        text: {
-          branco: "rgb(var(--var-text-branco))",
-          "cinza-claro": "rgb(var(--var-text-cinza-claro))",
-          "cinza-escuro": "rgb(var(--var-text-cinza-escuro))",
-          "verde-claro": "rgb(var(--var-text-verde-claro))",
-          "verde-medio": "rgb(var(--var-text-verde-medio))",
-          "verde-escuro": "rgb(var(--var-text-verde-escuro))",
+        azul: {
+          "20": "rgb(var(--var-azul-20))",
+          "30": "rgb(var(--var-azul-30))",
+          "40": "rgb(var(--var-azul-40))",
+          "40-2": "rgb(var(--var-azul-40-2))",
+          "50": "rgb(var(--var-azul-50))",
+          "100": "rgb(var(--var-azul-100))",
+          "150": "rgb(var(--var-azul-150))",
+          "150-2": "rgb(var(--var-azul-150-2))",
+          "150-3": "rgb(var(--var-azul-150-3))",
+          "200": "rgb(var(--var-azul-200))",
+          "250": "rgb(var(--var-azul-250))",
+          "300": "rgb(var(--var-azul-300))",
+          "350": "rgb(var(--var-azul-350))",
         },
-        var: {
-          "accessibility-header-bg": "rgb(var(--var-accessibility-header-bg))",
-          "accessibility-header-icon": "rgb(var(--var-accessibility-header-icon))",
-
-          branco: {
-            "100": "rgb(var(--var-branco-100))",
-          },
-
-          cinza: {
-            "400": "rgb(var(--var-cinza-400))",
-            "500": "rgb(var(--var-cinza-500))",
-            "600": "rgb(var(--var-cinza-600))",
-          },
-
-          verde: {
-            "50": "rgb(var(--var-verde-50))",
-            "300": "rgb(var(--var-verde-300))",
-            "400": "rgb(var(--var-verde-400))",
-            "600": "rgb(var(--var-verde-600))",
-          },
+        cinza: {
+          "100": "rgb(var(--var-cinza-100))",
+          "300": "rgb(var(--var-cinza-200))",
+          "500": "rgb(var(--var-cinza-500))",
+          "800": "rgb(var(--var-cinza-800))",
         },
       },
       backgroundImage: {
