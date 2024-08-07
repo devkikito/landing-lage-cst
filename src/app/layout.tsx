@@ -3,15 +3,16 @@ import "./globals.css";
 import { HtmlFontSizeProvider } from "@/context/HtmlFontSizeContext";
 import { ThemeProvider } from "next-themes";
 import { WindowSizeProvider } from "@/context/WindowSizeContext";
-import { Nunito, Martel, Montserrat } from "next/font/google";
+import { Epilogue } from "next/font/google";
 import { Header } from "@/components/header/Header";
 import { BarTools } from "@/components/barra-acessibilidade/BarTools";
+import Footer from "@/components/footer/footer";
 import Script from "next/script";
 
-const APP_NAME = "Biomob";
-const APP_DEFAULT_TITLE = "Biomob";
+const APP_NAME = "Demência";
+const APP_DEFAULT_TITLE = "Demência";
 const APP_TITLE_TEMPLATE = "%s";
-const APP_DESCRIPTION = "Biomob!";
+const APP_DESCRIPTION = "Demência!";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000"),
@@ -26,7 +27,6 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "default",
     title: APP_DEFAULT_TITLE,
-    // startUpImage: [],
   },
   formatDetection: {
     telephone: false,
@@ -50,21 +50,10 @@ export const metadata: Metadata = {
   },
 };
 
-const montserrat = Montserrat({
+const epilogue = Epilogue({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-epilogue",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const nunito = Nunito({
-  subsets: ["latin"],
-  variable: "--font-nunito",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-const martel = Martel({
-  subsets: ["latin"],
-  variable: "--font-lato",
-  weight: ["400", "700"],
 });
 
 export default function RootLayout({
@@ -79,7 +68,7 @@ export default function RootLayout({
       lang="pt-BR"
     >
       <Script defer data-domain="biomob.org" src="https://plausible.biomob.app/js/script.js" />
-      <body className={`${nunito.variable} ${martel.variable} ${montserrat.variable}`}>
+      <body className={`${epilogue.variable}`}>
         <WindowSizeProvider>
           <HtmlFontSizeProvider>
             <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={false}>
@@ -88,7 +77,7 @@ export default function RootLayout({
               </div>
               <Header />
               <main className="pt-[120px]">{children}</main>
-              <div className="flex justify-center w-full bg-[rgb(var(--var-background-principal))] pt-8"></div>
+              <Footer />
             </ThemeProvider>
           </HtmlFontSizeProvider>
         </WindowSizeProvider>
