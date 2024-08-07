@@ -106,7 +106,7 @@ export default function HomePage() {
         <ResultsSection />
       </div>
 
-      <div className="bg-dark-900 text-white py-12 px-6">
+      <div className="bg-dark-900 text-branco-100 py-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
             <div className="mb-4">
@@ -135,7 +135,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="bg-dark-900 text-white py-12 px-6">
+      <div className="bg-dark-900 text-branco-100 py-12 px-6">
         <div className="text-center mb-12">
           <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
             Módulos
@@ -155,7 +155,7 @@ export default function HomePage() {
         <ProfileCarousel />
       </div>
 
-      <div className="bg-dark-900 text-white py-12 px-6">
+      <div className="bg-dark-900 text-branco-100 py-12 px-6">
         <div className="text-center mb-12">
           <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
             Vantagens
@@ -178,7 +178,7 @@ export default function HomePage() {
       </div>
 
       <div
-        className="bg-cover bg-center text-white py-12 px-6 relative"
+        className="bg-cover bg-center text-branco-100 py-12 px-6 relative"
         style={{ backgroundImage: "url('/img/bg-depoimentos.png')" }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -226,7 +226,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="bg-dark-900 text-white py-12 px-6">
+      <div className="bg-dark-900 text-branco-100 py-12 px-6">
         <div className="text-center mb-12">
           <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
             Investimento
@@ -247,28 +247,28 @@ export default function HomePage() {
                 alt="Aluna 1"
                 width={40}
                 height={40}
-                className="rounded-full border-2 border-white"
+                className="rounded-full border-2 border-branco-100"
               />
               <Image
                 src="/img/resultados_icone_2.png"
                 alt="Aluno 2"
                 width={40}
                 height={40}
-                className="rounded-full border-2 border-white"
+                className="rounded-full border-2 border-branco-100"
               />
               <Image
                 src="/img/resultados_icone_3.png"
                 alt="Aluna 3"
                 width={40}
                 height={40}
-                className="rounded-full border-2 border-white"
+                className="rounded-full border-2 border-branco-100"
               />
               <Image
                 src="/img/resultados_icone_4.png"
                 alt="Aluno 4"
                 width={40}
                 height={40}
-                className="rounded-full border-2 border-white"
+                className="rounded-full border-2 border-branco-100"
               />
             </div>
           </div>

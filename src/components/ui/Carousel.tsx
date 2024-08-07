@@ -24,8 +24,8 @@ export const ItemCarouselType1: React.FC<ItemCarouselType> = ({ image, texts }) 
       />
       <div className="2sm:mb-6 px-6 py-3 gap-8 rounded-lg absolute bottom-0 flex 2sm:w-[22rem] h-[15.625rem] justify-start backdrop-blur-sm bg-[#1A8772]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
-          <h3 className="title-card-medium text-white">{texts.title}</h3>
-          <p className="paragraph-card text-white">{texts.description}</p>
+          <h3 className="title-card-medium text-branco-100">{texts.title}</h3>
+          <p className="paragraph-card text-branco-100">{texts.description}</p>
         </div>
       </div>
     </div>
@@ -51,11 +51,11 @@ export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) 
       />
       <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0  2sm:w-[22rem] h-[10rem] justify-start backdrop-blur-sm bg-[#1A8772]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
-          <h3 className="title-card-medium text-white">{texts.title}</h3>
+          <h3 className="title-card-medium text-branco-100">{texts.title}</h3>
         </div>
         <div className="grid grid-cols-[calc(100%_-_32px)_32px] gap-3 items-center">
-          <p className="paragraph-card text-white">{truncatedDescription}</p>
-          <FaRegArrowAltCircleRight className="w-5 h-5 text-white" />
+          <p className="paragraph-card text-branco-100">{truncatedDescription}</p>
+          <FaRegArrowAltCircleRight className="w-5 h-5 text-branco-100" />
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
       <button
         aria-label="Avançar para esquerda"
         onClick={scrollLeft}
-        className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(0,255,200,0.5)] rounded-full text-white"
+        className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(0,255,200,0.5)] rounded-full text-branco-100"
         type="button"
       >
         <svg className="w-8 h-8" viewBox="0 0 532 532">
@@ -110,7 +110,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
       <button
         aria-label="Avançar para direita"
         onClick={scrollRight}
-        className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(0,255,200,0.5)] rounded-full text-white"
+        className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(0,255,200,0.5)] rounded-full text-branco-100"
         type="button"
       >
         <svg className="w-8 h-8" viewBox="0 0 532 532">

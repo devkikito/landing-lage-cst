@@ -73,6 +73,7 @@ const config: Config = {
           "500": "rgb(var(--var-cinza-500))",
           "800": "rgb(var(--var-cinza-800))",
           "900": "rgb(var(--var-cinza-900))",
+          "900-2": "rgb(var(--var-cinza-900-2))",
         },
       },
       backgroundImage: {

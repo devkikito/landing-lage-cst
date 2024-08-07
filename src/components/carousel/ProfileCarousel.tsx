@@ -35,7 +35,7 @@ const ProfileCarousel = () => {
   }, [emblaApi]);
 
   return (
-    <div className="relative bg-dark-900 text-white p-6 rounded-lg">
+    <div className="relative bg-dark-900 text-branco-100 p-6 rounded-lg">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {profiles.map((profile, index) => (
@@ -62,13 +62,13 @@ const ProfileCarousel = () => {
         </div>
       </div>
       <button
-        className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-white"
+        className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
         onClick={scrollPrev}
       >
         &#8249;
       </button>
       <button
-        className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-white"
+        className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
         onClick={scrollNext}
       >
         &#8250;

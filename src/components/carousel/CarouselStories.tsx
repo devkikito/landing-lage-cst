@@ -113,13 +113,16 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
               }}
             />
             <div className=" block sm:hidden absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-            <div className="absolute inset-0 sm:bg-opacity-80 flex mx-auto w-full items-center justify-center  sm:py-12 text-white sm:px-4">
+            <div className="absolute inset-0 sm:bg-opacity-80 flex mx-auto w-full items-center justify-center  sm:py-12 text-branco-100 sm:px-4">
               <button
                 aria-label="Anterior"
                 onClick={handlePrev}
                 className="max-sm:absolute left-2 z-50 bg-none p-2 rounded-full h-full select-none"
               >
-                <span title="Ir para a notícia anterior" className="px-2 py-1 bg-white/45 rounded-lg text-white">
+                <span
+                  title="Ir para a notícia anterior"
+                  className="px-2 py-1 bg-branco-100/45 rounded-lg text-branco-100"
+                >
                   {"<"}
                 </span>
               </button>
@@ -149,7 +152,10 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
                 onClick={handleNext}
                 className="max-sm:absolute right-2 z-50 bg-none p-2 rounded-full h-full select-none"
               >
-                <span title="Ir para a próxima notícia" className="px-2 py-1 bg-white/45 rounded-lg text-white">
+                <span
+                  title="Ir para a próxima notícia"
+                  className="px-2 py-1 bg-branco-100/45 rounded-lg text-branco-100"
+                >
                   {">"}
                 </span>
               </button>
@@ -169,7 +175,7 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
               key={index}
               className={cn("h-1 mx-1 transition-all cursor-pointer", {
                 "w-8 bg-var-verde-300 rounded-lg": index === currentIndex,
-                "w-4 bg-white rounded-lg": index !== currentIndex,
+                "w-4 bg-branco-100 rounded-lg": index !== currentIndex,
               })}
             ></button>
           ))}
@@ -177,7 +183,7 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
         <button
           aria-label="Pausar e continuar"
           onClick={togglePause}
-          className="text-white h-4 -mt-1 flex justify-center items-center"
+          className="text-branco-100 h-4 -mt-1 flex justify-center items-center"
         >
           {isPaused ? <FaPlay /> : <FaPause />}
         </button>

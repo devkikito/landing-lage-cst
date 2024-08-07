@@ -38,19 +38,19 @@ export const Header = () => {
             />
           </div>
           <nav className="flex items-center justify-center gap-6 flex-grow">
-            <a href="#sobre" className="text-white">
+            <a href="#sobre" className="text-branco-100">
               Sobre
             </a>
-            <a href="#modulos" className="text-white">
+            <a href="#modulos" className="text-branco-100">
               Módulos
             </a>
-            <a href="#vantagens" className="text-white">
+            <a href="#vantagens" className="text-branco-100">
               Vantagens
             </a>
-            <a href="#depoimentos" className="text-white">
+            <a href="#depoimentos" className="text-branco-100">
               Depoimentos
             </a>
-            <a href="#equipe" className="text-white">
+            <a href="#equipe" className="text-branco-100">
               Equipe
             </a>
           </nav>

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { TitleDefault } from "../texts/TitleDefault";
 
 const data = [
   {
@@ -24,18 +25,19 @@ const ResultsSection = () => {
   return (
     <div className="text-center py-12">
       <div className="mb-6">
-        <span className="text-sm font-bold uppercase tracking-wide border border-blue-500 rounded-full px-4 py-1 text-blue-500">
-          Resultados
-        </span>
+        <TitleDefault
+          title="Resultados"
+          subtitle="Os resultados e dados comprovados falam por si mesmos"
+          alignment="text-center"
+        />
       </div>
-      <h2 className="text-3xl font-semibold mb-4 text-white">Os resultados e dados comprovados falam por si mesmos</h2>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {data.map((item, index) => (
           <div key={index} className="flex flex-col items-center">
             <div className="mb-4">
               <Image src={item.image} alt={item.title} width={64} height={64} />
             </div>
-            <p className="text-white text-center">{item.title}</p>
+            <p className="text-branco-100 text-center">{item.title}</p>
           </div>
         ))}
       </div>
