@@ -10,7 +10,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 export const Button = ({ text, extraClassName, variant, ...props }: ButtonProps) => {
   const baseClass = `
     transition-colors duration-300 text-base
-    p-[0.75rem] flex items-center justify-center gap-2
+    px-[0.75rem] py-[0.5rem] flex items-center justify-center gap-2
   `;
 
   const variantClass = {
