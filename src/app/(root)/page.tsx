@@ -7,6 +7,7 @@ import { BackgroundImageWithTheme } from "@/components/image/BackgroundImageWith
 import ResultsSection from "@/components/section/ResultSection";
 import { Carousel } from "@/components/ui/Carousel";
 import ProfileCarousel from "@/components/carousel/ProfileCarousel";
+import ImageWithTheme from "@/components/image/ImageWithTheme";
 
 const carousel = [
   {
@@ -156,55 +157,54 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div>
-        <TitleDefault
-          title="Vantagens"
-          subtitle="Por que se tornar um profissional especializado na metodologia CST?"
-          alignment="text-left"
-        />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
-        {advantagesData.map((advantage, index) => (
-          <div key={index} className="flex flex-col items-center text-center">
-            <Image src={advantage.image} alt={advantage.title} width={64} height={64} className="mb-4" />
-            <p className="text-lg">{advantage.title}</p>
-          </div>
-        ))}
-      </div>
-      <div className="text-center mt-8">
-        <Button text="Fazer inscrição" variant="default" />
-      </div>
-
-      <div className="bg-cover text-branco-100 py-12 px-6 relative bg-right bg-[url('/img/bg-depoimentos.png')]">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div>
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 my-[4.5rem]">
+        <div className="flex justify-between items-center mb-10">
+          <div className="mt-4 max-w-[30rem]">
             <TitleDefault
-              title="Depoimentos"
-              subtitle="Histórias de sucesso"
-              description="Confira alguns depoimentos de quem já estudou essa metodologia."
-              alignment="text-center"
+              title="Vantagens"
+              subtitle="Por que se tornar um profissional especializado na metodologia CST?"
+              alignment="text-left"
             />
           </div>
-          <div className="flex justify-center mb-6">
-            <div className="flex flex-wrap justify-center gap-6">
-              <div className="relative w-24 h-24">
-                <Image src="/img/resultados_icone_1.png" alt="Depoimento 1" layout="fill" className="rounded-full" />
-              </div>
-              <div className="relative w-24 h-24">
-                <Image src="/img/resultados_icone_2.png" alt="Depoimento 2" layout="fill" className="rounded-full" />
-              </div>
-              <div className="relative w-24 h-24">
-                <Image src="/img/resultados_icone_3.png" alt="Depoimento 3" layout="fill" className="rounded-full" />
-              </div>
-              <div className="relative w-24 h-24">
-                <Image src="/img/resultados_icone_4.png" alt="Depoimento 4" layout="fill" className="rounded-full" />
-              </div>
-            </div>
+          <div>
+            <Button text="Fazer inscrição" variant="default" />
           </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
+          {advantagesData.map((advantage, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+              <Image src={advantage.image} alt={advantage.title} width={64} height={64} className="mb-4" />
+              <p className="text-lg">{advantage.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex justify-between items-center mb-10">
+        <div>
+          <TitleDefault
+            title="Depoimentos"
+            subtitle="Histórias de sucesso"
+            description="Confira alguns depoimentos de quem já estudou essa metodologia."
+            alignment="text-left"
+          />
+        </div>
+        <div className="flex">
+          <p className="text-xl max-w-[14rem]">O próximo depoimento pode ser o seu!</p>
+          <ImageWithTheme
+            lightSrc="/img/arrow_down.svg"
+            darkSrc="/img/arrow_down-dark.svg"
+            alt="Ícone de seta para baixo"
+            width={32}
+            height={32}
+          />
+        </div>
+      </div>
+      <div className="bg-cover text-branco-100 mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
+        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold">+1.000 depoimentos positivos</h3>
-            <div className="flex justify-center mt-4">
+            <h3 className="text-4xl font-semibold">+1.000 depoimentos positivos</h3>
+            <div className="flex justify-center mt-8">
               <div className="flex items-center">
                 {[...Array(5)].map((_, index) => (
                   <svg key={index} className="w-6 h-6 text-amarelo-100" fill="currentColor" viewBox="0 0 24 24">
@@ -213,15 +213,14 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <Button text="Ver depoimentos" variant="default" />
-          </div>
-          <div className="text-center">
-            <p>O próximo depoimento pode ser o seu!</p>
+            <div className="flex justify-center mt-4">
+              <Button text="Ver depoimentos" variant="default" />
+            </div>
           </div>
         </div>
       </div>
 
-      <div>
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
         <ProfileCarousel />
       </div>
 
