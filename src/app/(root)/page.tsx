@@ -238,9 +238,9 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="bg-dark-900 text-branco-100 py-12 px-6  mb-[9rem]">
+      <div className="text-branco-100-2 py-12 px-6  mb-[9rem]">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 grid grid-cols-1 md:grid-cols-2 items-center">
-          <div className="p-8 h-full">
+          <div className="p-8 h-full bg-cinza-900">
             <div className=" flex flex-col max-w-[30.875rem] justify-between h-full">
               <ImageWithTheme
                 lightSrc="/img/LOGO-ABERTA.png"
@@ -249,33 +249,35 @@ export default function HomePage() {
                 width={74}
                 height={74}
               />
-              <p className="mb-0 text-3xl max-w-[27rem]">Inicie sua jornada dentro da metodologia CST</p>
+              <p className="mb-0 text-3xl max-w-[27rem] text-branco-100">
+                Inicie sua jornada dentro da metodologia CST
+              </p>
 
               <div className="flex gap-4 items-center">
                 <Image src="/img/fotos_alunos.svg" alt="Aluna 1" width={210} height={46} />
-                <p className="mb-0">
+                <p className="mb-0 text-branco-100">
                   Mais de 1.000 alunas e alunos. <br />
                   Junte-se hoje mesmo!
                 </p>
               </div>
             </div>
           </div>
-          <div className="bg-branco-cinza-escuro p-10 rounded-lg text-center md:text-left">
+          <div className="bg-branco-cinza-escuro p-10 text-center md:text-left">
             <div className="max-w-[30.438rem]">
-              <h3 className="text-3xl mb-8">Seu investimento</h3>
+              <h3 className="text-3xl mb-8 text-cinza-900-branco">Seu investimento</h3>
               <div className="flex justify-between mb-8 gap-2">
                 <div>
-                  <p className="text-xl">De R$ 3.500 por</p>
-                  <p className="text-5xl font-semibold text-branco-100">R$ 2.300</p>
+                  <p className="text-xl text-cinza-900-branco">De R$ 3.500 por</p>
+                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.300</p>
                 </div>
-                <p className="text-base">
+                <p className="text-base text-cinza-900-branco">
                   Ou em até 5x de <br /> R$ xx no cartão
                 </p>
               </div>
               <div className="flex justify-center mb-[3.25rem]">
                 <Button text="Garantir minha vaga" variant="default" />
               </div>
-              <p className="mt-4 text-base text-center">
+              <p className="mt-4 text-base text-center text-cinza-900-branco">
                 Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp
               </p>
             </div>
