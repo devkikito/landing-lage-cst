@@ -46,7 +46,7 @@ const Footer = () => {
             <p className="text-lg">INSCREVER-SE</p>
             <p className="text-lg">AGORA MESMO</p>
           </div>
-          <Button text="Garantir agora" variant="subscribe" />
+          <Button text="Garantir agora" variant="default" />
         </div>
       </div>
     </footer>
