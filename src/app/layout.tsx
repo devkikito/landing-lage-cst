@@ -76,7 +76,7 @@ export default function RootLayout({
                 <BarTools />
               </div>
               <Header />
-              <main className="pt-[120px]">{children}</main>
+              <main>{children}</main>
               <Footer />
             </ThemeProvider>
           </HtmlFontSizeProvider>

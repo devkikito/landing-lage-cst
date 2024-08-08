@@ -19,6 +19,16 @@ const config: Config = {
         sarabun: ["var(--font-sarabun)"],
         epilogue: ["var(--font-epilogue)"],
       },
+      fontSize: {
+        sm: "0.8rem",
+        base: "1rem", //16px
+        xl: "1.125rem", //18px
+        "2xl": "1.25rem", //20px
+        "3xl": "1.5rem", //24px
+        "4xl": "1.625rem", // 26px
+        "5xl": "2.5rem", // 40px
+        "6xl": "2.875rem", // 46px
+      },
       screens: {
         "2sm": "481px",
         "max-2sm": { raw: "(max-width: 480px)" },
@@ -40,27 +50,26 @@ const config: Config = {
           "100": "rgb(var(--var-branco-100))",
           "100-2": "rgb(var(--var-branco-100-2))",
           "100-3": "rgb(var(--var-branco-100-3))",
+          "cinza-escuro": "rgb(var(--var-branco-cinza-escuro))",
         },
         azul: {
           "20": "rgb(var(--var-azul-20))",
           "30": "rgb(var(--var-azul-30))",
           "40": "rgb(var(--var-azul-40))",
-          "40-2": "rgb(var(--var-azul-40-2))",
-          "50": "rgb(var(--var-azul-50))",
           "100": "rgb(var(--var-azul-100))",
-          "150": "rgb(var(--var-azul-150))",
-          "150-2": "rgb(var(--var-azul-150-2))",
-          "150-3": "rgb(var(--var-azul-150-3))",
-          "200": "rgb(var(--var-azul-200))",
-          "250": "rgb(var(--var-azul-250))",
-          "300": "rgb(var(--var-azul-300))",
-          "350": "rgb(var(--var-azul-350))",
+          "500": "rgb(var(--var-azul-500))",
         },
         cinza: {
           "100": "rgb(var(--var-cinza-100))",
           "300": "rgb(var(--var-cinza-200))",
           "500": "rgb(var(--var-cinza-500))",
           "800": "rgb(var(--var-cinza-800))",
+          "900": "rgb(var(--var-cinza-900))",
+          "900-branco": "rgb(var(--var-cinza-900-branco))",
+          "900-azul": "rgb(var(--var-cinza-900-azul))",
+        },
+        amarelo: {
+          "100": "rgb(var(--var-amarelo-100))",
         },
       },
       backgroundImage: {

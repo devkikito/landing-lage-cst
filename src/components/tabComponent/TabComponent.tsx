@@ -28,7 +28,7 @@ const TabComponent = () => {
   const activeTabContent = tabs.find((tab) => tab.label === activeTab);
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center mt-14 pt-10 pb-20 max-w-[73.125rem] mx-auto px-3 2sm:px-8">
+    <div className="flex flex-col lg:flex-row justify-center mt-14 pt-10 pb-20 max-w-[82.125rem] mx-auto px-3 2sm:px-8">
       <div className="w-full lg:w-1/5 border-r-2 border-gray-300 mb-3 mr-0 lg:mr-8 mt-4">
         {tabs.map((tab) => (
           <button
