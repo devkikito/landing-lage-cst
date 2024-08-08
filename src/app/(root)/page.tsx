@@ -106,45 +106,54 @@ export default function HomePage() {
         <ResultsSection />
       </div>
 
-      <div className="bg-dark-900 text-branco-100 py-12 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="mb-4">
+      <div className="bg-dark-900 text-branco-100 py-12">
+        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+          <div className="flex gap-2">
+            <div className="mt-4 mb-4 max-w-[21.938rem] min-w-[14.063rem]">
               <TitleDefault
                 title="Venha conhecer"
                 subtitle="CST - Terapia de estimulação Cognitiva"
                 alignment="text-left"
               />
             </div>
-            <p className="mb-6">
-              A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em vários
-              países. Consiste em um protocolo com 14 sessões temáticas e divertidas para estimular memória, linguagem,
-              orientação e outros aspectos. Estudos mostram que seus efeitos são comparáveis aos dos medicamentos para
-              demência.
-            </p>
-            <Button text="Fazer inscrição" variant="default" />
+            <div className="mb-8 max-w-[44.125rem]">
+              <p className="mb-4">
+                A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em
+                vários países. Consiste em um protocolo com 14 sessões temáticas e divertidas para estimular memória,
+                linguagem, orientação e outros aspectos. Estudos mostram que seus efeitos são comparáveis aos dos
+                medicamentos para demência.
+              </p>
+              <Button text="Fazer inscrição" variant="default" />
+            </div>
           </div>
           <div>
             <Image
               src="/img/img-terapia.png"
               alt="Terapia de estimulação Cognitiva"
-              width={800}
-              height={450}
-              className="rounded-lg"
+              height={408}
+              width={1298}
+              className="rounded-lg w-full"
             />
           </div>
         </div>
       </div>
-      <div>
+      <div className="bg-azul-40/50">
         <div className="mb-[2.375rem]">
-          <TitleDefault
-            title="módulos"
-            subtitle="Treinamento completo para se tornar um especialista na metodologia CST"
-            description="Treinamento abrangente realizado inteiramente online, oferecendo flexibilidade para se ajustar à sua agenda. Os participantes receberão o manual da CST através do serviço postal para apoio adicional."
-            alignment="text-center"
-          />
+          <div className="max-w-[39.938rem] mx-auto">
+            <TitleDefault
+              title="módulos"
+              subtitle="Treinamento completo para se tornar um especialista na metodologia CST"
+              alignment="text-center"
+            />
+          </div>
+          <p className="max-w-[42rem] mx-auto text-base text-center">
+            Treinamento abrangente realizado inteiramente online, oferecendo flexibilidade para se ajustar à sua agenda.
+            Os participantes receberão o manual da CST através do serviço postal para apoio adicional.
+          </p>
         </div>
-        <Carousel images={carousel} type="2" />
+        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+          <Carousel images={carousel} type="2" />
+        </div>
       </div>
 
       <div>
@@ -166,10 +175,7 @@ export default function HomePage() {
         <Button text="Fazer inscrição" variant="default" />
       </div>
 
-      <div
-        className="bg-cover bg-center text-branco-100 py-12 px-6 relative"
-        style={{ backgroundImage: "url('/img/bg-depoimentos.png')" }}
-      >
+      <div className="bg-cover text-branco-100 py-12 px-6 relative bg-right bg-[url('/img/bg-depoimentos.png')]">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 max-w-7xl mx-auto">
           <div>

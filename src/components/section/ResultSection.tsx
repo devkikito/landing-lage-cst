@@ -23,8 +23,8 @@ const data = [
 
 const ResultsSection = () => {
   return (
-    <div className="text-center py-12">
-      <div className="mb-6">
+    <div className="text-center py-12 max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+      <div className="mb-6 max-w-[26.563rem] mx-auto">
         <TitleDefault
           title="Resultados"
           subtitle="Os resultados e dados comprovados falam por si mesmos"
