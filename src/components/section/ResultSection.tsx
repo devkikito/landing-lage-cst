@@ -1,22 +1,26 @@
 import React from "react";
-import Image from "next/image";
+import ImageWithTheme from "@/components/image/ImageWithTheme";
 import { TitleDefault } from "../texts/TitleDefault";
 
 const data = [
   {
     image: "/img/resultados_icone_1.png",
+    imageLight: "/img/resultados_icone_1-light.png",
     title: "Utilizado em mais de 35 países pelo mundo",
   },
   {
     image: "/img/resultados_icone_2.png",
+    imageLight: "/img/resultados_icone_2-light.png",
     title: "Resultados comprovados por evidências científicas",
   },
   {
     image: "/img/resultados_icone_3.png",
+    imageLight: "/img/resultados_icone_3-light.png",
     title: "14 sessões temáticas e divertidas que estimulam",
   },
   {
     image: "/img/resultados_icone_4.png",
+    imageLight: "/img/resultados_icone_4-light.png",
     title: "Efeitos comparáveis aos dos medicamentos",
   },
 ];
@@ -35,7 +39,7 @@ const ResultsSection = () => {
         {data.map((item, index) => (
           <div key={index} className="flex flex-col items-center">
             <div className="mb-4">
-              <Image src={item.image} alt={item.title} width={64} height={64} />
+              <ImageWithTheme lightSrc={item.imageLight} darkSrc={item.image} alt={item.title} width={64} height={64} />
             </div>
             <p className="text-branco-100 text-center">{item.title}</p>
           </div>

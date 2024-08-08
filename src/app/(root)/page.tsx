@@ -6,7 +6,8 @@ import Image from "next/image";
 import { BackgroundImageWithTheme } from "@/components/image/BackgroundImageWithTheme";
 import ResultsSection from "@/components/section/ResultSection";
 import { Carousel } from "@/components/ui/Carousel";
-import ProfileCarousel from "@/components/carousel/ProfileCarousel";
+import PartnerCarousel from "@/components/carousel/PartnerCarousel";
+import InstructorCarousel from "@/components/carousel/InstructorCarousel";
 import ImageWithTheme from "@/components/image/ImageWithTheme";
 
 const carousel = [
@@ -221,10 +222,14 @@ export default function HomePage() {
       </div>
 
       <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
-        <ProfileCarousel />
+        <PartnerCarousel />
       </div>
 
-      <div className="my-10">
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+        <InstructorCarousel />
+      </div>
+
+      <div className="my-10 max-w-[46rem] mx-auto">
         <TitleDefault
           title="Investimento"
           subtitle="Garanta sua vaga hoje mesmo!"
