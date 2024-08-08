@@ -238,52 +238,47 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="bg-dark-900 text-branco-100 py-12 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="bg-gray-800 p-6 rounded-lg">
-            <div className="flex items-center mb-4">
-              <Image src="/img/LOGO-ABERTALIGHT.png" alt="Logo CST" width={50} height={50} />
-              <h3 className="ml-4 text-xl font-semibold">Inicie sua jornada dentro da metodologia CST</h3>
-            </div>
-            <p className="mb-4">Mais de 1.000 alunas e alunos. Junte-se hoje mesmo!</p>
-            <div className="flex -space-x-4">
-              <Image
-                src="/img/resultados_icone_1.png"
-                alt="Aluna 1"
-                width={40}
-                height={40}
-                className="rounded-full border-2 border-branco-100"
+      <div className="bg-dark-900 text-branco-100 py-12 px-6  mb-[9rem]">
+        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 grid grid-cols-1 md:grid-cols-2 items-center">
+          <div className="p-8 h-full">
+            <div className=" flex flex-col max-w-[30.875rem] justify-between h-full">
+              <ImageWithTheme
+                lightSrc="/img/LOGO-ABERTA.png"
+                darkSrc="/img/LOGO-ABERTA.png"
+                alt="Ícone de seta para baixo"
+                width={74}
+                height={74}
               />
-              <Image
-                src="/img/resultados_icone_2.png"
-                alt="Aluno 2"
-                width={40}
-                height={40}
-                className="rounded-full border-2 border-branco-100"
-              />
-              <Image
-                src="/img/resultados_icone_3.png"
-                alt="Aluna 3"
-                width={40}
-                height={40}
-                className="rounded-full border-2 border-branco-100"
-              />
-              <Image
-                src="/img/resultados_icone_4.png"
-                alt="Aluno 4"
-                width={40}
-                height={40}
-                className="rounded-full border-2 border-branco-100"
-              />
+              <p className="mb-0 text-3xl max-w-[27rem]">Inicie sua jornada dentro da metodologia CST</p>
+
+              <div className="flex gap-4 items-center">
+                <Image src="/img/fotos_alunos.svg" alt="Aluna 1" width={210} height={46} />
+                <p className="mb-0">
+                  Mais de 1.000 alunas e alunos. <br />
+                  Junte-se hoje mesmo!
+                </p>
+              </div>
             </div>
           </div>
-          <div className="bg-gray-800 p-6 rounded-lg text-center md:text-left">
-            <h3 className="text-xl font-semibold mb-4">Seu investimento</h3>
-            <p className="text-lg mb-2">De R$ 3.500 por</p>
-            <p className="text-3xl font-bold text-amarelo-100 mb-4">R$ 2.300</p>
-            <p className="text-lg mb-6">Ou em até 5x de R$ xx no cartão</p>
-            <Button text="Garantir minha vaga" variant="default" />
-            <p className="mt-4 text-sm">Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp</p>
+          <div className="bg-branco-cinza-escuro p-10 rounded-lg text-center md:text-left">
+            <div className="max-w-[30.438rem]">
+              <h3 className="text-3xl mb-8">Seu investimento</h3>
+              <div className="flex justify-between mb-8 gap-2">
+                <div>
+                  <p className="text-xl">De R$ 3.500 por</p>
+                  <p className="text-5xl font-semibold text-branco-100">R$ 2.300</p>
+                </div>
+                <p className="text-base">
+                  Ou em até 5x de <br /> R$ xx no cartão
+                </p>
+              </div>
+              <div className="flex justify-center mb-[3.25rem]">
+                <Button text="Garantir minha vaga" variant="default" />
+              </div>
+              <p className="mt-4 text-base text-center">
+                Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp
+              </p>
+            </div>
           </div>
         </div>
       </div>

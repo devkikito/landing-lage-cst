@@ -50,6 +50,7 @@ const config: Config = {
           "100": "rgb(var(--var-branco-100))",
           "100-2": "rgb(var(--var-branco-100-2))",
           "100-3": "rgb(var(--var-branco-100-3))",
+          "cinza-escuro": "rgb(var(--var-branco-cinza-escuro))",
         },
         azul: {
           "20": "rgb(var(--var-azul-20))",
