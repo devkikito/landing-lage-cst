@@ -36,6 +36,7 @@ const config: Config = {
         smh: { raw: "(max-height: 680px)" },
         sm: "640px",
         md: "768px",
+        laptop: "910px",
         lg: "1024px",
         xl: "1280px",
         "2xl": "1536px",
@@ -57,6 +58,7 @@ const config: Config = {
           "30": "rgb(var(--var-azul-30))",
           "40": "rgb(var(--var-azul-40))",
           "100": "rgb(var(--var-azul-100))",
+          "200": "rgb(var(--var-azul-200))",
           "500": "rgb(var(--var-azul-500))",
         },
         cinza: {

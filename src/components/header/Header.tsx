@@ -37,7 +37,7 @@ export const Header = () => {
               imgAlt="Logo do portal da demência"
             />
           </div>
-          <nav className="flex items-center justify-center gap-6 flex-grow">
+          <nav className="items-center justify-center gap-6 flex-grow hidden laptop:flex">
             <a href="#sobre" className="text-branco-100">
               Sobre
             </a>
@@ -55,7 +55,9 @@ export const Header = () => {
             </a>
           </nav>
           <div className="flex items-center gap-4">
-            <Button text="Entrar em contato" variant="contact" />
+            <div className="hidden sm:block">
+              <Button text="Entrar em contato" variant="contact" />
+            </div>
             <Button text="Fazer inscrição" variant="default" />
           </div>
         </div>

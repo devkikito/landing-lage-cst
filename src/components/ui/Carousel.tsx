@@ -22,7 +22,7 @@ export const ItemCarouselType1: React.FC<ItemCarouselType> = ({ image, texts }) 
         width={400}
         height={400}
       />
-      <div className="2sm:mb-6 px-6 py-3 gap-8 rounded-lg absolute bottom-0 flex 2sm:w-[22rem] h-[15.625rem] justify-start backdrop-blur-sm bg-[#1A8772]/80 text-start select-none">
+      <div className="2sm:mb-6 px-6 py-3 gap-8 rounded-lg absolute bottom-0 flex 2sm:w-[22rem] h-[15.625rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
           <h3 className="title-card-medium text-branco-100">{texts.title}</h3>
           <p className="paragraph-card text-branco-100">{texts.description}</p>
@@ -49,7 +49,7 @@ export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) 
         width={400}
         height={400}
       />
-      <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0  2sm:w-[22rem] h-[10rem] justify-start backdrop-blur-sm bg-[#1A8772]/80 text-start select-none">
+      <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0  2sm:w-[22rem] h-[10rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
           <h3 className="title-card-medium text-branco-100">{texts.title}</h3>
         </div>
@@ -83,7 +83,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
       <button
         aria-label="Avançar para esquerda"
         onClick={scrollLeft}
-        className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(0,255,200,0.5)] rounded-full text-branco-100"
+        className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(29,44,70,0.5)] rounded-full text-branco-100"
         type="button"
       >
         <svg className="w-8 h-8" viewBox="0 0 532 532">
@@ -96,7 +96,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
       <div className=" w-full overflow-y-hidden scrollbar-hide">
         <div
           ref={scrollRef}
-          className="flex space-x-4 max-h-[29rem] overflow-x-auto scrollbar-hide h-full cursor-grab active:cursor-grabbing"
+          className="flex justify-center space-x-4 max-h-[29rem] overflow-x-auto scrollbar-hide h-full cursor-grab active:cursor-grabbing"
         >
           {images.map((image, index) => {
             if (type === "1" || !type) {
@@ -110,7 +110,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
       <button
         aria-label="Avançar para direita"
         onClick={scrollRight}
-        className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(0,255,200,0.5)] rounded-full text-branco-100"
+        className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(29,44,70,0.5)] rounded-full text-branco-100"
         type="button"
       >
         <svg className="w-8 h-8" viewBox="0 0 532 532">

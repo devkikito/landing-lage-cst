@@ -13,7 +13,7 @@ import ImageWithTheme from "@/components/image/ImageWithTheme";
 const carousel = [
   {
     image: {
-      imageUrl: "/img/resultados_icone_1.png",
+      imageUrl: "/img/modulo_1.png",
       altImage: "Módulo 01",
       ariaLabel: "Icone do Módulo 01",
       sizes: "100vw",
@@ -25,7 +25,7 @@ const carousel = [
   },
   {
     image: {
-      imageUrl: "/img/resultados_icone_2.png",
+      imageUrl: "/img/modulo_2.png",
       altImage: "Módulo 02",
       ariaLabel: "Icone do Módulo 02",
       sizes: "100vw",
@@ -37,7 +37,7 @@ const carousel = [
   },
   {
     image: {
-      imageUrl: "/img/resultados_icone_3.png",
+      imageUrl: "/img/modulo_3.png",
       altImage: "Módulo 03",
       ariaLabel: "Icone do Módulo 03",
       sizes: "100vw",
@@ -47,35 +47,27 @@ const carousel = [
       description: "Apresentação detalhada sobre o modelo",
     },
   },
-  {
-    image: {
-      imageUrl: "/img/resultados_icone_4.png",
-      altImage: "Módulo 04",
-      ariaLabel: "Icone do Módulo 04",
-      sizes: "100vw",
-    },
-    texts: {
-      title: "Módulo 04",
-      description: "Apresentação detalhada sobre o modelo",
-    },
-  },
 ];
 
 const advantagesData = [
   {
     image: "/img/resultados_icone_1.png",
+    imageLight: "/img/resultados_icone_1-light.png",
     title: "Utilizado em mais de 35 países pelo mundo",
   },
   {
     image: "/img/resultados_icone_2.png",
+    imageLight: "/img/resultados_icone_2-light.png",
     title: "Resultados comprovados por evidências científicas",
   },
   {
     image: "/img/resultados_icone_3.png",
+    imageLight: "/img/resultados_icone_3-light.png",
     title: "14 sessões temáticas e divertidas que estimulam",
   },
   {
     image: "/img/resultados_icone_4.png",
+    imageLight: "/img/resultados_icone_4-light.png",
     title: "Efeitos comparáveis aos dos medicamentos",
   },
 ];
@@ -86,7 +78,7 @@ export default function HomePage() {
       <BackgroundImageWithTheme
         lightImage="/img/Banner.png"
         darkImage="/img/Banner.png"
-        className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center mb-20"
+        className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center mb-20 bg-right"
       >
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
           <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
@@ -110,16 +102,17 @@ export default function HomePage() {
 
       <div className="bg-dark-900 text-branco-100 py-12">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
-          <div className="flex gap-2">
+          <div className="flex gap-2 sm:flex-nowrap flex-wrap">
             <div className="mt-4 mb-4 max-w-[21.938rem] min-w-[14.063rem]">
               <TitleDefault
                 title="Venha conhecer"
                 subtitle="CST - Terapia de estimulação Cognitiva"
                 alignment="text-left"
+                textColor="text-cinza-900-branco"
               />
             </div>
             <div className="mb-8 max-w-[44.125rem]">
-              <p className="mb-4">
+              <p className="mb-4 text-cinza-900-branco">
                 A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em
                 vários países. Consiste em um protocolo com 14 sessões temáticas e divertidas para estimular memória,
                 linguagem, orientação e outros aspectos. Estudos mostram que seus efeitos são comparáveis aos dos
@@ -159,8 +152,8 @@ export default function HomePage() {
       </div>
 
       <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 my-[4.5rem]">
-        <div className="flex justify-between items-center mb-10">
-          <div className="mt-4 max-w-[30rem]">
+        <div className="flex justify-between items-center mb-10 sm:flex-nowrap flex-wrap">
+          <div className="mt-4 max-w-[26rem]">
             <TitleDefault
               title="Vantagens"
               subtitle="Por que se tornar um profissional especializado na metodologia CST?"
@@ -174,14 +167,20 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
           {advantagesData.map((advantage, index) => (
             <div key={index} className="flex flex-col items-center text-center">
-              <Image src={advantage.image} alt={advantage.title} width={64} height={64} className="mb-4" />
+              <ImageWithTheme
+                lightSrc={advantage.imageLight}
+                darkSrc={advantage.image}
+                alt={advantage.title}
+                width={64}
+                height={64}
+              />
               <p className="text-lg">{advantage.title}</p>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex justify-between items-center mb-10">
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex justify-between items-center mb-10 gap-4  sm:flex-nowrap flex-wrap">
         <div>
           <TitleDefault
             title="Depoimentos"
@@ -229,7 +228,7 @@ export default function HomePage() {
         <InstructorCarousel />
       </div>
 
-      <div className="my-10 max-w-[46rem] mx-auto">
+      <div className="my-10 max-w-[46rem] mx-auto px-3">
         <TitleDefault
           title="Investimento"
           subtitle="Garanta sua vaga hoje mesmo!"
@@ -240,8 +239,8 @@ export default function HomePage() {
 
       <div className="text-branco-100-2 py-12 px-6  mb-[9rem]">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 grid grid-cols-1 md:grid-cols-2 items-center">
-          <div className="p-8 h-full bg-cinza-900">
-            <div className=" flex flex-col max-w-[30.875rem] justify-between h-full">
+          <div className="p-6 sm:p-10 h-full bg-cinza-900">
+            <div className=" flex flex-col max-w-[30.875rem] justify-between h-full gap-8">
               <ImageWithTheme
                 lightSrc="/img/LOGO-ABERTA.png"
                 darkSrc="/img/LOGO-ABERTA.png"
@@ -253,7 +252,7 @@ export default function HomePage() {
                 Inicie sua jornada dentro da metodologia CST
               </p>
 
-              <div className="flex gap-4 items-center">
+              <div className="flex gap-4 items-center  sm:flex-nowrap flex-wrap">
                 <Image src="/img/fotos_alunos.svg" alt="Aluna 1" width={210} height={46} />
                 <p className="mb-0 text-branco-100">
                   Mais de 1.000 alunas e alunos. <br />
@@ -262,10 +261,10 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="bg-branco-cinza-escuro p-10 text-center md:text-left">
+          <div className="bg-branco-cinza-escuro p-6 sm:p-10 text-center md:text-left">
             <div className="max-w-[30.438rem]">
               <h3 className="text-3xl mb-8 text-cinza-900-branco">Seu investimento</h3>
-              <div className="flex justify-between mb-8 gap-2">
+              <div className="flex justify-between mb-8 gap-2 sm:flex-nowrap flex-wrap">
                 <div>
                   <p className="text-xl text-cinza-900-branco">De R$ 3.500 por</p>
                   <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.300</p>

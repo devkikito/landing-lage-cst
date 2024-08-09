@@ -44,12 +44,17 @@ const InstructorCarousel = () => {
             <div key={index} className="flex flex-col md:flex-row items-center min-w-full gap-10">
               <div className="w-full md:w-2/3">
                 <div className="mt-4">
-                  <TitleDefault title="instrutor" subtitle={profile.name} alignment="text-left" />
+                  <TitleDefault
+                    title="instrutor"
+                    subtitle={profile.name}
+                    alignment="text-left"
+                    textColor="text-cinza-900-branco"
+                  />
                 </div>
-                <p className="mb-4">{profile.description}</p>
+                <p className="mb-4 text-cinza-900-branco">{profile.description}</p>
                 <ul className="list-disc pl-5">
                   {profile.awards.map((award, idx) => (
-                    <li key={idx} className="mb-2">
+                    <li key={idx} className="mb-2 text-cinza-900-branco">
                       {award}
                     </li>
                   ))}
