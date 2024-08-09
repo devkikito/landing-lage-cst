@@ -13,7 +13,7 @@ import ImageWithTheme from "@/components/image/ImageWithTheme";
 const carousel = [
   {
     image: {
-      imageUrl: "/img/resultados_icone_1.png",
+      imageUrl: "/img/modulo_1.png",
       altImage: "Módulo 01",
       ariaLabel: "Icone do Módulo 01",
       sizes: "100vw",
@@ -25,7 +25,7 @@ const carousel = [
   },
   {
     image: {
-      imageUrl: "/img/resultados_icone_2.png",
+      imageUrl: "/img/modulo_2.png",
       altImage: "Módulo 02",
       ariaLabel: "Icone do Módulo 02",
       sizes: "100vw",
@@ -37,25 +37,13 @@ const carousel = [
   },
   {
     image: {
-      imageUrl: "/img/resultados_icone_3.png",
+      imageUrl: "/img/modulo_3.png",
       altImage: "Módulo 03",
       ariaLabel: "Icone do Módulo 03",
       sizes: "100vw",
     },
     texts: {
       title: "Módulo 03",
-      description: "Apresentação detalhada sobre o modelo",
-    },
-  },
-  {
-    image: {
-      imageUrl: "/img/resultados_icone_4.png",
-      altImage: "Módulo 04",
-      ariaLabel: "Icone do Módulo 04",
-      sizes: "100vw",
-    },
-    texts: {
-      title: "Módulo 04",
       description: "Apresentação detalhada sobre o modelo",
     },
   },
