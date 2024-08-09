@@ -52,18 +52,22 @@ const carousel = [
 const advantagesData = [
   {
     image: "/img/resultados_icone_1.png",
+    imageLight: "/img/resultados_icone_1-light.png",
     title: "Utilizado em mais de 35 países pelo mundo",
   },
   {
     image: "/img/resultados_icone_2.png",
+    imageLight: "/img/resultados_icone_2-light.png",
     title: "Resultados comprovados por evidências científicas",
   },
   {
     image: "/img/resultados_icone_3.png",
+    imageLight: "/img/resultados_icone_3-light.png",
     title: "14 sessões temáticas e divertidas que estimulam",
   },
   {
     image: "/img/resultados_icone_4.png",
+    imageLight: "/img/resultados_icone_4-light.png",
     title: "Efeitos comparáveis aos dos medicamentos",
   },
 ];
@@ -104,10 +108,11 @@ export default function HomePage() {
                 title="Venha conhecer"
                 subtitle="CST - Terapia de estimulação Cognitiva"
                 alignment="text-left"
+                textColor="text-cinza-900-branco"
               />
             </div>
             <div className="mb-8 max-w-[44.125rem]">
-              <p className="mb-4">
+              <p className="mb-4 text-cinza-900-branco">
                 A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em
                 vários países. Consiste em um protocolo com 14 sessões temáticas e divertidas para estimular memória,
                 linguagem, orientação e outros aspectos. Estudos mostram que seus efeitos são comparáveis aos dos
@@ -162,7 +167,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
           {advantagesData.map((advantage, index) => (
             <div key={index} className="flex flex-col items-center text-center">
-              <Image src={advantage.image} alt={advantage.title} width={64} height={64} className="mb-4" />
+              <ImageWithTheme
+                lightSrc={advantage.imageLight}
+                darkSrc={advantage.image}
+                alt={advantage.title}
+                width={64}
+                height={64}
+              />
               <p className="text-lg">{advantage.title}</p>
             </div>
           ))}

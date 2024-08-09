@@ -41,7 +41,7 @@ const ResultsSection = () => {
             <div className="mb-4">
               <ImageWithTheme lightSrc={item.imageLight} darkSrc={item.image} alt={item.title} width={64} height={64} />
             </div>
-            <p className="text-branco-100 text-center">{item.title}</p>
+            <p className="text-cinza-900-branco text-center">{item.title}</p>
           </div>
         ))}
       </div>
