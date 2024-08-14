@@ -200,7 +200,7 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <div className="bg-cover text-branco-100 mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
+      <div className="bg-cover mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
           <div className="text-center mb-6">
             <h3 className="text-4xl font-semibold">+1.000 depoimentos positivos</h3>
