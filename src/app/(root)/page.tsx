@@ -237,7 +237,7 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="text-branco-100-2 py-12 px-6  mb-[9rem]">
+      <div className="text-branco-100-2 py-12 px-6 mb-[4rem]">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="p-6 sm:p-10 h-full bg-cinza-900">
             <div className=" flex flex-col max-w-[30.875rem] justify-between h-full gap-8">
