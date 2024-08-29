@@ -9,6 +9,7 @@ import { Carousel } from "@/components/ui/Carousel";
 import PartnerCarousel from "@/components/carousel/PartnerCarousel";
 import InstructorCarousel from "@/components/carousel/InstructorCarousel";
 import ImageWithTheme from "@/components/image/ImageWithTheme";
+import TestimonialCarousel from "@/components/carousel/TestimonialCarousel";
 
 const carousel = [
   {
@@ -151,7 +152,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 my-[4.5rem]">
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 pb-12 mt-[4.5rem]">
         <div className="flex justify-between items-center mb-10 sm:flex-nowrap flex-wrap">
           <div className="mt-4 max-w-[26rem]">
             <TitleDefault
@@ -180,7 +181,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex justify-between items-center mb-10 gap-4  sm:flex-nowrap flex-wrap">
+      <div className="max-w-[82.125rem] mx-auto pt-12 px-3 2sm:px-8 flex justify-between items-center mb-10 gap-4  sm:flex-nowrap flex-wrap">
         <div>
           <TitleDefault
             title="Depoimentos"
@@ -200,9 +201,13 @@ export default function HomePage() {
           />
         </div>
       </div>
+
       <div className="bg-cover mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
           <div className="text-center mb-6">
+            <div className="max-w-[50rem] mx-auto px-3 2sm:px-8">
+              <TestimonialCarousel />
+            </div>
             <h3 className="text-4xl font-semibold">+1.000 depoimentos positivos</h3>
             <div className="flex justify-center mt-8">
               <div className="flex items-center">
@@ -212,9 +217,6 @@ export default function HomePage() {
                   </svg>
                 ))}
               </div>
-            </div>
-            <div className="flex justify-center mt-4">
-              <Button text="Ver depoimentos" variant="default" />
             </div>
           </div>
         </div>
