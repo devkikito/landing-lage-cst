@@ -11,8 +11,6 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
   const startX = useRef<number | null>(null);
   const diffX = useRef(0);
 
-  const router = useRouter();
-
   const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
   }, [stories.length]);
@@ -65,16 +63,15 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
     diffX.current = 0;
   };
 
-  // Auto slide
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(handleNext, 7500);
     return () => clearInterval(interval);
   }, [isPaused, handleNext]);
 
-  const togglePause = () => {
+  const togglePause = useCallback(() => {
     setIsPaused((prev) => !prev);
-  };
+  }, []);
 
   return (
     <div
@@ -115,7 +112,7 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
             <div className=" block sm:hidden absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
             <div className="absolute inset-0 sm:bg-opacity-80 flex mx-auto w-full items-center justify-center  sm:py-12 text-branco-100 sm:px-4">
               <button
-                aria-label="Anterior"
+                aria-label="Ver Anterior"
                 onClick={handlePrev}
                 className="max-sm:absolute left-2 z-50 bg-none p-2 rounded-full h-full select-none"
               >
@@ -141,14 +138,14 @@ export const CarouselStories: React.FC<{ stories: any[] }> = ({ stories }) => {
                     style={{ zIndex: 1 }}
                   />
                   <div className="relative z-10 flex flex-col gap-1 text-center items-center justify-center select-none p-4">
-                    <h2 className="h2-semibold text-[1.125rem] leading-none">{story.titulo}</h2>
+                    <p className="h2-semibold text-[1.125rem] leading-none">{story.titulo}</p>
                     <p>{story.resumo}</p>
                   </div>
                 </div>
               </div>
 
               <button
-                aria-label="Posterior"
+                aria-label="Ver próximo"
                 onClick={handleNext}
                 className="max-sm:absolute right-2 z-50 bg-none p-2 rounded-full h-full select-none"
               >

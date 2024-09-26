@@ -4,14 +4,19 @@ import { useHtmlFontSize } from "@/context/HtmlFontSizeContext";
 import { fontSize } from "@/utils/fontSize";
 import { VLibras } from "@/utils/vLibras";
 import { IoLogoInstagram } from "react-icons/io5";
-import { FaLinkedinIn, FaFacebookF, FaYoutube, FaGooglePlay, FaApple } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
 import React from "react";
 import { LibrasButton } from "../button/LibrasButton";
 import { ChangeThemeButton } from "../button/ChangeThemeButton";
+import logoCSTdark from "../../../public/img/logoCSTdark.png";
+import logoCSTlight from "../../../public/img/logoCSTlight.png";
+import Image from "next/image";
+import { useTheme } from "next-themes"; 
+import Link from 'next/link';
 
 export const BarTools = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
+  const { theme } = useTheme(); 
 
   React.useEffect(() => {
     setIsMounted(true);
@@ -24,12 +29,13 @@ export const BarTools = () => {
   }
 
   if (!isMounted) {
-    return null;
+    return null; 
   }
+
   return (
     <div className="bg-azul-20 fixed w-full z-50">
       <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex items-center justify-between py-2 my-0">
-        <div className="flex items-center justify-center h-[1.925rem] border border-cinza-900-azul px-2 rounded-md ">
+        <div className="flex items-center justify-center h-[1.925rem] border border-cinza-900-azul px-2 rounded-md">
           <VLibras />
           <p className="t0 text-cinza-900-azul pr-1 max-sm:sr-only">Acessibilidade</p>
 
@@ -62,32 +68,29 @@ export const BarTools = () => {
         </div>
         <div className="flex items-center justify-center h-[1.925rem] pl-2 gap-x-4">
           <div className="flex items-center justify-center h-[1.925rem] gap-x-2 2sm:gap-x-4">
-            <button onClick={() => openInNewTab("https://www.instagram.com/biomobguia/")}>
-              <IoLogoInstagram className="text-lg text-cinza-900-azul" />
-            </button>
-            <button onClick={() => openInNewTab("https://www.linkedin.com/company/biomob/")}>
-              <FaLinkedinIn className="text-lg text-cinza-900-azul" />
-            </button>
-            <button onClick={() => openInNewTab("https://pt-br.facebook.com/biomobguia/")}>
-              <FaFacebookF className="text-lg text-cinza-900-azul" />
-            </button>
-            <button onClick={() => openInNewTab("https://google.com.br/")}>
-              <FaXTwitter className="text-lg text-cinza-900-azul" />
-            </button>
-            <button onClick={() => openInNewTab("https://www.youtube.com/@biomobguia")}>
-              <FaYoutube className="text-lg text-cinza-900-azul" />
-            </button>
+          <Link href="https://www.instagram.com/biomobguia/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram do Portal da demência em uma nova aba">
+              <IoLogoInstagram className="text-lg text-cinza-800" />
+            </Link>
+            <Link href="https://www.linkedin.com/company/biomob/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn do Portal da demência em uma nova aba">
+              <FaLinkedinIn className="text-lg text-cinza-800" />
+            </Link>
+
             <p className="max-sm:hidden text-lg text-cinza-900-azul">|</p>
-            <p className="max-sm:hidden t1 roboto-font text-cinza-900-azul">Baixe o app</p>
+            <p className="max-sm:hidden t1 roboto-font text-cinza-900-azul">Acesse nosso site</p>
           </div>
-          <div className="max-sm:hidden flex items-center justify-center h-[1.925rem] gap-x-4">
-            <button onClick={() => openInNewTab("https://apps.apple.com/br/app/biomob/id1090156739")}>
-              <FaApple className="text-lg text-cinza-900-azul" />
-            </button>
-            <button onClick={() => openInNewTab("https://play.google.com/store/apps/details?id=com.biomob.bioplus")}>
-              <FaGooglePlay className="text-lg text-cinza-900-azul" />
-            </button>
-          </div>
+          <Link
+            href="https://www.cstbrasil.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Acesse o site da CST Brasil"
+          >
+            <Image
+              src={theme === "dark" ? logoCSTdark : logoCSTlight}
+              alt="Logo CST"
+              width={70}
+              height={50}
+            />
+          </Link>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ interface LogoWithThemeProps {
   imgDark?: string;
 }
 
-export const LogoWithTheme: React.FC<LogoWithThemeProps> = ({ img, imgAlt = "Logo da Biomob", imgDark }) => {
+export const LogoWithTheme: React.FC<LogoWithThemeProps> = ({ img, imgAlt = "Logo da LUMI", imgDark }) => {
   const [mounted, setMounted] = React.useState(false);
   const { theme } = useTheme();
 
@@ -38,7 +38,7 @@ export const LogoWithTheme: React.FC<LogoWithThemeProps> = ({ img, imgAlt = "Log
           altImage={imgAlt}
           ariaLabel={imgAlt}
           sizes="100vw"
-          className="w-[4.671rem]"
+          className="w-[4.81rem]"
         />
       )}
     </Link>

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 export function IconsImg(props: any) {
   const { theme } = useTheme();
   const { htmlFontSize } = useHtmlFontSize();
-  const [imageKey, setImageKey] = useState("light"); // State for image key
+  const [imageKey, setImageKey] = useState("light"); 
 
   useEffect(() => {
     setImageKey(imageKey + 1);
