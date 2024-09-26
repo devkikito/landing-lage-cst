@@ -5,6 +5,7 @@ import { LogoWithTheme } from "../button/LogoWithTheme";
 import Button from "../button/Button";
 import logoLumenLight from "../../../public/img/logoLumenLight.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,21 +42,21 @@ export const Header = () => {
             />
           </div>
           <nav className="items-center justify-center gap-6 flex-grow hidden laptop:flex" aria-label="Menu principal">
-            <a href="#sobre" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Sobre">
+            <Link href="#sobre" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Sobre">
               Sobre
-            </a>
-            <a href="#modulos" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Módulos">
+            </Link>
+            <Link href="#modulos" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Módulos">
               Módulos
-            </a>
-            <a href="#vantagens" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Vantagens">
+            </Link>
+            <Link href="#vantagens" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Vantagens">
               Vantagens
-            </a>
-            <a href="#depoimentos" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Depoimentos">
+            </Link>
+            <Link href="#depoimentos" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Depoimentos">
               Depoimentos
-            </a>
-            <a href="#equipe" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Equipe">
+            </Link>
+            <Link href="#equipe" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Equipe">
               Equipe
-            </a>
+            </Link>
           </nav>
           <div className="flex items-center gap-4">
             <div className="hidden sm:block">

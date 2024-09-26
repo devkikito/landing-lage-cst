@@ -8,6 +8,7 @@ import Image from "next/image";
 import logoCSTdark from "../../../public/img/logoCSTdark.png";
 import logoCSTlight from "../../../public/img/logoCSTlight.png";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const Footer = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -24,15 +25,16 @@ const Footer = () => {
 
   return (
     <footer className="bg-cinza-900 text-branco-100 py-10">
-      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-wrap gap-4 items-center justify-between">
+      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col sm:flex-row gap-6 sm:gap-4 items-center justify-between">
         
-        <div>
-          <div className="mb-10">
+        <div className="flex flex-col items-center sm:items-start gap-6">
+          <div className="mb-4 sm:mb-10">
             <Image src="/img/LOGO-ABERTA.png" alt="Logo LUMI" width={74} height={74} />
           </div>
 
-          <div className="flex items-center space-x-4">
-            <a
+          {/* Ajuste para manter os links lado a lado em telas pequenas */}
+          <div className="flex items-center justify-center gap-4">
+            <Link
               href="https://www.instagram.com/biomobguia/"
               target="_blank"
               rel="noopener noreferrer"
@@ -43,10 +45,9 @@ const Footer = () => {
                 className="text-base text-azul-200 hover:text-azul-100"
                 aria-hidden="true"  
               />
-            </a>
+            </Link>
 
-            
-            <a
+            <Link
               href="https://www.linkedin.com/company/biomob/"
               target="_blank"
               rel="noopener noreferrer"
@@ -57,29 +58,26 @@ const Footer = () => {
                 className="text-base text-azul-200 hover:text-azul-100"
                 aria-hidden="true" 
               />
-            </a>
+            </Link>
 
-            
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.cstbrasil.com.br"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Acesse o site da CST Brasil"
-                className="focus:outline-none focus:ring-2 focus:ring-azul-200"
-              >
-                <Image
-                  src={theme === "dark" ? logoCSTdark : logoCSTlight}
-                  alt="Logo CST"
-                  width={70}
-                  height={50}
-                />
-              </a>
-            </div>
+            <Link
+              href="https://www.cstbrasil.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Acesse o site da CST Brasil"
+              className="focus:outline-none focus:ring-2 focus:ring-azul-200"
+            >
+              <Image
+                src={theme === "dark" ? logoCSTdark : logoCSTlight}
+                alt="Logo CST"
+                width={70}
+                height={50}
+              />
+            </Link>
           </div>
         </div>
 
-        <nav className="space-x-8 hidden laptop:flex text-center" aria-label="Menu do rodapé">
+        <nav className="hidden sm:flex space-x-8 text-center" aria-label="Menu do rodapé">
           <a href="#" className="text-base text-branco-100 hover:text-branco-100">
             MOBILITY & SHOW
           </a>

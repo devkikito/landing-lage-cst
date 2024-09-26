@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 import { FiArrowRight, FiPhone } from "react-icons/fi";
 
@@ -34,7 +35,7 @@ export const Button = ({ text, extraClassName, variant, href, ...props }: Button
   
   if (href) {
     return (
-      <a
+      <Link
         href={href}
         target="_blank"
         rel="noopener noreferrer"
@@ -44,7 +45,7 @@ export const Button = ({ text, extraClassName, variant, href, ...props }: Button
         {variant === "contact" && <FiPhone className="text-xl" />}
         {text}
         {iconClass}
-      </a>
+      </Link>
     );
   }
 

@@ -5,7 +5,6 @@ import useDraggableScroll from "@/hooks/useDraggableScroll";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { truncateText } from "@/utils/truncateText";
 
-
 export const ItemCarouselType1: React.FC<ItemCarouselType> = ({ image, texts }) => {
   return (
     <div
@@ -53,7 +52,7 @@ export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) 
         width={400}
         height={400}
       />
-      <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0  2sm:w-[22rem] h-[10rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
+      <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0 w-full sm:w-[22rem] md:w-[18rem] h-[10rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
           <h3 id={`item-title-${texts.title}`} className="title-card-medium text-branco-100">
             {texts.title}
@@ -72,17 +71,16 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      
       scrollRef.current.scrollTo({
-        left: 0, 
-        behavior: "smooth", 
+        left: 0,
+        behavior: "smooth",
       });
     }
   };
   const scrollRight = () => {
     if (scrollRef.current) {
-         scrollRef.current.scrollBy({
-        left: 300, 
+      scrollRef.current.scrollBy({
+        left: 300,
         behavior: "smooth",
       });
     }
@@ -92,7 +90,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
     <div className="relative flex justify-center mt-4" role="region" aria-label="Carrossel de imagens">
       <button
         aria-label="Avançar para esquerda"
-        onClick={scrollLeft} 
+        onClick={scrollLeft}
         className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(29,44,70,0.5)] rounded-full text-branco-100"
         type="button"
       >
@@ -126,10 +124,12 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
                 <div
                   key={index}
                   className="
-                    flex-shrink-0 
-                    w-full  
-                    sm:w-1/3 
-                    lg:w-1/3"
+    flex-shrink-0 
+    w-full  
+    sm:w-1/3 
+    lg:w-1/3
+    md:w-[20rem]  /* Limita o tamanho em telas de tablet */
+  "
                 >
                   <ItemCarouselType2 {...image} />
                 </div>

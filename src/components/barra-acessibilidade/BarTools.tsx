@@ -12,6 +12,7 @@ import logoCSTdark from "../../../public/img/logoCSTdark.png";
 import logoCSTlight from "../../../public/img/logoCSTlight.png";
 import Image from "next/image";
 import { useTheme } from "next-themes"; 
+import Link from 'next/link';
 
 export const BarTools = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
@@ -67,29 +68,17 @@ export const BarTools = () => {
         </div>
         <div className="flex items-center justify-center h-[1.925rem] pl-2 gap-x-4">
           <div className="flex items-center justify-center h-[1.925rem] gap-x-2 2sm:gap-x-4">
-            <a
-              href="https://www.instagram.com/biomobguia/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar página do Instagram da CST Brasil"
-              className="text-lg text-cinza-900-azul"
-            >
-              <IoLogoInstagram aria-hidden="true" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/biomob/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar página do LinkedIn da CST Brasil"
-              className="text-lg text-cinza-900-azul"
-            >
-              <FaLinkedinIn aria-hidden="true" />
-            </a>
+          <Link href="https://www.instagram.com/biomobguia/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram do Portal da demência em uma nova aba">
+              <IoLogoInstagram className="text-lg text-cinza-800" />
+            </Link>
+            <Link href="https://www.linkedin.com/company/biomob/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn do Portal da demência em uma nova aba">
+              <FaLinkedinIn className="text-lg text-cinza-800" />
+            </Link>
 
             <p className="max-sm:hidden text-lg text-cinza-900-azul">|</p>
             <p className="max-sm:hidden t1 roboto-font text-cinza-900-azul">Acesse nosso site</p>
           </div>
-          <a
+          <Link
             href="https://www.cstbrasil.com.br"
             target="_blank"
             rel="noopener noreferrer"
@@ -101,7 +90,7 @@ export const BarTools = () => {
               width={70}
               height={50}
             />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
