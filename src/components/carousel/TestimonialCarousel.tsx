@@ -77,12 +77,16 @@ const TestimonialCarousel = () => {
       <button
         className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
         onClick={scrollPrev}
+        aria-label="Ir para o depoimento anterior"
+        tabIndex={0}
       >
         <FiArrowLeft className="text-xl" />
       </button>
       <button
         className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
         onClick={scrollNext}
+        aria-label="Ir para o próximo depoimento"
+        tabIndex={0}
       >
         <FiArrowRight className="text-xl" />
       </button>

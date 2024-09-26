@@ -1,17 +1,17 @@
 "use client";
-import React, { useRef } from "react";
 import { InnovationInMovieSectionType, ItemCarouselType } from "@/@types/types";
 import Image from "next/image";
 import useDraggableScroll from "@/hooks/useDraggableScroll";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { truncateText } from "@/utils/truncateText";
 
+
 export const ItemCarouselType1: React.FC<ItemCarouselType> = ({ image, texts }) => {
   return (
     <div
-      unselectable="on"
-      onDragStart={(e) => e.preventDefault()}
+      onClick={() => {}}
       className="relative flex justify-center flex-shrink-0 w-full max-w-[23.875rem] h-full"
+      aria-labelledby={`item-title-${texts.title}`}
     >
       <Image
         src={image.imageUrl}
@@ -24,7 +24,9 @@ export const ItemCarouselType1: React.FC<ItemCarouselType> = ({ image, texts }) 
       />
       <div className="2sm:mb-6 px-6 py-3 gap-8 rounded-lg absolute bottom-0 flex 2sm:w-[22rem] h-[15.625rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
-          <h3 className="title-card-medium text-branco-100">{texts.title}</h3>
+          <h3 id={`item-title-${texts.title}`} className="title-card-medium text-branco-100">
+            {texts.title}
+          </h3>
           <p className="paragraph-card text-branco-100">{texts.description}</p>
         </div>
       </div>
@@ -33,12 +35,14 @@ export const ItemCarouselType1: React.FC<ItemCarouselType> = ({ image, texts }) 
 };
 
 export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) => {
-  const truncatedDescription = truncateText(texts.description!, 140);
+  const truncatedDescription = truncateText(texts.description, 140);
   return (
     <div
       unselectable="on"
       onDragStart={(e) => e.preventDefault()}
       className="relative flex justify-center flex-shrink-0 w-full max-w-[23.875rem] h-full"
+      role="group"
+      aria-labelledby={`item-title-${texts.title}`}
     >
       <Image
         src={image.imageUrl}
@@ -51,11 +55,12 @@ export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) 
       />
       <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0  2sm:w-[22rem] h-[10rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
-          <h3 className="title-card-medium text-branco-100">{texts.title}</h3>
+          <h3 id={`item-title-${texts.title}`} className="title-card-medium text-branco-100">
+            {texts.title}
+          </h3>
         </div>
         <div className="grid grid-cols-[calc(100%_-_32px)_32px] gap-3 items-center">
           <p className="paragraph-card text-branco-100">{truncatedDescription}</p>
-          <FaRegArrowAltCircleRight className="w-5 h-5 text-branco-100" />
         </div>
       </div>
     </div>
@@ -64,25 +69,30 @@ export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) 
 
 export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link, texts, type }) => {
   const scrollRef = useDraggableScroll();
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+      
+      scrollRef.current.scrollTo({
+        left: 0, 
+        behavior: "smooth", 
+      });
     }
   };
-
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+         scrollRef.current.scrollBy({
+        left: 300, 
+        behavior: "smooth",
+      });
     }
   };
 
   return (
-    <div className="relative flex justify-center mt-4">
+    <div className="relative flex justify-center mt-4" role="region" aria-label="Carrossel de imagens">
       <button
         aria-label="Avançar para esquerda"
-        onClick={scrollLeft}
+        onClick={scrollLeft} 
         className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-[rgb(29,44,70,0.5)] rounded-full text-branco-100"
         type="button"
       >
@@ -93,20 +103,42 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
           />
         </svg>
       </button>
-      <div className=" w-full overflow-y-hidden scrollbar-hide">
+
+      <div className="w-full overflow-x-hidden scrollbar-hide">
         <div
           ref={scrollRef}
-          className="flex justify-center space-x-4 max-h-[29rem] overflow-x-auto scrollbar-hide h-full cursor-grab active:cursor-grabbing"
+          className="flex space-x-4  max-h-[29rem] overflow-x-auto scrollbar-hide h-full cursor-grab active:cursor-grabbing"
+          style={{ scrollSnapType: "x mandatory" }}
         >
           {images.map((image, index) => {
             if (type === "1" || !type) {
-              return <ItemCarouselType1 key={index} {...image} />;
+              return (
+                <div
+                  key={index}
+                  className="flex-shrink-0"
+                  style={{ flexBasis: "calc(100% / 3)", maxWidth: "calc(100% / 3)" }}
+                >
+                  <ItemCarouselType1 {...image} />
+                </div>
+              );
             } else {
-              return <ItemCarouselType2 key={index} {...image} />;
+              return (
+                <div
+                  key={index}
+                  className="
+                    flex-shrink-0 
+                    w-full  
+                    sm:w-1/3 
+                    lg:w-1/3"
+                >
+                  <ItemCarouselType2 {...image} />
+                </div>
+              );
             }
           })}
         </div>
       </div>
+
       <button
         aria-label="Avançar para direita"
         onClick={scrollRight}

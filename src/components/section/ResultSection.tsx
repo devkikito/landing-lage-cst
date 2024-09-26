@@ -1,6 +1,6 @@
 import React from "react";
 import ImageWithTheme from "@/components/image/ImageWithTheme";
-import { TitleDefault } from "../texts/TitleDefault";
+
 
 const data = [
   {
@@ -9,31 +9,27 @@ const data = [
     title: "Utilizado em mais de 35 países pelo mundo",
   },
   {
-    image: "/img/resultados_icone_2.png",
-    imageLight: "/img/resultados_icone_2-light.png",
-    title: "Resultados comprovados por evidências científicas",
+    image: "/img/iconHumanDark.png",
+    imageLight: "/img/iconHumanLight.png",
+    title: "Tratamento de baixo custo - Baseado em princípios humanistas e centrado na pessoa",
   },
   {
     image: "/img/resultados_icone_3.png",
     imageLight: "/img/resultados_icone_3-light.png",
-    title: "14 sessões temáticas e divertidas que estimulam",
+    title: "14 sessões temáticas e divertidas que estimulam diferentes domínios cognitivos e funcionais ",
   },
   {
-    image: "/img/resultados_icone_4.png",
-    imageLight: "/img/resultados_icone_4-light.png",
-    title: "Efeitos comparáveis aos dos medicamentos",
+    image: "/img/resultados_icone_2.png",
+    imageLight: "/img/resultados_icone_2-light.png",
+    title: "Resultados comprovados por evidências científicas",
   },
 ];
 
 const ResultsSection = () => {
   return (
-    <div className="text-center py-12 max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+    <div className="text-center pb-12 max-w-[82.125rem] mx-auto px-3 2sm:px-8">
       <div className="mb-6 max-w-[26.563rem] mx-auto">
-        <TitleDefault
-          title="Resultados"
-          subtitle="Os resultados e dados comprovados falam por si mesmos"
-          alignment="text-center"
-        />
+        
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {data.map((item, index) => (
