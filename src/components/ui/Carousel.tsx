@@ -128,7 +128,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
     w-full  
     sm:w-1/3 
     lg:w-1/3
-    md:w-[20rem]  /* Limita o tamanho em telas de tablet */
+    md:w-[20rem]  
   "
                 >
                   <ItemCarouselType2 {...image} />

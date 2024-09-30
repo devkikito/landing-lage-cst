@@ -36,7 +36,7 @@ const carousel = [
     texts: {
       title: "Módulo 02",
       description:
-        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento, seus benefícios e vantagens econômicas e sociais.",
+        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento",
     },
   },
   {
@@ -50,7 +50,7 @@ const carousel = [
     texts: {
       title: "Módulo 03",
       description:
-        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação e validação da CST no Brasil.",
+        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação ",
     },
   },
   {
@@ -296,7 +296,7 @@ export default function HomePage() {
       <div className="bg-cover mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
           <div className="text-center mb-6">
-            <div className="max-w-[50rem] mx-auto px-3 2sm:px-8">
+            <div className="max-w-[50rem] mx-auto px-3 2sm:px-8 rounded-lg bg-[rgba(255,255,255,0.75)] dark:bg-[rgba(0,0,0,0.75)]">
               <TestimonialCarousel />
             </div>
           </div>
@@ -323,13 +323,7 @@ export default function HomePage() {
               <p className="mb-0 text-3xl max-w-[27rem] text-branco-100">
                 Inicie sua jornada dentro da metodologia CST</p>
                 <div className="pt-32">
-                  <ImageWithTheme
-                    lightSrc="/img/logoCSTlight.png"
-                    darkSrc="/img/logoCSTdark.png"
-                    alt="Logo da CST"
-                    width={200}
-                    height={200}
-                  />
+                  
                 </div>
               
             </div>
