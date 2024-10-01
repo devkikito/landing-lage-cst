@@ -36,8 +36,8 @@ export const Header = () => {
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center">
             <LogoWithTheme
-              img="/img/LOGO-LUMEN-LIGHT.png"
-              imgDark="/img/LOGO-LUMEN-LIGHT.png"
+              img="/img/logoLightLumen.png"
+              imgDark="/img/logoLightLumen.png"
               imgAlt="Logo da Lumen"
             />
           </div>
