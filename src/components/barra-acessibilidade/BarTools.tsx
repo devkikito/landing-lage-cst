@@ -69,10 +69,10 @@ export const BarTools = () => {
         <div className="flex items-center justify-center h-[1.925rem] pl-2 gap-x-4">
           <div className="flex items-center justify-center h-[1.925rem] gap-x-2 2sm:gap-x-4">
           <Link href="https://www.instagram.com/biomobguia/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram do Portal da demência em uma nova aba">
-              <IoLogoInstagram className="text-lg text-cinza-800" />
+              <IoLogoInstagram className="text-cinza-900-azul " />
             </Link>
             <Link href="https://www.linkedin.com/company/biomob/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn do Portal da demência em uma nova aba">
-              <FaLinkedinIn className="text-lg text-cinza-800" />
+              <FaLinkedinIn className="text-lg text-cinza-900-azul " />
             </Link>
 
             <p className="max-sm:hidden text-lg text-cinza-900-azul">|</p>

@@ -74,10 +74,10 @@ const InstructorCarousel = () => {
                     textColor="text-cinza-900-branco"
                   />
                 </div>
-                <p className="mb-4 text-cinza-900-branco">{profile.description}</p>
+                <p className="mb-4 text-cinza-900-branco text-2xl">{profile.description}</p>
                 <ul className="list-disc pl-5">
                   {profile.awards.map((award, idx) => (
-                    <li key={idx} className="mb-2 text-cinza-900-branco">
+                    <li key={idx} className="mb-2 text-cinza-900-branco text-lg">
                       {award}
                     </li>
                   ))}
@@ -91,14 +91,14 @@ const InstructorCarousel = () => {
         </div>
       </div>
       <button
-  className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
+  className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100 -ml-5"
   onClick={scrollPrev}
   aria-label="Voltar para o ultimo instrutor"
 >
   <FiArrowLeft className="text-xl" aria-hidden="true" />
 </button>
 <button
-  className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
+  className="absolute right-0 z-10 -mr-5 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
   onClick={scrollNext}
   aria-label="Avançar para o próximo instrutor"
 >

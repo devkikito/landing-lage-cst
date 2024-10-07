@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { TitleDefault } from "../texts/TitleDefault";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 
 const testimonials = [
@@ -45,6 +44,8 @@ const testimonials = [
 
 const TestimonialCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -54,21 +55,34 @@ const TestimonialCarousel = () => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (emblaApi) {
+      onSelect();
+      setScrollSnaps(emblaApi.scrollSnapList());
+      emblaApi.on("select", onSelect);
+    }
+  }, [emblaApi, onSelect]);
+
   useEffect(() => {
     const autoplay = setInterval(() => {
-      scrollNext();
+      if (emblaApi) scrollNext();
     }, 5000);
 
     return () => clearInterval(autoplay);
-  }, [scrollNext]);
+  }, [scrollNext, emblaApi]);
 
   return (
-    <div className="relative bg-dark-900 text-branco-100 p-10 pb-2 rounded-lg">
+    <div className="relative bg-dark-900 text-branco-100 p-10 pb-2 rounded-lg ">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="flex flex-col items-center min-w-full gap-6 p-4">
-              <p className="text-cinza-900-branco text-center text-xl">{testimonial.text}</p>
+            <div key={index} className="flex flex-col items-center min-w-full gap-6 p-4  ">
+              <p className="text-cinza-900-branco text-center text-2xl mt-20">{testimonial.text}</p>
               <p className="text-cinza-900-branco text-center text-2xl font-bold">
                 {testimonial.title}
               </p>
@@ -76,6 +90,8 @@ const TestimonialCarousel = () => {
           ))}
         </div>
       </div>
+
+      
       <button
         className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2 bg-gray-700 rounded-full text-branco-100"
         onClick={scrollPrev}
@@ -92,6 +108,20 @@ const TestimonialCarousel = () => {
       >
         <FiArrowRight className="text-xl" />
       </button>
+
+    
+      <div className="flex justify-center mt-5 mb-8">
+        {scrollSnaps.map((_, index) => (
+          <button
+            key={index}
+            className={`w-3 h-3 mx-1 rounded-full ${
+              index === selectedIndex ? "bg-amarelo-100" : "bg-gray-500"
+            }`}
+            onClick={() => emblaApi && emblaApi.scrollTo(index)}
+            aria-label={`Ir para o slide ${index + 1}`}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -36,7 +36,7 @@ const carousel = [
     texts: {
       title: "Módulo 02",
       description:
-        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento, seus benefícios e vantagens econômicas e sociais.",
+        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento",
     },
   },
   {
@@ -50,7 +50,7 @@ const carousel = [
     texts: {
       title: "Módulo 03",
       description:
-        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação e validação da CST no Brasil.",
+        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação ",
     },
   },
   {
@@ -115,6 +115,8 @@ const advantagesData = [
   },
 ];
 
+
+
 export default function HomePage() {
 
   
@@ -141,9 +143,9 @@ export default function HomePage() {
           <div className="flex flex-col basis-full lg:basis-1/2 mt-6 lg:mt-16"></div>
         </div>
       </BackgroundImageWithTheme>
-      <div>
-        <div className="mb-[2.375rem]">
-          <div className="max-w-[70rem] mx-auto">
+      <div id="sobre">
+        <div  className="mb-[2.375rem]">
+          <div  className="max-w-[70rem] mx-auto">
             <TitleDefault
               title="SOBRE A CST"
               subtitle=""
@@ -190,7 +192,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="bg-azul-40/50">
+      <div id="modulos"  className="bg-azul-40/50">
         <div className="mb-[2.375rem]">
         <div className="max-w-[39.938rem] mx-auto">
           <TitleDefault
@@ -224,7 +226,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 pb-12 mt-[4.5rem]">
+      <div id="vantagens"  className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 pb-12 mt-[4.5rem]">
         <div className="flex justify-between items-center mb-10 sm:flex-nowrap flex-wrap">
           <div className="mt-4 max-w-[26rem]">
             <TitleDefault
@@ -273,7 +275,7 @@ export default function HomePage() {
       </div>
 
       <div className="max-w-[82.125rem] mx-auto pt-12 px-3 2sm:px-8 flex justify-between items-center mb-10 gap-4  sm:flex-nowrap flex-wrap">
-        <div>
+        <div id="depoimentos" >
           <TitleDefault
             title="Depoimentos"
             subtitle="Histórias de sucesso"
@@ -283,27 +285,21 @@ export default function HomePage() {
         </div>
         <div className="flex">
           <p className="text-xl max-w-[14rem]">O próximo depoimento pode ser o seu!</p>
-          <ImageWithTheme
-            lightSrc="/img/arrow_down.svg"
-            darkSrc="/img/arrow_down-dark.svg"
-            alt="Ícone de seta para baixo"
-            width={32}
-            height={32}
-          />
+          
         </div>
       </div>
 
       <div className="bg-cover mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
           <div className="text-center mb-6">
-            <div className="max-w-[50rem] mx-auto px-3 2sm:px-8">
+            <div className="max-w-[50rem] mx-auto px-3 2sm:px-8 rounded-lg bg-[rgba(255,255,255,0.75)] dark:bg-[rgba(0,0,0,0.75)]">
               <TestimonialCarousel />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+      <div id="equipe"  className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
         <InstructorCarousel />
       </div>
 
@@ -323,13 +319,7 @@ export default function HomePage() {
               <p className="mb-0 text-3xl max-w-[27rem] text-branco-100">
                 Inicie sua jornada dentro da metodologia CST</p>
                 <div className="pt-32">
-                  <ImageWithTheme
-                    lightSrc="/img/logoCSTlight.png"
-                    darkSrc="/img/logoCSTdark.png"
-                    alt="Logo da CST"
-                    width={200}
-                    height={200}
-                  />
+                  
                 </div>
               
             </div>

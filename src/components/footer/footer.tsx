@@ -24,16 +24,15 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-cinza-900 text-branco-100 py-10">
+    <footer className="bg-azul-500 text-branco-100 py-10">
       <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col sm:flex-row gap-6 sm:gap-4 items-center justify-between">
         
         <div className="flex flex-col items-center sm:items-start gap-6">
           <div className="mb-4 sm:mb-10">
-            <Image src="/img/LOGO-ABERTA.png" alt="Logo LUMI" width={74} height={74} />
+            <Image src="/img/logoLightLumen.png" alt="Logo LUMEN" width={74} height={74} />
           </div>
 
-          {/* Ajuste para manter os links lado a lado em telas pequenas */}
-          <div className="flex items-center justify-center gap-4">
+           <div className="flex items-center justify-center gap-4">
             <Link
               href="https://www.instagram.com/biomobguia/"
               target="_blank"
