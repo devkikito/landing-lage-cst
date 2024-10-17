@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { IoLogoInstagram } from "react-icons/io5";
-import { FaLinkedinIn } from "react-icons/fa";
-import Button from "../button/Button";
+import { FaArrowUp, FaLinkedinIn } from "react-icons/fa";
 import Image from "next/image";
 import logoCSTdark from "../../../public/img/logoCSTdark.png";
 import logoCSTlight from "../../../public/img/logoCSTlight.png";
@@ -19,81 +18,51 @@ const Footer = () => {
 
   const { theme } = useTheme();
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   if (!isMounted) {
     return null;
   }
 
   return (
-    <footer className="bg-azul-500 text-branco-100 py-10">
-      <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col sm:flex-row gap-6 sm:gap-4 items-center justify-between">
-        
-        <div className="flex flex-col items-center sm:items-start gap-6">
-          <div className="mb-4 sm:mb-10">
-            <Image src="/img/logoLightLumen.png" alt="Logo LUMEN" width={74} height={74} />
-          </div>
+    <footer className="bg-azul-500 text-branco-100 py-5">
+      <div className="relative max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col gap-2 items-center justify-between">
+        <Image src="/img/logoLightLumen.png" alt="Logo LUMEN" width={74} height={74} />
 
-           <div className="flex items-center justify-center gap-4">
-            <Link
-              href="https://www.instagram.com/biomobguia/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram da CST Brasil"
-              className="bg-branco-100 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-azul-200"
-            >
-              <IoLogoInstagram
-                className="text-base text-azul-200 hover:text-azul-100"
-                aria-hidden="true"  
-              />
-            </Link>
+        <div className="flex items-center justify-center gap-4">
+          <Link
+            href="https://www.instagram.com/cst.brasil"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram da CST Brasil"
+            className="bg-branco-100 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-azul-200"
+          >
+            <IoLogoInstagram className="text-base text-azul-200 hover:text-azul-100" aria-hidden="true" />
+          </Link>
 
-            <Link
-              href="https://www.linkedin.com/company/biomob/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn da CST Brasil"
-              className="bg-branco-100 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-azul-200"
-            >
-              <FaLinkedinIn
-                className="text-base text-azul-200 hover:text-azul-100"
-                aria-hidden="true" 
-              />
-            </Link>
-
-            <Link
-              href="https://www.cstbrasil.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Acesse o site da CST Brasil"
-              className="focus:outline-none focus:ring-2 focus:ring-azul-200"
-            >
-              <Image
-                src={theme === "dark" ? logoCSTdark : logoCSTlight}
-                alt="Logo CST"
-                width={70}
-                height={50}
-              />
-            </Link>
-          </div>
+          <Link
+            href="https://www.cstbrasil.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Acesse o site da CST Brasil"
+            className="focus:outline-none focus:ring-2 focus:ring-azul-200"
+          >
+            <Image src={theme === "dark" ? logoCSTdark : logoCSTlight} alt="Logo CST" width={70} height={50} />
+          </Link>
         </div>
-
-        <nav className="hidden sm:flex space-x-8 text-center" aria-label="Menu do rodapé">
-          <a href="#" className="text-base text-branco-100 hover:text-branco-100">
-            MOBILITY & SHOW
-          </a>
-          <a href="#" className="text-base text-branco-100 hover:text-branco-100">
-            ISENÇÃO DE IMPOSTOS
-          </a>
-          <a href="#" className="text-base text-branco-100 hover:text-branco-100">
-            TEST - DRIVE
-          </a>
-        </nav>
-
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-base text-center">
-            INSCREVA-SE <br /> AGORA MESMO
-          </p>
-          <Button text="Garantir agora" variant="outlined" />
-        </div>
+        <p className="text-cinza-900-branco">Site desenvolvido pela Biomob - Soluções Inovadoras em Acessibilidade</p>
+        <button
+          onClick={scrollToTop}
+          className="absolute bottom-6 right-6 bg-amarelo-100 text-cinza-900 rounded-full p-2 shadow-lg hover:bg-cinza-900 hover:text-amarelo-100 transition-colors duration-300"
+          aria-label="Voltar ao topo"
+        >
+          <FaArrowUp />
+        </button>
       </div>
     </footer>
   );

@@ -71,7 +71,7 @@ export default function RootLayout({
       <body className={`${epilogue.variable}`}>
         <WindowSizeProvider>
           <HtmlFontSizeProvider>
-            <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={false}>
+            <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={true}>
               <div className="header">
                 <BarTools />
               </div>

@@ -1,35 +1,30 @@
 "use client";
 
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { useHtmlFontSize } from "@/context/HtmlFontSizeContext";
 import { fontSize } from "@/utils/fontSize";
 import { VLibras } from "@/utils/vLibras";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaLinkedinIn } from "react-icons/fa";
-import React from "react";
 import { LibrasButton } from "../button/LibrasButton";
 import { ChangeThemeButton } from "../button/ChangeThemeButton";
+import { useTheme } from "next-themes";
 import logoCSTdark from "../../../public/img/logoCSTdark.png";
 import logoCSTlight from "../../../public/img/logoCSTlight.png";
-import Image from "next/image";
-import { useTheme } from "next-themes"; 
-import Link from 'next/link';
 
 export const BarTools = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
-  const { theme } = useTheme(); 
+  const { theme } = useTheme();
+  const { setHtmlFontSize } = useHtmlFontSize();
 
   React.useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const { setHtmlFontSize } = useHtmlFontSize();
-
-  function openInNewTab(url: string) {
-    window.open(url, "_blank");
-  }
-
   if (!isMounted) {
-    return null; 
+    return null;
   }
 
   return (
@@ -68,15 +63,33 @@ export const BarTools = () => {
         </div>
         <div className="flex items-center justify-center h-[1.925rem] pl-2 gap-x-4">
           <div className="flex items-center justify-center h-[1.925rem] gap-x-2 2sm:gap-x-4">
-          <Link href="https://www.instagram.com/biomobguia/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram do Portal da demência em uma nova aba">
+            <Link
+              href="https://www.instagram.com/cst.brasil"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir Instagram do Portal da demência em uma nova aba"
+            >
               <IoLogoInstagram className="text-cinza-900-azul " />
             </Link>
-            <Link href="https://www.linkedin.com/company/biomob/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn do Portal da demência em uma nova aba">
+            {/* <Link
+              href="https://www.linkedin.com/company/biomob/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir LinkedIn do Portal da demência em uma nova aba"
+            >
               <FaLinkedinIn className="text-lg text-cinza-900-azul " />
-            </Link>
+            </Link> */}
 
             <p className="max-sm:hidden text-lg text-cinza-900-azul">|</p>
-            <p className="max-sm:hidden t1 roboto-font text-cinza-900-azul">Acesse nosso site</p>
+            <Link
+              href={"https://www.cstbrasil.com.br"}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Acesse o site da CST Brasil"
+              className="max-sm:hidden t1 roboto-font text-cinza-900-azul"
+            >
+              Acesse nosso site
+            </Link>
           </div>
           <Link
             href="https://www.cstbrasil.com.br"
@@ -84,12 +97,7 @@ export const BarTools = () => {
             rel="noopener noreferrer"
             aria-label="Acesse o site da CST Brasil"
           >
-            <Image
-              src={theme === "dark" ? logoCSTdark : logoCSTlight}
-              alt="Logo CST"
-              width={70}
-              height={50}
-            />
+            <Image src={theme === "dark" ? logoCSTdark : logoCSTlight} alt="Logo CST" width={70} height={50} />
           </Link>
         </div>
       </div>

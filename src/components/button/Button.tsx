@@ -6,7 +6,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement | HTMLAnchorEleme
   text: string;
   extraClassName?: string;
   variant: "outlined" | "contact" | "default";
-  href?: string; 
+  href?: string;
 }
 
 export const Button = ({ text, extraClassName, variant, href, ...props }: ButtonProps) => {
@@ -25,14 +25,14 @@ export const Button = ({ text, extraClassName, variant, href, ...props }: Button
       hover:bg-amarelo-100 hover:text-cinza-900 flex items-center
     `,
     default: `
-       bg-amarelo-100 text-cinza-900 rounded-[1rem]
-      hover:bg-cinza-900 hover:text-amarelo-100 hover:border hover:border-amarelo-100
-    `,
+    bg-amarelo-100 text-cinza-900 rounded-[1rem]
+    hover:bg-cinza-900 hover:text-amarelo-100 hover:border hover:border-amarelo-100
+    border border-transparent 
+  `,
   };
 
   const iconClass = variant !== "contact" ? <FiArrowRight className="text-xl" /> : null;
 
-  
   if (href) {
     return (
       <Link
@@ -48,7 +48,6 @@ export const Button = ({ text, extraClassName, variant, href, ...props }: Button
       </Link>
     );
   }
-
 
   return (
     <button className={`${baseClass} ${variantClass[variant]} ${extraClassName}`} {...props}>

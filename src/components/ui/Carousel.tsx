@@ -77,6 +77,7 @@ export const Carousel: React.FC<InnovationInMovieSectionType> = ({ images, link,
       });
     }
   };
+
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({

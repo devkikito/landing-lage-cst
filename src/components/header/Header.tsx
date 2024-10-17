@@ -3,9 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { LogoWithTheme } from "../button/LogoWithTheme";
 import Button from "../button/Button";
-import logoLumenLight from "../../../public/img/logoLumenLight.png";
-import Image from "next/image";
-import Link from "next/link";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,6 +22,20 @@ export const Header = () => {
     };
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 150;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <header
       className={`header w-full ${
@@ -35,28 +46,44 @@ export const Header = () => {
       <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 overflow-visible my-0 flex items-center justify-between w-full">
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center">
-            <LogoWithTheme
-              img="/img/logoLightLumen.png"
-              imgDark="/img/logoLightLumen.png"
-              imgAlt="Logo da Lumen"
-            />
+            <LogoWithTheme img="/img/logoLightLumen.png" imgDark="/img/logoLightLumen.png" imgAlt="Logo da Lumen" />
           </div>
           <nav className="items-center justify-center gap-6 flex-grow hidden laptop:flex" aria-label="Menu principal">
-            <Link href="#sobre" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Sobre">
+            <button
+              onClick={() => scrollToSection("sobre")}
+              className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
+              aria-label="Ir para a seção Sobre"
+            >
               Sobre
-            </Link>
-            <Link href="#modulos" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Módulos">
+            </button>
+            <button
+              onClick={() => scrollToSection("modulos")}
+              className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
+              aria-label="Ir para a seção Módulos"
+            >
               Módulos
-            </Link>
-            <Link href="#vantagens" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Vantagens">
+            </button>
+            <button
+              onClick={() => scrollToSection("vantagens")}
+              className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
+              aria-label="Ir para a seção Vantagens"
+            >
               Vantagens
-            </Link>
-            <Link href="#depoimentos" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Depoimentos">
+            </button>
+            <button
+              onClick={() => scrollToSection("depoimentos")}
+              className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
+              aria-label="Ir para a seção Depoimentos"
+            >
               Depoimentos
-            </Link>
-            <Link href="#equipe" className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900" aria-label="Ir para a seção Equipe">
+            </button>
+            <button
+              onClick={() => scrollToSection("equipe")}
+              className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
+              aria-label="Ir para a seção Equipe"
+            >
               Equipe
-            </Link>
+            </button>
           </nav>
           <div className="flex items-center gap-4">
             <div className="hidden sm:block">

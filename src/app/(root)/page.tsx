@@ -6,120 +6,15 @@ import Image from "next/image";
 import { BackgroundImageWithTheme } from "@/components/image/BackgroundImageWithTheme";
 import ResultsSection from "@/components/section/ResultSection";
 import { Carousel } from "@/components/ui/Carousel";
-import InstructorCarousel from "@/components/carousel/InstructorCarousel";
 import ImageWithTheme from "@/components/image/ImageWithTheme";
 import TestimonialCarousel from "@/components/carousel/TestimonialCarousel";
-
-const carousel = [
-  {
-    image: {
-      id: "1",
-      imageUrl: "/img/modulo_1.png",
-      altImage: "Módulo 01",
-      ariaLabel: "Icone do Módulo 01",
-      sizes: "100vw",
-    },
-    texts: {
-      title: "Módulo 01",
-      description:
-        "Introdução - Panorama atual da demência, modelos de demência e tratamentos disponíveis para a condição.",
-    },
-  },
-  {
-    image: {
-      id: "2",
-      imageUrl: "/img/modulo_2.png",
-      altImage: "Módulo 02",
-      ariaLabel: "Icone do Módulo 02",
-      sizes: "100vw",
-    },
-    texts: {
-      title: "Módulo 02",
-      description:
-        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento",
-    },
-  },
-  {
-    image: {
-      id: "3",
-      imageUrl: "/img/modulo_3.png",
-      altImage: "Módulo 03",
-      ariaLabel: "Icone do Módulo 03",
-      sizes: "100vw",
-    },
-    texts: {
-      title: "Módulo 03",
-      description:
-        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação ",
-    },
-  },
-  {
-    image: {
-      id: "4",
-      imageUrl: "/img/modulo_4.jpg",
-      altImage: "Módulo 04",
-      ariaLabel: "Icone do Módulo 04",
-      sizes: "100vw",
-    },
-    texts: {
-      title: "Módulo 04",
-      description: "Apresentação detalhada do tratamento - Princípios gerais do tratamento e apresentação das sessões.",
-    },
-  },
-  {
-    image: {
-      id: "5",
-      imageUrl: "/img/modulo_5.jpg",
-      altImage: "Módulo 05",
-      ariaLabel: "Icone do Módulo 05",
-      sizes: "100vw",
-    },
-    texts: {
-      title: "Módulo 05",
-      description: "Roleplay - Os participantes podem experienciar, na prática, como é ser um facilitador da CST.",
-    },
-  },
-];
-
-const advantagesData = [
-  {
-    id: 1,
-    image: "/img/iconComunityDark.png",
-    imageLight: "/img/iconComunityLight.png",
-    title: "Faça parte de uma comunidade digital com facilitadores da CST de todo o Brasil",
-  },
-
-  {
-    id: 2,
-    image: "/img/iconReconhecimentoDark.png",
-    imageLight: "/img/iconReconhecimentoLight.png",
-    title: "Seja um dos primeiros a ofertar um tratamento inovador e mundialmente reconhecido no Brasil",
-  },
-  {
-    id: 3,
-    image: "/img/iconDiplomaDark.png",
-    imageLight: "/img/iconDiplomalight.png",
-    title: "Tenha acesso a um plano supervisões e certificações após a conclusão do curso",
-  },
-  {
-    id: 4,
-    image: "/img/iconDark.png",
-    imageLight: "/img/iconLight.png",
-    title: "Ajude a cuidar de pessoas com demência através de um tratamento eficaz, protocolizado e sistematizado",
-  },
-  {
-    id: 5,
-    image: "/img/iconScienceDark.png",
-    imageLight: "/img/iconSciencelight.png",
-    title: "Utilize tratamentos baseados em evidências na sua prática clínica",
-  },
-];
-
-
+import { EmblaOptionsType } from "embla-carousel";
+import EmblaCarousel, { images } from "@/components/carousel/EmblaCarousel";
+import InstructorCarousel from "@/components/carousel/InstructorCarousel";
 
 export default function HomePage() {
+  const OPTIONS: EmblaOptionsType = { loop: true };
 
-  
   return (
     <div>
       <BackgroundImageWithTheme
@@ -129,7 +24,7 @@ export default function HomePage() {
       >
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
           <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
-            <h1 className="mt-10 text-6xl  leading-tight text-branco-100">
+            <h1 className="mt-10 sm:text-6xl text-4xl  leading-tight text-branco-100">
               CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA{" "}
               <span className="font-bold">para estudantes e profissionais da saúde!</span>
             </h1>
@@ -144,14 +39,9 @@ export default function HomePage() {
         </div>
       </BackgroundImageWithTheme>
       <div id="sobre">
-        <div  className="mb-[2.375rem]">
-          <div  className="max-w-[70rem] mx-auto">
-            <TitleDefault
-              title="SOBRE A CST"
-              subtitle=""
-              alignment="text-center"
-            />
-            
+        <div className="mb-[2.375rem]">
+          <div className="max-w-[70rem] mx-auto">
+            <TitleDefault title="SOBRE A CST" subtitle="" alignment="text-center" />
           </div>
         </div>
         <ResultsSection />
@@ -192,41 +82,39 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div id="modulos"  className="bg-azul-40/50">
+      <div id="modulos" className="bg-azul-40/50">
         <div className="mb-[2.375rem]">
-        <div className="max-w-[39.938rem] mx-auto">
-          <TitleDefault
-            title="Capacitação para CST"
-            subtitle="Treinamento para se tornar um facilitador(a) da CST"
-            alignment="text-center"
-            extraClassName="sm:hidden" 
-          />
-             
-          <TitleDefault
-            title="CURSO DE CAPACITAÇÃO PARA CST"
-            subtitle="Treinamento para se tornar um facilitador(a) da CST"
-            alignment="text-center"
-            extraClassName="hidden sm:block s" 
-          />
-        </div>  
+          <div className="max-w-[39.938rem] mx-auto">
+            <TitleDefault
+              title="Capacitação para CST"
+              subtitle="Treinamento para se tornar um facilitador(a) da CST"
+              alignment="text-center"
+              extraClassName="sm:hidden"
+            />
+
+            <TitleDefault
+              title="CURSO DE CAPACITAÇÃO PARA CST"
+              subtitle="Treinamento para se tornar um facilitador(a) da CST"
+              alignment="text-center"
+              extraClassName="hidden sm:block s"
+            />
+          </div>
           <p className="px-5 lg:max-w-[65rem] mx-auto text-base text-center">
             Treinamento realizado inteiramente online, oferecendo flexibilidade para se ajustar à sua agenda. Os
             participantes receberão, através do serviço postal, o manual da CST para apoio adicional e certificado de
             conclusão do curso.
             <br />
             <br />
-            
-              Oferecemos pacotes diferenciados para empresas interessadas na implementação da CST em seu serviço. Entre
-              em contato por mensagem.{" "}
-            </p>
-          
+            Oferecemos pacotes diferenciados para empresas interessadas na implementação da CST em seu serviço. Entre em
+            contato por mensagem.{" "}
+          </p>
         </div>
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
-          <Carousel images={carousel} type="2" />
+          <EmblaCarousel type="2" options={OPTIONS} />
         </div>
       </div>
 
-      <div id="vantagens"  className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 pb-12 mt-[4.5rem]">
+      <div id="vantagens" className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 pb-12 mt-[4.5rem]">
         <div className="flex justify-between items-center mb-10 sm:flex-nowrap flex-wrap">
           <div className="mt-4 max-w-[26rem]">
             <TitleDefault
@@ -275,7 +163,7 @@ export default function HomePage() {
       </div>
 
       <div className="max-w-[82.125rem] mx-auto pt-12 px-3 2sm:px-8 flex justify-between items-center mb-10 gap-4  sm:flex-nowrap flex-wrap">
-        <div id="depoimentos" >
+        <div id="depoimentos">
           <TitleDefault
             title="Depoimentos"
             subtitle="Histórias de sucesso"
@@ -285,12 +173,11 @@ export default function HomePage() {
         </div>
         <div className="flex">
           <p className="text-xl max-w-[14rem]">O próximo depoimento pode ser o seu!</p>
-          
         </div>
       </div>
 
       <div className="bg-cover mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
-        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+        <div className="max-w-[82.125rem] mx-auto sm:px-3 2sm:px-8">
           <div className="text-center mb-6">
             <div className="max-w-[50rem] mx-auto px-3 2sm:px-8 rounded-lg bg-[rgba(255,255,255,0.75)] dark:bg-[rgba(0,0,0,0.75)]">
               <TestimonialCarousel />
@@ -299,8 +186,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div id="equipe"  className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
-        <InstructorCarousel />
+      <div id="equipe" className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
+        <InstructorCarousel options={OPTIONS} />
       </div>
 
       <div className="my-10 max-w-[46rem] mx-auto px-3">
@@ -317,11 +204,9 @@ export default function HomePage() {
           <div className="p-6 sm:p-10 h-full bg-cinza-900">
             <div className=" flex flex-col max-w-[30.875rem] justify-between h-full gap-8">
               <p className="mb-0 text-3xl max-w-[27rem] text-branco-100">
-                Inicie sua jornada dentro da metodologia CST</p>
-                <div className="pt-32">
-                  
-                </div>
-              
+                Inicie sua jornada dentro da metodologia CST
+              </p>
+              <div className="pt-32"></div>
             </div>
           </div>
           <div className="bg-branco-cinza-escuro p-6 sm:p-10 text-center md:text-left">
@@ -350,3 +235,37 @@ export default function HomePage() {
     </div>
   );
 }
+
+const advantagesData = [
+  {
+    id: 1,
+    image: "/img/iconComunityDark.png",
+    imageLight: "/img/iconComunityLight.png",
+    title: "Faça parte de uma comunidade digital com facilitadores da CST de todo o Brasil",
+  },
+
+  {
+    id: 2,
+    image: "/img/iconReconhecimentoDark.png",
+    imageLight: "/img/iconReconhecimentoLight.png",
+    title: "Seja um dos primeiros a ofertar um tratamento inovador e mundialmente reconhecido no Brasil",
+  },
+  {
+    id: 3,
+    image: "/img/iconDiplomaDark.png",
+    imageLight: "/img/iconDiplomalight.png",
+    title: "Tenha acesso a um plano supervisões e certificações após a conclusão do curso",
+  },
+  {
+    id: 4,
+    image: "/img/iconDark.png",
+    imageLight: "/img/iconLight.png",
+    title: "Ajude a cuidar de pessoas com demência através de um tratamento eficaz, protocolizado e sistematizado",
+  },
+  {
+    id: 5,
+    image: "/img/iconScienceDark.png",
+    imageLight: "/img/iconSciencelight.png",
+    title: "Utilize tratamentos baseados em evidências na sua prática clínica",
+  },
+];
