@@ -72,7 +72,7 @@ export const profiles = [
   {
     name: "Daniel Mograbi",
     image: "/img/profile-daniel.png",
-    description: `Psicólogo formado pela Universidade Federal do Rio de Janeiro (UFRJ), PhD em Psicologia e Neurociências pelo Institute of Psychiatry, King's College London, atualmente é professor adjunto do Departamento de Psicologia da Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio), pesquisador-visitante de King's College London e professor-colaborador do Programa de Pós-Graduação em Psiquiatria e Saúde Mental do IPUB-UFRJ.`,
+    description: `Psicólogo formado pela UFRJ, PhD em Psicologia e Neurociências pelo Institute of Psychiatry, King's College London. Professor adjunto do Departamento de Psicologia da PUC-Rio, pesquisador-visitante de King's College London e professor-colaborador do Programa de Pós-Graduação em Psiquiatria e Saúde Mental do IPUB-UFRJ. É Jovem Cientista do Nosso Estado pela FAPERJ desde 2016 e foi Newton Advanced Fellow pela Royal Society e Academy of Medical Sciences, UK, entre 2016 e 2019. Em 2019, tornou-se o primeiro pesquisador latino-americano a receber o Early Career Award da International Neuropsychological Society por suas contribuições para a compreensão da relação entre cérebro e comportamento no início de sua trajetória acadêmica. Coordenador do projeto de adaptação e validação da CST para a população Brasileira.`,
     awards: [
       "Recebeu o Early Career Award da International Neuropsychological Society em 2019.",
       "Reconhecimento por suas contribuições no entendimento da relação entre cérebro e comportamento no início de sua carreira acadêmica.",
@@ -81,19 +81,19 @@ export const profiles = [
   {
     name: "Iris Bomilcar",
     image: "/img/profile-iris.jpg",
-    description: `Neurocientista e Mestre em Neurociência Clínica e Experimental pela Universidade de Colônia, Alemanha. Nutricionista formada pela Faculdade Arthur Sá Earp Neto (FASE, Petrópolis, RJ). Doutora em Saúde Mental pelo Instituto de Psiquiatria UFRJ. Formada em Terapia Sistêmica e Terapia Centrada no Cliente pela Universidade de Colônia. Formada em Terapia de Estimulação Cognitiva (CST) pela Dementia Pathfinders Community Interest Company.`,
+    description: `Neurocientista e Mestre em Neurociência Clínica e Experimental pela Universidade de Colônia, Alemanha. Nutricionista formada pela Faculdade Arthur Sá Earp Neto (FASE, Petrópolis, RJ). Doutora em Saúde Mental pelo Instituto de Psiquiatria UFRJ. Formada em Terapia Sistêmica e Terapia Centrada no Cliente pela Universidade de Colônia. Formada em Terapia de Estimulação Cognitiva (CST) pela Dementia Pathfinders Community Interest Company. Coordena a implementação comercial da CST no Brasil. .`,
     awards: ["Coordena a implementação comercial da CST no Brasil. "],
   },
   {
     name: "Renata Naylor",
     image: "/img/profile-renata.png",
-    description: `Psicóloga e mestre em Psicologia Clínica e Neurociências, ambos pela PUC-Rio. Formada em Terapia de Estimulação Cognitiva (CST) pela University College of London, em Terapia Cognitivo-Comportamental pela Ação Cognitiva e formanda em Terapia do Esquema pelo Insere.`,
+    description: `Psicóloga e mestre em Psicologia Clínica e Neurociências, ambos pela PUC-Rio. Formada em Terapia de Estimulação Cognitiva (CST) pela University College of London, em Terapia Cognitivo-Comportamental pela Ação Cognitiva e formanda em Terapia do Esquema pelo Insere. Uma das autoras do manual brasileiro da CST.`,
     awards: ["Uma das autoras do manual brasileiro da CST."],
   },
   {
     name: "Raquel Santos de Carvalho",
     image: "/img/profile-raquel.jpg",
-    description: `Psicóloga graduada pela UFRJ, Mestra e Doutora Saúde Mental pelo Instituto de Psiquiatria da UFRJ. Atualmente, é pesquisadora de pós-doutorado na PUC-Rio. Formada em Terapia de Estimulação Cognitiva (CST) pela University College of London. `,
+    description: `Psicóloga graduada pela UFRJ, Mestra e Doutora Saúde Mental pelo Instituto de Psiquiatria da UFRJ. Atualmente, é pesquisadora de pós-doutorado na PUC-Rio. Formada em Terapia de Estimulação Cognitiva (CST) pela University College of London. Trabalha no projeto de implementação da CST no Brasil, coordenando o desenvolvimento de grupos da CST e de cursos de conscientização para demência no país. `,
     awards: [
       "Trabalha no projeto de implementação da CST no Brasil, coordenando o desenvolvimento de grupos da CST e de cursos de conscientização para demência no país. ",
     ],
@@ -101,7 +101,7 @@ export const profiles = [
   {
     name: "Vitória Velloso",
     image: "/img/profile-vitoria.jpg",
-    description: `Psicóloga formada pela UFRJ. Mestre em Psicologia Clínica e Neurociências pela Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio). Formada em Terapia de Estimulação Cognitiva (CST) pela PUC-Rio`,
+    description: `Psicóloga formada pela UFRJ. Mestre em Psicologia Clínica e Neurociências pela Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio). Formada em Terapia de Estimulação Cognitiva (CST) pela PUC-Rio, onde participou como co-facilitadora na pesquisa de adaptação e validação da CST para o meio virtual. `,
     awards: [
       "Participou como co-facilitadora na pesquisa de adaptação e validação da CST para o meio virtual, na PUC-Rio",
     ],

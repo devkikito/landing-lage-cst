@@ -1,7 +1,6 @@
 import React from "react";
 import ImageWithTheme from "@/components/image/ImageWithTheme";
 
-
 const data = [
   {
     image: "/img/resultados_icone_1.png",
@@ -11,7 +10,7 @@ const data = [
   {
     image: "/img/iconHumanDark.png",
     imageLight: "/img/iconHumanLight.png",
-    title: "Tratamento de baixo custo - Baseado em princípios humanistas e centrado na pessoa",
+    title: "Resultados comprovados por evidências científicas",
   },
   {
     image: "/img/resultados_icone_3.png",
@@ -21,16 +20,14 @@ const data = [
   {
     image: "/img/resultados_icone_2.png",
     imageLight: "/img/resultados_icone_2-light.png",
-    title: "Resultados comprovados por evidências científicas",
+    title: "Baseado em princípios humanistas e centrado na pessoa",
   },
 ];
 
 const ResultsSection = () => {
   return (
     <div className="text-center pb-12 max-w-[82.125rem] mx-auto px-3 2sm:px-8">
-      <div className="mb-6 max-w-[26.563rem] mx-auto">
-        
-      </div>
+      <div className="mb-6 max-w-[26.563rem] mx-auto"></div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {data.map((item, index) => (
           <div key={index} className="flex flex-col items-center">

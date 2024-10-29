@@ -17,6 +17,7 @@
     "@radix-ui/react-popover": "^1.1.1",
     "@serwist/next": "^9.0.3",
     "axios": "^1.7.2",
+    "biomob-next-boilerplate": "file:",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.1.6",

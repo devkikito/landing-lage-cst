@@ -1,16 +1,16 @@
 "use client";
-import { Button } from "@/components/button/Button";
-import { TitleDefault } from "@/components/texts/TitleDefault";
 import React from "react";
 import Image from "next/image";
-import { BackgroundImageWithTheme } from "@/components/image/BackgroundImageWithTheme";
-import ResultsSection from "@/components/section/ResultSection";
-import { Carousel } from "@/components/ui/Carousel";
+import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import ImageWithTheme from "@/components/image/ImageWithTheme";
-import TestimonialCarousel from "@/components/carousel/TestimonialCarousel";
-import { EmblaOptionsType } from "embla-carousel";
-import EmblaCarousel, { images } from "@/components/carousel/EmblaCarousel";
 import InstructorCarousel from "@/components/carousel/InstructorCarousel";
+import ResultsSection from "@/components/section/ResultSection";
+import TestimonialCarousel from "@/components/carousel/TestimonialCarousel";
+import { BackgroundImageWithTheme } from "@/components/image/BackgroundImageWithTheme";
+import { Button } from "@/components/button/Button";
+import { EmblaOptionsType } from "embla-carousel";
+import { TitleDefault } from "@/components/texts/TitleDefault";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 export default function HomePage() {
   const OPTIONS: EmblaOptionsType = { loop: true };
@@ -26,7 +26,7 @@ export default function HomePage() {
           <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
             <h1 className="mt-10 sm:text-6xl text-4xl  leading-tight text-branco-100">
               CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA{" "}
-              <span className="font-bold">para estudantes e profissionais da saúde!</span>
+              <span className="font-bold">Treinamento completo para estudantes e profissionais da saúde!</span>
             </h1>
             <h2 className="mt-2 mb-4 text-base text-branco-100 font-normal leading-7 tracking-wide max-w-[30rem]">
               Primeiro tratamento para demência não medicamentoso, protocolizado e baseado em evidências científicas
@@ -66,8 +66,8 @@ export default function HomePage() {
                 benéficos para o quadro dos pacientes e redução dos níveis de sobrecarga dos cuidadores
               </p>
               <div className="flex flex-row justify-start gap-5">
-                <Button text="Saiba mais" variant="default" href="https://cstbrasil.com.br" />
-                <Button text="Fazer inscrição" variant="default" href="https://cstbrasil.com.br" />
+                <Button text="Saiba mais" variant="default" href="https://cstbrasil.com.br/web/index.php/projeto" />
+                <Button text="Fazer inscrição" variant="default" onClick={() => scrollToSection("inscricao")} />
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function HomePage() {
           <div className="mt-4 max-w-[26rem]">
             <TitleDefault
               title="Vantagens"
-              subtitle="Por que se tornar um profissional especializado na metodologia CST?"
+              subtitle="Por que se tornar um profissional treinado da CST?"
               alignment="text-left"
             />
           </div>
@@ -190,7 +190,7 @@ export default function HomePage() {
         <InstructorCarousel options={OPTIONS} />
       </div>
 
-      <div className="my-10 max-w-[46rem] mx-auto px-3">
+      <div className="my-10 max-w-[46rem] mx-auto px-3" id="inscricao">
         <TitleDefault
           title="Investimento"
           subtitle="Garanta sua vaga hoje mesmo!"
@@ -204,7 +204,7 @@ export default function HomePage() {
           <div className="p-6 sm:p-10 h-full bg-cinza-900">
             <div className=" flex flex-col max-w-[30.875rem] justify-between h-full gap-8">
               <p className="mb-0 text-3xl max-w-[27rem] text-branco-100">
-                Inicie sua jornada dentro da metodologia CST
+                Inicie sua jornada e junte-se hoje mesmo ao nosso time de facilitadores da CST!
               </p>
               <div className="pt-32"></div>
             </div>
@@ -241,7 +241,7 @@ const advantagesData = [
     id: 1,
     image: "/img/iconComunityDark.png",
     imageLight: "/img/iconComunityLight.png",
-    title: "Faça parte de uma comunidade digital com facilitadores da CST de todo o Brasil",
+    title: "Utilize tratamentos baseados em evidências na sua prática clínica",
   },
 
   {
@@ -254,18 +254,18 @@ const advantagesData = [
     id: 3,
     image: "/img/iconDiplomaDark.png",
     imageLight: "/img/iconDiplomalight.png",
-    title: "Tenha acesso a um plano supervisões e certificações após a conclusão do curso",
+    title: "Ajude a cuidar de pessoas com demência através de um tratamento eficaz, protocolizado e sistematizado",
   },
   {
     id: 4,
     image: "/img/iconDark.png",
     imageLight: "/img/iconLight.png",
-    title: "Ajude a cuidar de pessoas com demência através de um tratamento eficaz, protocolizado e sistematizado",
+    title: "Tenha acesso a um plano supervisões e certificações após a conclusão do curso",
   },
   {
     id: 5,
     image: "/img/iconScienceDark.png",
     imageLight: "/img/iconSciencelight.png",
-    title: "Utilize tratamentos baseados em evidências na sua prática clínica",
+    title: "Faça parte de uma comunidade digital com facilitadores da CST de todo o Brasil",
   },
 ];

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { LogoWithTheme } from "../button/LogoWithTheme";
 import Button from "../button/Button";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,20 +22,6 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const headerOffset = 150;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <header
@@ -89,7 +76,12 @@ export const Header = () => {
             <div className="hidden sm:block">
               <Button text="Entrar em contato" variant="contact" aria-label="Entrar em contato" />
             </div>
-            <Button text="Fazer inscrição" variant="default" aria-label="Fazer inscrição" />
+            <Button
+              text="Fazer inscrição"
+              variant="default"
+              aria-label="Fazer inscrição"
+              onClick={() => scrollToSection("inscricao")}
+            />
           </div>
         </div>
       </div>
