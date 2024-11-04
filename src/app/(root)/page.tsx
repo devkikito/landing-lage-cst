@@ -11,9 +11,33 @@ import { Button } from "@/components/button/Button";
 import { EmblaOptionsType } from "embla-carousel";
 import { TitleDefault } from "@/components/texts/TitleDefault";
 import { scrollToSection } from "@/utils/scrollToSection";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 
 export default function HomePage() {
   const OPTIONS: EmblaOptionsType = { loop: true };
+  const [preferenceId, setPreferenceId] = React.useState<string>("");
+  const [isMounted, setIsMouted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setIsMouted(true);
+  }, []);
+
+  React.useEffect(() => {
+    initMercadoPago(process.env.NEXT_PUBLIC_KEY!, { locale: "pt-BR" });
+
+    fetch("http://localhost:3001/create_preference", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        quantity: 1,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => setPreferenceId(data.preferenceId))
+      .catch((error) => console.error("Erro ao buscar o preferenceIds: ", error));
+  }, []);
 
   return (
     <div>
@@ -222,8 +246,8 @@ export default function HomePage() {
                   no cartão de crédito
                 </p>
               </div>
-              <div className="flex justify-center mb-[3.25rem]">
-                <Button text="Garantir minha vaga" variant="default" />
+              <div className="flex justify-center mb-[3.25rem]" id="wallet_container">
+                <Wallet initialization={{ preferenceId: preferenceId }} />
               </div>
               <p className="mt-4 text-base text-center text-cinza-900-branco">
                 Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp

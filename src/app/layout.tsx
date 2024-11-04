@@ -72,10 +72,10 @@ export default function RootLayout({
         <WindowSizeProvider>
           <HtmlFontSizeProvider>
             <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={true}>
-              <div className="header">
+              {/* <div className="header">
                 <BarTools />
               </div>
-              <Header />
+              <Header /> */}
               <main>{children}</main>
               <Footer />
             </ThemeProvider>
