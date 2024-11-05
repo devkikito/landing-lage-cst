@@ -282,8 +282,8 @@ const advantagesData = [
   },
   {
     id: 4,
-    image: "/img/iconDark.png",
-    imageLight: "/img/iconLight.png",
+    image: "/img/IconDark.png",
+    imageLight: "/img/IconLight.png",
     title: "Tenha acesso a um plano supervisões e certificações após a conclusão do curso",
   },
   {
