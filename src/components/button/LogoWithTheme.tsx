@@ -38,7 +38,7 @@ export const LogoWithTheme: React.FC<LogoWithThemeProps> = ({ img, imgAlt = "Log
           altImage={imgAlt}
           ariaLabel={imgAlt}
           sizes="100vw"
-          className="w-[4.81rem]"
+          className="w-[3.81rem]"
         />
       )}
     </Link>

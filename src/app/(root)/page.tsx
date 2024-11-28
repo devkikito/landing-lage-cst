@@ -12,11 +12,82 @@ import { EmblaOptionsType } from "embla-carousel";
 import { TitleDefault } from "@/components/texts/TitleDefault";
 import { scrollToSection } from "@/utils/scrollToSection";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import { useRouter } from "next/navigation";
+import FaqItem from "@/components/ui/FaqItem";
+
+const faqData = [
+  {
+    question: "O que é a capacitação em CST?",
+    answer:
+      "A capacitação em Terapia de Estimulação Cognitiva (CST) é um treinamento destinado a profissionais da saúde que desejam se especializar na aplicação dessa intervenção, reconhecida globalmente como um tratamento eficaz e baseado em evidências para pessoas com demência.",
+  },
+  {
+    question: "Quem pode participar do curso?",
+    answer:
+      "Este curso é direcionado a profissionais de saúde de todos os níveis, como psicólogos, terapeutas ocupacionais, enfermeiros, entre outros e alunos de graduação que estejam cursando o 8º período ou períodos mais avançados. Experiência com idosos é desejável, mas não obrigatória para participar.",
+  },
+  {
+    question: "Como o curso é estruturado?",
+    answer:
+      "A capacitação é realizada em um dia, com duração de 8 horas. Durante o curso, você aprenderá sobre modelos e tipos de demência, as pesquisas e a base de evidências da CST, os princípios, suas aplicações e sessões e terá uma oportunidade prática de simular sessões em um roleplay supervisionado.",
+  },
+  {
+    question: "O curso é oferecido presencialmente ou online?",
+    answer:
+      "Oferecemos o curso na modalidade online, realizada via videoconferência, com link enviado aos participantes. O formato presencial é ofertado de forma exclusiva em parceria com empresas e ocorre em local e data a serem estabelecidos.",
+  },
+  {
+    question: "Como faço para me inscrever?",
+    answer:
+      "Para se inscrever, basta acessar nosso site e seguir as instruções de cadastro. Você precisará fornecer algumas informações pessoais para garantir seu acesso ao curso.",
+  },
+  {
+    question: "Receberei algum certificado ao concluir o curso?",
+    answer:
+      "Sim, todos os participantes que completarem o treinamento recebem um certificado da formação de facilitadores da CST, emitido pela Lumen Ciência e Saúde, reconhecendo sua qualificação para aplicar a CST. Lembramos que a conclusão do curso não garante a aplicação do conteúdo como um curso derivado.",
+  },
+  {
+    question: "Terei acesso ao manual da CST?",
+    answer:
+      "Sim, após a conclusão do treinamento, uma cópia do manual será enviada para o endereço que você preferir. Ressaltamos que o manual da CST é de uso pessoal, com conteúdo protegido por direitos autorais e destinado exclusivamente ao uso pessoal e profissional do participante. O participante não pode gravar, reproduzir, distribuir, comercializar ou modificar qualquer conteúdo do manual sem permissão prévia da empresa.",
+  },
+  {
+    question: "Posso gravar as aulas ou compartilhar o conteúdo do curso?",
+    answer:
+      "Não. Todo o conteúdo do curso é protegido por direitos autorais e é destinado exclusivamente ao uso pessoal e profissional do participante. A gravação, reprodução ou compartilhamento do material sem autorização é proibida.",
+  },
+  {
+    question: "Quais são os benefícios de fazer essa capacitação?",
+    answer:
+      "Além de aprender uma intervenção eficaz e humanizada para o tratamento de demência, você estará habilitado a aplicá-la com base em um protocolo estruturado e cientificamente validado, que é amplamente recomendado por diretrizes internacionais.",
+  },
+  {
+    question: "Após a conclusão do treinamento, posso oferecer cursos de capacitação da CST?",
+    answer:
+      "Não. O conhecimento adquirido é destinado exclusivamente ao uso profissional direto do participante e não autoriza a criação de cursos derivados ou a formação de terceiros com base no conteúdo CST.",
+  },
+  {
+    question: "O que acontece se eu precisar cancelar minha inscrição?",
+    answer:
+      "Se precisar cancelar sua inscrição, entre em contato conosco. Lembramos que o cancelamento pode estar sujeito a uma multa, conforme especificado em nossos Termos de Uso.",
+  },
+  {
+    question: "Preciso de material específico para o curso?",
+    answer:
+      "Para a versão online, é importante estar em um ambiente silencioso, com uma boa conexão de internet para acompanhar as atividades, além de papel e caneta para anotações.",
+  },
+  {
+    question: "Como posso obter mais informações?",
+    answer:
+      "Se tiver outras dúvidas ou precisar de mais detalhes sobre o curso, entre em contato com nossa equipe pelo e-mail treinamento@cstbrasil.com.br. Teremos o prazer em ajudá-lo!",
+  },
+];
 
 export default function HomePage() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   const [preferenceId, setPreferenceId] = React.useState<string>("");
   const [isMounted, setIsMouted] = React.useState<boolean>(false);
+  const router = useRouter();
 
   React.useEffect(() => {
     setIsMouted(true);
@@ -223,35 +294,63 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="text-branco-100-2 py-12 px-6 mb-[4rem]">
-        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 grid grid-cols-1 md:grid-cols-2 items-center">
-          <div className="p-6 sm:p-10 h-full bg-cinza-900">
-            <div className=" flex flex-col max-w-[30.875rem] justify-between h-full gap-8">
-              <p className="mb-0 text-3xl max-w-[27rem] text-branco-100">
-                Inicie sua jornada e junte-se hoje mesmo ao nosso time de facilitadores da CST!
+      <div className="text-branco-100-2 py-12 sm:px-6 mb-[4rem]">
+        <div className="max-w-[82.125rem] sm:px-3 flex flex-col md:grid md:grid-cols-2 items-center mx-auto">
+          <div className="p-6 sm:p-10 h-full bg-cinza-900 ">
+            <div className=" flex flex-col  justify-between h-full gap-8">
+              <p className="text-3xl max-w-[27rem] text-branco-100 flex items-center my-16">
+                Inicie sua jornada e junte-se hoje mesmo ao nosso time de facilitadores da CST! Este não é um curso
+                gravado. As aulas são ministradas ao vivo por especialistas altamente capacitados, garantindo uma
+                experiência de aprendizado interativa e personalizada para você. Não perca a oportunidade de aprender
+                diretamente com quem entende do assunto!
               </p>
-              <div className="pt-32"></div>
             </div>
           </div>
           <div className="bg-branco-cinza-escuro p-6 sm:p-10 text-center md:text-left">
-            <div className="max-w-[30.438rem]">
+            <div className="max-w-[30.438rem] mx-auto">
               <p className="text-3xl mb-8 text-cinza-900-branco">Seu investimento</p>
-              <div className="flex justify-between mb-8 gap-2 sm:flex-nowrap flex-wrap">
+              <div className="flex justify-between items-center mb-8 gap-2 sm:flex-nowrap flex-wrap">
                 <div>
                   <p className="text-xl text-cinza-900-branco">De R$ 3.500 por</p>
                   <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.300</p>
                 </div>
                 <p className="text-base text-cinza-900-branco justify-end">
-                  Ou em até 05x <br />
+                  Ou em até 05x de R$460,00 <br />
                   no cartão de crédito
                 </p>
               </div>
-              <div className="flex justify-center mb-[3.25rem]" id="wallet_container">
-                <Wallet initialization={{ preferenceId: preferenceId }} />
+              <div className="flex flex-col text-center gap-4">
+                <p className="text-base text-cinza-900-branco justify-end">
+                  Já temos as datas para o primeiro semestre de 2025:
+                </p>
+                <div className="flex flex-wrap justify-center w-full gap-1 [&>span]:cursor-pointer">
+                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">21/02</span>
+                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">29/03</span>
+                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">12/04</span>
+                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">31/05</span>
+                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">28/06</span>
+                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">26/07</span>
+                </div>
+                <Button text="Quero fazer parte" variant="default" />
               </div>
+              {/* Pagamento com mercado pago */}
+              {/* <div className="flex justify-center mb-[3.25rem]" id="wallet_container">
+                <Wallet initialization={{ preferenceId: preferenceId }} />
+              </div> */}
               <p className="mt-4 text-base text-center text-cinza-900-branco">
                 Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp
               </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-8 items-center justify-center py-12 mt-8 w-full col-span-2">
+            <div id="faq">
+              <TitleDefault title="Perguntas Frequentes (FAQ)" alignment="text-left" />
+            </div>
+            <div className="space-y-4 w-full">
+              {faqData.map((item, index) => (
+                <FaqItem key={index} question={item.question} answer={item.answer} />
+              ))}
             </div>
           </div>
         </div>
