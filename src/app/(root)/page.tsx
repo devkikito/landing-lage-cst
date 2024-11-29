@@ -298,7 +298,7 @@ export default function HomePage() {
         <div className="max-w-[82.125rem] sm:px-3 flex flex-col md:grid md:grid-cols-2 items-center mx-auto">
           <div className="p-6 sm:p-10 h-full bg-cinza-900 ">
             <div className=" flex flex-col  justify-between h-full gap-8">
-              <p className="text-3xl max-w-[27rem] text-branco-100-2 flex items-center my-16">
+              <p className="text-3xl max-w-[27rem] text-branco-100 flex items-center my-16">
                 Inicie sua jornada e junte-se hoje mesmo ao nosso time de facilitadores da CST! Este não é um curso
                 gravado. As aulas são ministradas ao vivo por especialistas altamente capacitados, garantindo uma
                 experiência de aprendizado interativa e personalizada para você. Não perca a oportunidade de aprender
