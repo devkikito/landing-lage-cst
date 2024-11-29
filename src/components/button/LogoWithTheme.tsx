@@ -23,7 +23,7 @@ export const LogoWithTheme: React.FC<LogoWithThemeProps> = ({ img, imgAlt = "Log
   if (!mounted) {
     return (
       <Link href="/" className="relative w-100%">
-        <NextImage imageUrl={img} altImage={imgAlt} ariaLabel={imgAlt} sizes="100vw" className="w-[4.671rem]" />
+        <NextImage imageUrl={img} altImage={imgAlt} ariaLabel={imgAlt} sizes="100vw" className="w-[2.671rem]" />
       </Link>
     );
   }
@@ -31,14 +31,14 @@ export const LogoWithTheme: React.FC<LogoWithThemeProps> = ({ img, imgAlt = "Log
   return (
     <Link href="/" className="relative w-100%">
       {theme == "light" ? (
-        <NextImage imageUrl={img} altImage={imgAlt} ariaLabel={imgAlt} sizes="100vw" className="w-[4.671rem]" />
+        <NextImage imageUrl={img} altImage={imgAlt} ariaLabel={imgAlt} sizes="100vw" className="w-[2.671rem]" />
       ) : (
         <NextImage
           imageUrl={imgDark || img}
           altImage={imgAlt}
           ariaLabel={imgAlt}
           sizes="100vw"
-          className="w-[3.81rem]"
+          className="w-[2.671rem]"
         />
       )}
     </Link>

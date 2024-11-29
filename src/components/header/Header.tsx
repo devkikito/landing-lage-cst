@@ -25,15 +25,14 @@ export const Header = () => {
 
   return (
     <header
-      className={`header w-full ${
-        isScrolled ? "bg-azul-500" : ""
-      } flex items-center justify-center max-sm:px-2 max-2sm:flex-col-reverse py-2 fixed top-[2.813rem] z-50`}
+      className={`header w-full bg-azul-500 
+      flex items-center justify-center max-sm:px-2 max-2sm:flex-col-reverse py-2 fixed top-[2.813rem] z-50`}
       aria-label="Cabeçalho principal"
     >
       <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 overflow-visible my-0 flex items-center justify-between w-full">
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center">
-            <LogoWithTheme img="/img/logoLightLumen.png" imgDark="/img/logoLightLumen.png" imgAlt="Logo da Lumen" />
+            <LogoWithTheme img="/img/logoLightLumen.png" imgDark="/img/logoDarkLumen.png" imgAlt="Logo da Lumen" />
           </div>
           <nav className="items-center justify-center gap-6 flex-grow hidden laptop:flex" aria-label="Menu principal">
             <button
@@ -74,7 +73,12 @@ export const Header = () => {
           </nav>
           <div className="flex items-center gap-4">
             <div className="hidden sm:block">
-              <Button text="Entrar em contato" variant="contact" aria-label="Entrar em contato" />
+              <Button
+                text="Entrar em contato"
+                onClick={() => scrollToSection("contato")}
+                variant="contact"
+                aria-label="Entrar em contato"
+              />
             </div>
             <Button
               text="Fazer inscrição"

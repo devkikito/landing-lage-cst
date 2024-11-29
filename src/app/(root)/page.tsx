@@ -127,7 +127,7 @@ export default function HomePage() {
               Primeiro tratamento para demência não medicamentoso, protocolizado e baseado em evidências científicas
             </h2>
             <div>
-              <Button text="Inscreva-se" variant="outlined" />
+              <Button text="Inscreva-se" variant="outlined" onClick={() => scrollToSection("inscricao")} />
             </div>
           </div>
           <div className="flex flex-col basis-full lg:basis-1/2 mt-6 lg:mt-16"></div>
@@ -172,7 +172,7 @@ export default function HomePage() {
               alt="Terapia de estimulação Cognitiva"
               height={408}
               width={1298}
-              className="rounded-lg w-full"
+              className="rounded-lg w-full object-cover h-auto aspect-[1440/500]"
             />
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function HomePage() {
       <div className="bg-cover mb-[4.5rem] py-12 min-h-[33.75rem] bg-[url('/img/bg-depoimentos.png')] content-center">
         <div className="max-w-[82.125rem] mx-auto sm:px-3 2sm:px-8">
           <div className="text-center mb-6">
-            <div className="max-w-[50rem] mx-auto px-3 2sm:px-8 rounded-lg bg-[rgba(255,255,255,0.75)] dark:bg-[rgba(0,0,0,0.75)]">
+            <div className="max-w-[50rem] mx-auto px-3 2sm:px-8 rounded-lg bg-[rgba(255,255,255,0.75)] dark:bg-[rgba(0,0,0,0.75)] select-none">
               <TestimonialCarousel />
             </div>
           </div>
@@ -294,11 +294,11 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="text-branco-100-2 py-12 sm:px-6 mb-[4rem]">
+      <div className=" py-12 sm:px-6 mb-[4rem]">
         <div className="max-w-[82.125rem] sm:px-3 flex flex-col md:grid md:grid-cols-2 items-center mx-auto">
           <div className="p-6 sm:p-10 h-full bg-cinza-900 ">
             <div className=" flex flex-col  justify-between h-full gap-8">
-              <p className="text-3xl max-w-[27rem] text-branco-100 flex items-center my-16">
+              <p className="text-3xl max-w-[27rem] text-branco-100-2 flex items-center my-16">
                 Inicie sua jornada e junte-se hoje mesmo ao nosso time de facilitadores da CST! Este não é um curso
                 gravado. As aulas são ministradas ao vivo por especialistas altamente capacitados, garantindo uma
                 experiência de aprendizado interativa e personalizada para você. Não perca a oportunidade de aprender
@@ -351,6 +351,34 @@ export default function HomePage() {
               {faqData.map((item, index) => (
                 <FaqItem key={index} question={item.question} answer={item.answer} />
               ))}
+            </div>
+          </div>
+
+          <div id="contato" className="flex flex-col gap-8 items-start justify-center py-12 mt-8 w-full col-span-2">
+            <TitleDefault
+              title="Contato"
+              subtitle="Estamos aqui para oferecer o melhor atendimento possível"
+              description="Confira alguns depoimentos de pacientes e familiares sobre a participação na CST e de profissionais da área da saúde que atuam como facilitadores."
+              alignment="text-left"
+            />
+            <div className="flex gap-4">
+              <Button
+                text="Email"
+                variant="default"
+                onClick={() => window.open("mailto:treinamento@cstbrasil.com.br", "_blank")}
+              />
+              <Button
+                text="Whatsapp"
+                variant="default"
+                onClick={() =>
+                  window.open("https://wa.me/552498192132?text=Olá, gostaria de entrar em contato!", "_blank")
+                }
+              />
+              <Button
+                text="Instagram"
+                variant="default"
+                onClick={() => window.open("https://www.instagram.com/cst.brasil/", "_blank")}
+              />
             </div>
           </div>
         </div>

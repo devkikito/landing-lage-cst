@@ -6,13 +6,14 @@ import Link from "next/link";
 import { useHtmlFontSize } from "@/context/HtmlFontSizeContext";
 import { fontSize } from "@/utils/fontSize";
 import { VLibras } from "@/utils/vLibras";
-import { IoLogoInstagram } from "react-icons/io5";
+import { IoLogoInstagram, IoLogoWhatsapp } from "react-icons/io5";
 import { FaLinkedinIn } from "react-icons/fa";
 import { LibrasButton } from "../button/LibrasButton";
 import { ChangeThemeButton } from "../button/ChangeThemeButton";
 import { useTheme } from "next-themes";
 import logoCSTdark from "../../../public/img/logoCSTdark.png";
 import logoCSTlight from "../../../public/img/logoCSTlight.png";
+import { IoMdMail } from "react-icons/io";
 
 export const BarTools = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
@@ -64,25 +65,36 @@ export const BarTools = () => {
         <div className="flex items-center justify-center h-[1.925rem] pl-2 gap-x-4">
           <div className="flex items-center justify-center h-[1.925rem] gap-x-2 2sm:gap-x-4">
             <Link
+              href="mailto:treinamento@cstbrasil.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Enviar email para treinamento@cstbrasil.com.br"
+            >
+              <IoMdMail className="text-cinza-900-azul" />
+            </Link>
+
+            <Link
+              href="https://wa.me/552498192132?text=Olá, gostaria de entrar em contato!"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir WhatsApp para entrar em contato com CST Brasil em uma nova aba"
+            >
+              <IoLogoWhatsapp className="text-cinza-900-azul" />
+            </Link>
+
+            <Link
               href="https://www.instagram.com/cst.brasil"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Abrir Instagram do Portal da demência em uma nova aba"
             >
-              <IoLogoInstagram className="text-cinza-900-azul " />
+              <IoLogoInstagram className="text-cinza-900-azul" />
             </Link>
-            {/* <Link
-              href="https://www.linkedin.com/company/biomob/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Abrir LinkedIn do Portal da demência em uma nova aba"
-            >
-              <FaLinkedinIn className="text-lg text-cinza-900-azul " />
-            </Link> */}
 
             <p className="max-sm:hidden text-lg text-cinza-900-azul">|</p>
+
             <Link
-              href={"https://www.cstbrasil.com.br"}
+              href="https://www.cstbrasil.com.br"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Acesse o site da CST Brasil"
