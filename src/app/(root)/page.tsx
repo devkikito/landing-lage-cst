@@ -120,12 +120,25 @@ export default function HomePage() {
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
           <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
             <h1 className="mt-10 sm:text-6xl text-4xl  leading-tight text-branco-100">
-              CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA{" "}
+              CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA
               <span className="font-bold">Treinamento completo para estudantes e profissionais da saúde!</span>
             </h1>
             <h2 className="mt-2 mb-4 text-base text-branco-100 font-normal leading-7 tracking-wide max-w-[30rem]">
               Primeiro tratamento para demência não medicamentoso, protocolizado e baseado em evidências científicas
             </h2>
+            <div className="flex flex-col text-start gap-4 mb-4">
+              <p className="text-base  text-branco-100 justify-end">
+                Já temos as datas para o primeiro semestre de 2025:
+              </p>
+              <div className="flex flex-wrap justify-start w-full gap-1 ">
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">21/02</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">29/03</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">12/04</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">31/05</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">28/06</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">26/07</span>
+              </div>
+            </div>
             <div>
               <Button text="Inscreva-se" variant="outlined" onClick={() => scrollToSection("inscricao")} />
             </div>
@@ -354,14 +367,17 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div id="contato" className="flex flex-col gap-8 items-start justify-center py-12 mt-8 w-full col-span-2">
+          <div
+            id="contato"
+            className="flex flex-col gap-8 items-start justify-center px-4 py-12 mt-8 w-full col-span-2"
+          >
             <TitleDefault
               title="Contato"
               subtitle="Estamos aqui para oferecer o melhor atendimento possível"
               description="Confira alguns depoimentos de pacientes e familiares sobre a participação na CST e de profissionais da área da saúde que atuam como facilitadores."
               alignment="text-left"
             />
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <Button
                 text="Email"
                 variant="default"
