@@ -15,74 +15,6 @@ import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import { useRouter } from "next/navigation";
 import FaqItem from "@/components/ui/FaqItem";
 
-const faqData = [
-  {
-    question: "O que é a capacitação em CST?",
-    answer:
-      "A capacitação em Terapia de Estimulação Cognitiva (CST) é um treinamento destinado a profissionais da saúde que desejam se especializar na aplicação dessa intervenção, reconhecida globalmente como um tratamento eficaz e baseado em evidências para pessoas com demência.",
-  },
-  {
-    question: "Quem pode participar do curso?",
-    answer:
-      "Este curso é direcionado a profissionais de saúde de todos os níveis, como psicólogos, terapeutas ocupacionais, enfermeiros, entre outros e alunos de graduação que estejam cursando o 8º período ou períodos mais avançados. Experiência com idosos é desejável, mas não obrigatória para participar.",
-  },
-  {
-    question: "Como o curso é estruturado?",
-    answer:
-      "A capacitação é realizada em um dia, com duração de 8 horas. Durante o curso, você aprenderá sobre modelos e tipos de demência, as pesquisas e a base de evidências da CST, os princípios, suas aplicações e sessões e terá uma oportunidade prática de simular sessões em um roleplay supervisionado.",
-  },
-  {
-    question: "O curso é oferecido presencialmente ou online?",
-    answer:
-      "Oferecemos o curso na modalidade online, realizada via videoconferência, com link enviado aos participantes. O formato presencial é ofertado de forma exclusiva em parceria com empresas e ocorre em local e data a serem estabelecidos.",
-  },
-  {
-    question: "Como faço para me inscrever?",
-    answer:
-      "Para se inscrever, basta acessar nosso site e seguir as instruções de cadastro. Você precisará fornecer algumas informações pessoais para garantir seu acesso ao curso.",
-  },
-  {
-    question: "Receberei algum certificado ao concluir o curso?",
-    answer:
-      "Sim, todos os participantes que completarem o treinamento recebem um certificado da formação de facilitadores da CST, emitido pela Lumen Ciência e Saúde, reconhecendo sua qualificação para aplicar a CST. Lembramos que a conclusão do curso não garante a aplicação do conteúdo como um curso derivado.",
-  },
-  {
-    question: "Terei acesso ao manual da CST?",
-    answer:
-      "Sim, após a conclusão do treinamento, uma cópia do manual será enviada para o endereço que você preferir. Ressaltamos que o manual da CST é de uso pessoal, com conteúdo protegido por direitos autorais e destinado exclusivamente ao uso pessoal e profissional do participante. O participante não pode gravar, reproduzir, distribuir, comercializar ou modificar qualquer conteúdo do manual sem permissão prévia da empresa.",
-  },
-  {
-    question: "Posso gravar as aulas ou compartilhar o conteúdo do curso?",
-    answer:
-      "Não. Todo o conteúdo do curso é protegido por direitos autorais e é destinado exclusivamente ao uso pessoal e profissional do participante. A gravação, reprodução ou compartilhamento do material sem autorização é proibida.",
-  },
-  {
-    question: "Quais são os benefícios de fazer essa capacitação?",
-    answer:
-      "Além de aprender uma intervenção eficaz e humanizada para o tratamento de demência, você estará habilitado a aplicá-la com base em um protocolo estruturado e cientificamente validado, que é amplamente recomendado por diretrizes internacionais.",
-  },
-  {
-    question: "Após a conclusão do treinamento, posso oferecer cursos de capacitação da CST?",
-    answer:
-      "Não. O conhecimento adquirido é destinado exclusivamente ao uso profissional direto do participante e não autoriza a criação de cursos derivados ou a formação de terceiros com base no conteúdo CST.",
-  },
-  {
-    question: "O que acontece se eu precisar cancelar minha inscrição?",
-    answer:
-      "Se precisar cancelar sua inscrição, entre em contato conosco. Lembramos que o cancelamento pode estar sujeito a uma multa, conforme especificado em nossos Termos de Uso.",
-  },
-  {
-    question: "Preciso de material específico para o curso?",
-    answer:
-      "Para a versão online, é importante estar em um ambiente silencioso, com uma boa conexão de internet para acompanhar as atividades, além de papel e caneta para anotações.",
-  },
-  {
-    question: "Como posso obter mais informações?",
-    answer:
-      "Se tiver outras dúvidas ou precisar de mais detalhes sobre o curso, entre em contato com nossa equipe pelo e-mail treinamento@cstbrasil.com.br. Teremos o prazer em ajudá-lo!",
-  },
-];
-
 export default function HomePage() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   const [preferenceId, setPreferenceId] = React.useState<string>("");
@@ -120,8 +52,8 @@ export default function HomePage() {
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
           <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
             <h1 className="mt-10 sm:text-6xl text-4xl  leading-tight text-branco-100">
-              CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA
-              <span className="font-bold">Treinamento completo para estudantes e profissionais da saúde!</span>
+              CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA{" "}
+              <span className="font-bold"> Treinamento completo para estudantes e profissionais da saúde!</span>
             </h1>
             <h2 className="mt-2 mb-4 text-base text-branco-100 font-normal leading-7 tracking-wide max-w-[30rem]">
               Primeiro tratamento para demência não medicamentoso, protocolizado e baseado em evidências científicas
@@ -402,6 +334,74 @@ export default function HomePage() {
     </div>
   );
 }
+
+const faqData = [
+  {
+    question: "O que é a capacitação em CST?",
+    answer:
+      "A capacitação em Terapia de Estimulação Cognitiva (CST) é um treinamento destinado a profissionais da saúde que desejam se especializar na aplicação dessa intervenção, reconhecida globalmente como um tratamento eficaz e baseado em evidências para pessoas com demência.",
+  },
+  {
+    question: "Quem pode participar do curso?",
+    answer:
+      "Este curso é direcionado a profissionais de saúde de todos os níveis, como psicólogos, terapeutas ocupacionais, enfermeiros, entre outros e alunos de graduação que estejam cursando o 8º período ou períodos mais avançados. Experiência com idosos é desejável, mas não obrigatória para participar.",
+  },
+  {
+    question: "Como o curso é estruturado?",
+    answer:
+      "A capacitação é realizada em um dia, com duração de 8 horas. Durante o curso, você aprenderá sobre modelos e tipos de demência, as pesquisas e a base de evidências da CST, os princípios, suas aplicações e sessões e terá uma oportunidade prática de simular sessões em um roleplay supervisionado.",
+  },
+  {
+    question: "O curso é oferecido presencialmente ou online?",
+    answer:
+      "Oferecemos o curso na modalidade online, realizada via videoconferência, com link enviado aos participantes. O formato presencial é ofertado de forma exclusiva em parceria com empresas e ocorre em local e data a serem estabelecidos.",
+  },
+  {
+    question: "Como faço para me inscrever?",
+    answer:
+      "Para se inscrever, basta acessar nosso site e seguir as instruções de cadastro. Você precisará fornecer algumas informações pessoais para garantir seu acesso ao curso.",
+  },
+  {
+    question: "Receberei algum certificado ao concluir o curso?",
+    answer:
+      "Sim, todos os participantes que completarem o treinamento recebem um certificado da formação de facilitadores da CST, emitido pela Lumen Ciência e Saúde, reconhecendo sua qualificação para aplicar a CST. Lembramos que a conclusão do curso não garante a aplicação do conteúdo como um curso derivado.",
+  },
+  {
+    question: "Terei acesso ao manual da CST?",
+    answer:
+      "Sim, após a conclusão do treinamento, uma cópia do manual será enviada para o endereço que você preferir. Ressaltamos que o manual da CST é de uso pessoal, com conteúdo protegido por direitos autorais e destinado exclusivamente ao uso pessoal e profissional do participante. O participante não pode gravar, reproduzir, distribuir, comercializar ou modificar qualquer conteúdo do manual sem permissão prévia da empresa.",
+  },
+  {
+    question: "Posso gravar as aulas ou compartilhar o conteúdo do curso?",
+    answer:
+      "Não. Todo o conteúdo do curso é protegido por direitos autorais e é destinado exclusivamente ao uso pessoal e profissional do participante. A gravação, reprodução ou compartilhamento do material sem autorização é proibida.",
+  },
+  {
+    question: "Quais são os benefícios de fazer essa capacitação?",
+    answer:
+      "Além de aprender uma intervenção eficaz e humanizada para o tratamento de demência, você estará habilitado a aplicá-la com base em um protocolo estruturado e cientificamente validado, que é amplamente recomendado por diretrizes internacionais.",
+  },
+  {
+    question: "Após a conclusão do treinamento, posso oferecer cursos de capacitação da CST?",
+    answer:
+      "Não. O conhecimento adquirido é destinado exclusivamente ao uso profissional direto do participante e não autoriza a criação de cursos derivados ou a formação de terceiros com base no conteúdo CST.",
+  },
+  {
+    question: "O que acontece se eu precisar cancelar minha inscrição?",
+    answer:
+      "Se precisar cancelar sua inscrição, entre em contato conosco. Lembramos que o cancelamento pode estar sujeito a uma multa, conforme especificado em nossos Termos de Uso.",
+  },
+  {
+    question: "Preciso de material específico para o curso?",
+    answer:
+      "Para a versão online, é importante estar em um ambiente silencioso, com uma boa conexão de internet para acompanhar as atividades, além de papel e caneta para anotações.",
+  },
+  {
+    question: "Como posso obter mais informações?",
+    answer:
+      "Se tiver outras dúvidas ou precisar de mais detalhes sobre o curso, entre em contato com nossa equipe pelo e-mail treinamento@cstbrasil.com.br. Teremos o prazer em ajudá-lo!",
+  },
+];
 
 const advantagesData = [
   {
