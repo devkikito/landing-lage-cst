@@ -11,36 +11,21 @@ import { Button } from "@/components/button/Button";
 import { EmblaOptionsType } from "embla-carousel";
 import { TitleDefault } from "@/components/texts/TitleDefault";
 import { scrollToSection } from "@/utils/scrollToSection";
-import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
-import { useRouter } from "next/navigation";
 import FaqItem from "@/components/ui/FaqItem";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
   const OPTIONS: EmblaOptionsType = { loop: true };
-  const [preferenceId, setPreferenceId] = React.useState<string>("");
-  const [isMounted, setIsMouted] = React.useState<boolean>(false);
   const router = useRouter();
+  const [isMounted, setIsMouted] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     setIsMouted(true);
   }, []);
 
-  React.useEffect(() => {
-    initMercadoPago(process.env.NEXT_PUBLIC_KEY!, { locale: "pt-BR" });
-
-    fetch("http://localhost:3001/create_preference", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        quantity: 1,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => setPreferenceId(data.preferenceId))
-      .catch((error) => console.error("Erro ao buscar o preferenceIds: ", error));
-  }, []);
+  if (!isMounted) {
+    return;
+  }
 
   return (
     <div>
@@ -276,12 +261,9 @@ export default function HomePage() {
                   <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">28/06</span>
                   <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">26/07</span>
                 </div>
-                <Button text="Quero fazer parte" variant="default" />
+                <Button text="Quero fazer parte" variant="default" onClick={() => router.push("/planos")} />
               </div>
-              {/* Pagamento com mercado pago */}
-              {/* <div className="flex justify-center mb-[3.25rem]" id="wallet_container">
-                <Wallet initialization={{ preferenceId: preferenceId }} />
-              </div> */}
+
               <p className="mt-4 text-base text-center text-cinza-900-branco">
                 Pagamento por boleto, à vista por favor consultar a secretaria pelo WhatsApp
               </p>

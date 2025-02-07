@@ -47,6 +47,7 @@ const config: Config = {
         "max-2xl": { raw: "(max-width: 1536px)" },
       },
       colors: {
+        fundo: "rgb(var(--var-fundo))",
         branco: {
           "100": "rgb(var(--var-branco-100))",
           "100-2": "rgb(var(--var-branco-100-2))",

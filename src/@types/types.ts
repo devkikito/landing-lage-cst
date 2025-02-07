@@ -67,6 +67,70 @@ type MainCoverType = {
   textCenter: string;
 };
 
+export type Product = {
+  id: string;
+  title: string;
+  value: string;
+  startDate: string;
+  description: string;
+  pixBoletoValue: string;
+  creditCardValue: string;
+  createdAt: string;
+  updatedAt: string;
+  link?: string;
+};
+
+export type UserProduct = {
+  id: string;
+  externalReference: string;
+  productId: string;
+  userId: string;
+  status: string;
+  paymentId: string;
+  paymentType: string;
+  merchantOrderId: string;
+  preferenceId: string | null;
+  siteId: string | null;
+  merchantAccountId: string | null;
+  createdAt: string;
+  updatedAt: string;
+  product: Product;
+};
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+  createdAt: string;
+  fullName: string;
+  dateOfBirth: string;
+  gender: string;
+  nationality: string;
+  phoneNumber: string;
+  commercialPhone: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  contactEmail: string;
+  registrationNumber: string;
+  professionalCouncil: string;
+  specialization: string;
+  institution: string;
+  graduationYear: number;
+  areasOfPractice: string[];
+  completedCourses: string[];
+  certificates: string[];
+  motivation: string;
+  expectations: string;
+  availability: string;
+  updatedAt: string;
+  formComplete: boolean;
+  products: UserProduct[];
+};
+
 export type {
   NextImageType,
   IconProps,

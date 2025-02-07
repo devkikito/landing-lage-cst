@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import { LogoWithTheme } from "../button/LogoWithTheme";
 import Button from "../button/Button";
 import { scrollToSection } from "@/utils/scrollToSection";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathName = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,10 @@ export const Header = () => {
           <div className="flex items-center">
             <LogoWithTheme img="/img/logoLightLumen.png" imgDark="/img/logoDarkLumen.png" imgAlt="Logo da Lumen" />
           </div>
-          <nav className="items-center justify-center gap-6 flex-grow hidden laptop:flex" aria-label="Menu principal">
+          <nav
+            className={`items-center justify-center gap-6 flex-grow ${pathName.includes("redirecionamento-final") ? "hidden" : "hidden laptop:flex"}`}
+            aria-label="Menu principal"
+          >
             <button
               onClick={() => scrollToSection("sobre")}
               className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
@@ -72,7 +77,9 @@ export const Header = () => {
             </button>
           </nav>
           <div className="flex items-center gap-4">
-            <div className="hidden sm:block">
+            <div
+              className={`hidden sm:block ${pathName.includes("redirecionamento-final") && "[&>*:first-child]:hidden"}`}
+            >
               <Button
                 text="Entrar em contato"
                 onClick={() => scrollToSection("contato")}

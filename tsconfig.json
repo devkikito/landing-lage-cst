@@ -18,7 +18,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/context/*": ["./src/context/*"],
+      "@/clientSideApi": ["./src/services/clientSideApi"]
     },
     "types": ["@serwist/next/typings"]
   },

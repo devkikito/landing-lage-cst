@@ -1,0 +1,231 @@
+import React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import { useUpdate } from "@/context/UpdateContext";
+import { Form, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { MdOutlinePayment } from "react-icons/md";
+import { postSubmitFormAction } from "@/app/actions/selectedPlanAction";
+import { useFormState } from "react-dom";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select";
+
+const schema = z
+  .object({
+    name: z.string().min(1, "Este campo é obrigatório"),
+    email: z.string().min(1, "Este campo é obrigatório"),
+    productId: z.string().min(1, "Este campo é obrigatório"),
+    password: z
+      .string()
+      .min(6, "A senha precisa ter pelo menos 6 caracteres")
+      .regex(/[A-Z]/, "A senha deve ter pelo menos uma letra maiúscula")
+      .regex(/[a-z]/, "A senha deve ter pelo menos uma letra minúscula")
+      .regex(/[0-9]/, "A senha deve ter pelo menos um número"),
+    confirmPassword: z.string().min(6, "A confirmação de senha precisa ter pelo menos 6 caracteres"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "As senhas não coincidem",
+    path: ["confirmPassword"],
+  });
+
+type FormData = z.infer<typeof schema>;
+
+const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = React.useState<"pix_ticket" | "credit_debit" | undefined>(
+    undefined
+  );
+  const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const [state, formAction] = useFormState(postSubmitFormAction, {
+    message: "",
+    paymentUrl: "",
+    success: false,
+  });
+  const { triggerUpdate } = useUpdate();
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const form = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: {},
+  });
+
+  React.useEffect(() => {
+    setIsLoading(false);
+    if (state.success && state.paymentUrl) {
+      window.location.href = state.paymentUrl;
+      triggerUpdate();
+      setOpen(false);
+    }
+
+    if (!state.success && state.message) {
+      toast("Ops, tivemos um erro", {
+        description: state.issues?.map((issue) => (
+          <span key={issue} className="flex gap-1">
+            {issue}
+          </span>
+        )),
+      });
+    }
+  }, [setOpen, state, triggerUpdate]);
+
+  const onSubmit = async () => {
+    setIsLoading(true);
+    if (!selectedPaymentMethod) {
+      setErrorMessage("Selecione uma forma de pagamento");
+      setIsLoading(false);
+      return;
+    }
+
+    if (errorMessage == "") {
+      const formData = new FormData(formRef.current!);
+      formData.append("paymentMethod", selectedPaymentMethod);
+      console.log("FormData antes do envio:", Array.from(formData.entries()));
+      formAction(formData);
+    }
+  };
+
+  return (
+    <Form {...form}>
+      <form
+        ref={formRef}
+        className=""
+        action={formAction}
+        onSubmit={(evt: React.FormEvent<HTMLFormElement>) => {
+          evt.preventDefault();
+          form.handleSubmit(() => {
+            onSubmit();
+          })(evt);
+        }}
+      >
+        <div className="grid gap-4 mt-4">
+          {inputs.map((item) => (
+            <FormField
+              key={item.id}
+              control={form.control}
+              name={item.id as keyof FormData}
+              render={({ field }) => (
+                <FormItem className="w-full flex flex-col gap-2 items-start">
+                  <FormLabel>{item.label}</FormLabel>
+                  <Input placeholder={item.placeholder} {...field} type={item.type} />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          ))}
+
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem className="w-full flex flex-col gap-2 items-start">
+                <FormLabel>Senha</FormLabel>
+                <Input type="password" placeholder="Digite sua senha" {...field} />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="confirmPassword"
+            render={({ field }) => (
+              <FormItem className="w-full flex flex-col gap-2 items-start">
+                <FormLabel>Confirmar Senha</FormLabel>
+                <Input type="password" placeholder="Confirme sua senha" {...field} />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="productId"
+            render={({ field }) => (
+              <FormItem className="w-full flex flex-col gap-2 items-start">
+                <FormLabel>Selecione sua turma</FormLabel>
+                <Select
+                  onValueChange={(value: string) => {
+                    form.setValue("productId", value);
+                  }}
+                  {...field}
+                >
+                  <SelectTrigger className="col-span-3">
+                    <SelectValue placeholder="Selecione a data da mensalidade" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Selecione uma turma</SelectLabel>
+                      {products.map((item) => (
+                        <SelectItem key={item.id} value={item.id}>
+                          {item.title}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </FormItem>
+            )}
+          />
+
+          <div className="flex flex-col gap-2 col-span-3">
+            <FormLabel>Forma de pagamento</FormLabel>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                className={`px-4 py-6 flex gap-1 items-center border rounded-lg w-full transition-all ${
+                  selectedPaymentMethod === "pix_ticket" ? "border-amarelo-100" : "border-branco-100"
+                }`}
+                onClick={() => setSelectedPaymentMethod("pix_ticket")}
+              >
+                <MdOutlinePayment /> Pagar com pix/boleto
+              </button>
+              <button
+                type="button"
+                className={`px-4 py-6 flex gap-1 items-center border rounded-lg w-full transition-all ${
+                  selectedPaymentMethod === "credit_debit" ? "border-amarelo-100" : "border-branco-100"
+                }`}
+                onClick={() => setSelectedPaymentMethod("credit_debit")}
+              >
+                <MdOutlinePayment /> Pagar com cartão de crédito/débito
+              </button>
+            </div>
+          </div>
+        </div>
+        <Button type="submit" className="mt-8 w-full" loading={isLoading}>
+          Salvar alterações
+        </Button>
+
+        {errorMessage}
+      </form>
+    </Form>
+  );
+};
+
+export default RedirectsPostForm;
+
+const inputs = [
+  {
+    id: "name",
+    label: "Nome completo",
+    type: "text",
+    placeholder: "Digite seu nome aqui. Exemplo: Juan Marcos de Souza",
+  },
+  {
+    id: "email",
+    label: "Seu email principal (Atenção! Esse e-mail que enviaremos seu acesso ao curso)",
+    type: "text",
+    placeholder: "Digite seu email aqui. Exemplo: juanmarcos@email.com",
+  },
+];
+
+const products = [
+  {
+    id: "c9380552-58dc-4782-ab97-0d5959530d19",
+    title: "21 de fevereiro de 2025",
+  },
+  {
+    id: "1678f941-f583-49a2-8140-0b0289413792",
+    title: "29 de março de 2025",
+  },
+];

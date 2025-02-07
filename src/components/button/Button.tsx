@@ -7,9 +7,10 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement | HTMLAnchorEleme
   extraClassName?: string;
   variant: "outlined" | "contact" | "default";
   href?: string;
+  type?: "button" | "submit" | "reset";
 }
 
-export const Button = ({ text, extraClassName, variant, href, ...props }: ButtonProps) => {
+export const Button = ({ text, extraClassName, variant, href, type, ...props }: ButtonProps) => {
   const baseClass = `
     transition-colors duration-300 text-base
     px-[0.75rem] py-[0.5rem] flex items-center justify-center gap-2
@@ -39,6 +40,7 @@ export const Button = ({ text, extraClassName, variant, href, ...props }: Button
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        type={type}
         className={`${baseClass} ${variantClass[variant]} ${extraClassName}`}
         {...(props as HTMLAttributes<HTMLAnchorElement>)}
       >
