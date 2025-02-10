@@ -31,6 +31,10 @@ export async function findFormStatusService(tokenId: string): Promise<AxiosRespo
   });
 }
 
+export async function findUserDetails(): Promise<AxiosResponse<User>> {
+  return api.get("/user/details");
+}
+
 export async function findCourseLinkByUserProductId(userProductId: string): Promise<AxiosResponse<{ link: string }>> {
   return await api.get(`/user-product/${userProductId}/link`);
 }

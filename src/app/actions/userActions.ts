@@ -1,7 +1,12 @@
 "use server";
 
 import { findProductByUserProducId } from "@/services/user/userProductService";
-import { editUserDetaild, findFormStatusService, verifyOneAccessTokenService } from "@/services/user/userService";
+import {
+  editUserDetaild,
+  findFormStatusService,
+  findUserDetails,
+  verifyOneAccessTokenService,
+} from "@/services/user/userService";
 
 type UserDetailsType = {
   message: string;
@@ -32,7 +37,7 @@ type VerifyActionType = {
 
 type FormDataEntries = Record<string, string | number | boolean>;
 
-export async function getUserDetailsAction(userProductId: string, tokenId: string): Promise<UserDetailsType> {
+export async function getLinkToRedirectAction(userProductId: string, tokenId: string): Promise<UserDetailsType> {
   try {
     const res = await findFormStatusService(tokenId);
     const data = res.data;
@@ -62,6 +67,16 @@ export async function getUserDetailsAction(userProductId: string, tokenId: strin
       message: "Erro ao buscar usuário",
       sucess: false,
     };
+  }
+}
+
+export async function getUserDetailsAction(): Promise<any> {
+  try {
+    const res: any = await findUserDetails();
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
 }
 

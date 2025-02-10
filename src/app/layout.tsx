@@ -11,6 +11,7 @@ import Script from "next/script";
 import { UpdateProvider } from "@/context/UpdateContext";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
+import { AuthProvider } from "@/context/AuthContext";
 
 const APP_NAME = "Demência";
 const APP_DEFAULT_TITLE = "Demência";
@@ -76,15 +77,17 @@ export default function RootLayout({
           <HtmlFontSizeProvider>
             <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={true}>
               <UpdateProvider>
-                <Suspense>
-                  <div className="header">
-                    <BarTools />
-                  </div>
-                  <Header />
-                  <main>{children}</main>
-                  <Footer />
-                  <Toaster />
-                </Suspense>
+                <AuthProvider>
+                  <Suspense>
+                    <div className="header">
+                      <BarTools />
+                    </div>
+                    <Header />
+                    <main>{children}</main>
+                    <Footer />
+                    <Toaster />
+                  </Suspense>
+                </AuthProvider>
               </UpdateProvider>
             </ThemeProvider>
           </HtmlFontSizeProvider>

@@ -11,6 +11,7 @@ import { setCookie } from "nookies";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { parseJwt } from "@/utils/parseJwt";
+import { useAuth } from "@/context/AuthContext";
 
 const formSchema = z.object({
   email: z.string().min(1, { message: "This field has to be filled." }).email("This is not a valid email."),
@@ -22,6 +23,7 @@ type FormData = z.infer<typeof formSchema>;
 export default function UserAuthForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const searchParams = useSearchParams();
+  const { setAuthData } = useAuth();
 
   const defaultValues = {
     email: searchParams.get("email") || "",
@@ -49,14 +51,13 @@ export default function UserAuthForm() {
       console.log(noderesponse);
       if (noderesponse.success) {
         setCookie(undefined, "biomob-node-admin.token", noderesponse.data.accessToken, {
-          maxAge: 300,
           path: "/",
         });
         setCookie(undefined, "biomob-node-admin.refresh-token", noderesponse.data.refreshToken, {
-          maxAge: 1800,
           path: "/",
         });
       }
+      setAuthData(noderesponse.data.accessToken);
       const claims = parseJwt(noderesponse.data.accessToken);
       console.log(claims);
 

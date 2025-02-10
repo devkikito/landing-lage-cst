@@ -151,7 +151,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
                   {...field}
                 >
                   <SelectTrigger className="col-span-3">
-                    <SelectValue placeholder="Selecione a data da mensalidade" />
+                    <SelectValue placeholder="Selecione uma turma" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>

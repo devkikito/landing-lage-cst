@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { getUserDetailsAction, verifyOneAccessTokenAction } from "@/app/actions/userActions";
+import { getLinkToRedirectAction, verifyOneAccessTokenAction } from "@/app/actions/userActions";
 import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -11,38 +11,39 @@ export const SecondRegisterPage = () => {
   const searchParams = useSearchParams();
   const userProductId = searchParams.get("userProductId");
   const tokenId = searchParams.get("id");
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  // const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [linkToRedirect, setLinkToRedirect] = React.useState<string>("");
 
-  React.useEffect(() => {
-    async function fetch() {
-      if (!userProductId || !tokenId) {
-        return (window.location.href = "/");
-      }
+  // React.useEffect(() => {
+  //   async function fetch() {
+  //     if (!userProductId || !tokenId) {
+  //       return (window.location.href = "/");
+  //     }
 
-      try {
-        const verifyToken = await verifyOneAccessTokenAction(tokenId);
-        const tokenIsValid = verifyToken.success == true;
+  //     try {
+  //       const verifyToken = await verifyOneAccessTokenAction(tokenId);
+  //       const tokenIsValid = verifyToken.success == true;
 
-        const res = await getUserDetailsAction(userProductId, tokenId);
+  //       const res = await getLinkToRedirectAction(userProductId, tokenId);
 
-        if (res.formComplete && res.linkToRedirect) {
-          window.location.href = res.linkToRedirect;
-        } else {
-          if (!tokenIsValid) {
-            return (window.location.href = "/");
-          }
+  //       if (res.formComplete && res.linkToRedirect) {
+  //         window.location.href = res.linkToRedirect;
+  //       } else {
+  //         if (!tokenIsValid) {
+  //           return (window.location.href = "/");
+  //         }
 
-          setLinkToRedirect(res.linkToRedirect!);
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.error("Erro ao verificar o token ou buscar dados do usuário:", error);
-        setIsLoading(false);
-      }
-    }
-    fetch();
-  }, [userProductId, tokenId]);
+  //         setLinkToRedirect(res.linkToRedirect!);
+  //         setIsLoading(false);
+  //       }
+  //     } catch (error) {
+  //       console.error("Erro ao verificar o token ou buscar dados do usuário:", error);
+  //       setIsLoading(false);
+  //     }
+  //   }
+  //   fetch();
+  // }, [userProductId, tokenId]);
 
   if (isLoading) {
     return (

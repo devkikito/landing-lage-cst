@@ -18,7 +18,6 @@ export async function actionRefreshToken() {
       secure: true,
       httpOnly: true,
       sameSite: "none" as const,
-      maxAge: 300,
     };
 
     const refreshTokenOptions = {
@@ -26,7 +25,6 @@ export async function actionRefreshToken() {
       secure: true,
       httpOnly: true,
       sameSite: "none" as const,
-      maxAge: 1800,
     };
 
     console.log("Tentando fazer o set dos cookies", acessToken);

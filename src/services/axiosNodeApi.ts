@@ -66,7 +66,7 @@ api.interceptors.response.use(
         if (!isRefreshing) {
           isRefreshing = true;
           try {
-            cookies().delete("biomob-node-admin.token");
+            // cookies().delete("biomob-node-admin.token");
             await actionRefreshToken();
 
             failedQueue.forEach((callback) => callback());
@@ -79,14 +79,14 @@ api.interceptors.response.use(
               _error?.response?.data?.message === "Token is not active"
             ) {
               console.log("No refresh token found");
-              cookies().delete("biomob-node-admin.token");
+              // cookies().delete("biomob-node-admin.token");
 
               if (typeof window !== "undefined") {
                 alert("Você foi deslogado por inatividade.");
-                redirect("/entrar/integrado");
+                redirect("/login");
               } else {
                 console.log("Você foi deslogado por inatividade.");
-                redirect("/");
+                redirect("/login");
               }
             }
 

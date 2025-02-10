@@ -5,10 +5,12 @@ import { LogoWithTheme } from "../button/LogoWithTheme";
 import Button from "../button/Button";
 import { scrollToSection } from "@/utils/scrollToSection";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathName = usePathname();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +80,7 @@ export const Header = () => {
           </nav>
           <div className="flex items-center gap-4">
             <div
-              className={`hidden sm:block ${pathName.includes("redirecionamento-final") && "[&>*:first-child]:hidden"}`}
+              className={`hidden lg:block ${pathName.includes("redirecionamento-final") && "[&>*:first-child]:hidden"}`}
             >
               <Button
                 text="Entrar em contato"
@@ -87,12 +89,41 @@ export const Header = () => {
                 aria-label="Entrar em contato"
               />
             </div>
-            <Button
-              text="Fazer inscrição"
-              variant="default"
-              aria-label="Fazer inscrição"
-              onClick={() => scrollToSection("inscricao")}
-            />
+
+            {!user ? (
+              <>
+                <Button
+                  text="Fazer inscrição"
+                  variant="default"
+                  aria-label="Fazer inscrição"
+                  onClick={() => scrollToSection("inscricao")}
+                />
+                <Button
+                  text="Login"
+                  variant="default"
+                  aria-label="Login"
+                  onClick={() => (window.location.href = "/login")}
+                />
+              </>
+            ) : (
+              <>
+                <Button
+                  text="Meu perfil"
+                  variant="default"
+                  aria-label="Meu Perfil"
+                  onClick={() => (window.location.href = "/meu-perfil")}
+                />
+                <Button
+                  text="Sair"
+                  variant="outlined"
+                  aria-label="Sair"
+                  onClick={() => {
+                    logout();
+                    window.location.href = "/";
+                  }}
+                />
+              </>
+            )}
           </div>
         </div>
       </div>
