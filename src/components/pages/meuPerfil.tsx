@@ -61,13 +61,11 @@ export const MeuPerfilPage = () => {
             >
               <div className="p-6 sm:p-10 h-full flex justify-center items-center bg-cinza-900 ">
                 <div className="flex flex-col justify-center items-center text-start gap-4 mb-4">
-                  <p className="text-base items-center  text-branco-100 justify-center text-start">
+                  <p className="text-3xl font-semibold items-center  text-branco-100 justify-center text-start">
                     {product.product.title}
                   </p>
                   <div className="mx-auto pt-4 w-full gap-1 ">
-                    <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">
-                      {product.product.description}
-                    </span>
+                    <span className="rounded-lg text-center text-branco-100">{product.product.description}</span>
                   </div>
                 </div>
               </div>
@@ -76,20 +74,28 @@ export const MeuPerfilPage = () => {
                   <p className="text-3xl mb-8 text-cinza-900-branco">Status do pagamento:</p>
                   <div className="flex justify-between items-center mb-8 gap-2 sm:flex-nowrap flex-wrap">
                     <div>
-                      <p className="text-xl text-cinza-900-branco">{product.status}</p>
+                      <p className="text-xl text-cinza-900-branco">
+                        {product.status == "pendente" ? "Pendente" : "Aprovado"}
+                      </p>
                       <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.300</p>
                     </div>
                   </div>
 
                   <Button
-                    text={product.status == "pendente" ? "Finalizar pagamento" : "Acessar curso"}
+                    text={
+                      product.status == "pendente"
+                        ? "Finalizar pagamento"
+                        : userDetails.formComplete
+                          ? "Acessar curso"
+                          : "Finalizar cadastro e acessar curso"
+                    }
                     extraClassName="w-full"
                     variant="default"
                     onClick={() => {
                       {
                         product.status == "pendente"
-                          ? (window.location.href = product.linkToPayment)
-                          : (window.location.href = product.product.link!);
+                          ? (window.location.href = product.paymentLink)
+                          : (window.location.href = `/redirecionamento-final?userProductId=${product.id}&id=${product.successLink}`);
                       }
                     }}
                   />

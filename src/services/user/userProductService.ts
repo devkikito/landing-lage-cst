@@ -12,7 +12,7 @@ export async function findProductByUserProducId(
 ): Promise<AxiosResponse<Product>> {
   return api.get(`/product/userProducId/${userProductId}`, {
     headers: {
-      Authorization: `Bearer ${tokenId}`,
+      "X-One-Access-Token": tokenId,
     },
   });
 }

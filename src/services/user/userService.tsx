@@ -26,7 +26,7 @@ export async function registerUserService(formData: any): Promise<AxiosResponse<
 export async function findFormStatusService(tokenId: string): Promise<AxiosResponse<User>> {
   return await api.get("/user/details/form-complete", {
     headers: {
-      Authorization: `Bearer ${tokenId}`,
+      "X-One-Access-Token": tokenId,
     },
   });
 }
@@ -42,7 +42,7 @@ export async function findCourseLinkByUserProductId(userProductId: string): Prom
 export async function editUserDetaild(formData: any, tokenId: string): Promise<AxiosResponse<User>> {
   return await api.put("/user/userId/health-professional-info", formData, {
     headers: {
-      Authorization: `Bearer ${tokenId}`,
+      "X-One-Access-Token": tokenId,
     },
   });
 }

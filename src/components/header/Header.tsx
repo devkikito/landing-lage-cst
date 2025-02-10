@@ -96,7 +96,7 @@ export const Header = () => {
                   text="Fazer inscrição"
                   variant="default"
                   aria-label="Fazer inscrição"
-                  onClick={() => scrollToSection("inscricao")}
+                  onClick={() => (window.location.href = "/planos")}
                 />
                 <Button
                   text="Login"

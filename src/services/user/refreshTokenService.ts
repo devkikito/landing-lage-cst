@@ -2,8 +2,8 @@ import { cookies } from "next/headers";
 
 export async function RefreshToken(): Promise<any> {
   const cookieStore = cookies();
-  const refreshToken = cookieStore.get("biomob-node-admin.refresh-token")?.value;
-
+  const refreshToken = cookieStore.get("biomob-pd.refresh-token")?.value;
+  console.log("Meu refrfe");
   if (!refreshToken) {
     throw new Error("Refresh token não encontrado");
   }
@@ -16,6 +16,7 @@ export async function RefreshToken(): Promise<any> {
     body: JSON.stringify({ refreshToken }),
     headers: {
       "Content-Type": "application/json",
+      "X-API-Key": process.env.X_API_KEY!,
     },
   });
 }

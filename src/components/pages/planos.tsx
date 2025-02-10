@@ -14,12 +14,12 @@ export const PlanosPage = () => {
   return (
     <div className="w-full flex flex-col">
       <BackgroundImageWithTheme
-        lightImage="/img/Banner.png"
-        darkImage="/img/Banner.png"
-        className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center mb-20 bg-right"
+        lightImage="/img/wallpaper.jpg"
+        darkImage="/img/wallpaper.jpg"
+        className=" bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center mb-20 bg-right"
       >
-        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
-          <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
+        <div className="w-full max-w-[82rem] flex flex-col lg:flex-row justify-start gap-6 mt-10 py-[7.938rem]">
+          <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-start items-start">
             <h1 className="mt-10 sm:text-6xl text-4xl  leading-tight text-branco-100">
               Inicie sua jornada dentro da {"  "}
               <span className="font-bold"> Metodologia CST</span>
@@ -33,7 +33,6 @@ export const PlanosPage = () => {
               <Button text="Escolher turma" variant="outlined" onClick={() => scrollToSection("inscricao")} />
             </div>
           </div>
-          <div className="flex flex-col basis-full lg:basis-1/2 mt-6 lg:mt-16"></div>
         </div>
       </BackgroundImageWithTheme>
       <div className="my-10 max-w-[46rem] mx-auto px-3" id="inscricao">

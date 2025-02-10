@@ -36,11 +36,11 @@ export default function SignInViewPage() {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;O projeto que busca reduzir a desigualdade de gênero e ampliar a participação feminina em ciência,
-              tecnologia, engenharia e matemática (STEM). Esta iniciativa foca no letramento tecnológico e na promoção
-              da inclusão feminina na cidade de Petrópolis, no Rio de Janeiro. &rdquo;
+              &ldquo;A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em
+              vários países, incluindo o Brasil. Consiste em um protocolo com 14 sessões temáticas e divertidas para
+              estimular memória, linguagem, orientação e outros aspectos. Estudos mostram evidências de seus efeitos
+              benéficos para o quadro dos pacientes e redução dos níveis de sobrecarga dos cuidadores&rdquo;
             </p>
-            <footer className="paragraph_01">Meninas STEM</footer>
           </blockquote>
         </div>
       </div>

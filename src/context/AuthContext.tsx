@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { parseCookies, destroyCookie } from "nookies";
 
 interface AuthContextType {
   user: UserPayload | null;
@@ -51,6 +52,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setAccessToken(null);
     setUser(null);
     localStorage.removeItem("accessToken");
+    destroyCookie(undefined, "biomob-pd.token");
+    destroyCookie(undefined, "biomob-pd.refresh-token");
   };
 
   return <AuthContext.Provider value={{ user, accessToken, setAuthData, logout }}>{children}</AuthContext.Provider>;

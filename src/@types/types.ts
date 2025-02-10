@@ -94,8 +94,9 @@ export type UserProduct = {
   merchantAccountId: string | null;
   createdAt: string;
   updatedAt: string;
-  linkToPayment: string;
+  paymentLink: string;
   product: Product;
+  successLink: string;
 };
 
 export type User = {

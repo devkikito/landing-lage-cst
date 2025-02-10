@@ -50,10 +50,12 @@ export default function UserAuthForm() {
       handleApiResponse("API NODE", noderesponse);
       console.log(noderesponse);
       if (noderesponse.success) {
-        setCookie(undefined, "biomob-node-admin.token", noderesponse.data.accessToken, {
+        setCookie(undefined, "biomob-pd.token", noderesponse.data.accessToken, {
+          maxAge: 60 * 60 * 24,
           path: "/",
         });
-        setCookie(undefined, "biomob-node-admin.refresh-token", noderesponse.data.refreshToken, {
+        setCookie(undefined, "biomob-pd.refresh-token", noderesponse.data.refreshToken, {
+          maxAge: 60 * 60 * 24,
           path: "/",
         });
       }
@@ -61,7 +63,7 @@ export default function UserAuthForm() {
       const claims = parseJwt(noderesponse.data.accessToken);
       console.log(claims);
 
-      window.location.href = `/`;
+      window.location.href = `/meu-perfil`;
     } catch (error: any) {
       console.error("Erro ao submeter o formulário:", error);
       toast("Erro inesperado ao processar a solicitação", {
