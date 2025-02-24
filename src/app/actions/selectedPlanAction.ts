@@ -26,7 +26,7 @@ export async function postSubmitFormAction(prevState: FormState, data: FormData)
     const res = await registerUserService(dto);
     console.log(res);
     return {
-      message: `Notícia cadastrada com sucesso.`,
+      message: `Usuário cadastrado com sucesso.`,
       success: true,
       paymentUrl: res.data.paymentUrl,
     };

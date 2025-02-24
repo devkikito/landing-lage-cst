@@ -37,12 +37,12 @@ const schema = z.object({
   state: z.string().min(1, "Este campo é obrigatório"),
   zipCode: z.string().min(1, "Este campo é obrigatório"),
   contactEmail: z.string().min(1, "Este campo é obrigatório").email("Email inválido"),
-  professionalCouncil: z.string().min(1, "Este campo é obrigatório"),
-  specialization: z.string().min(1, "Este campo é obrigatório"),
+  professionalCouncil: z.string().optional(),
+  specialization: z.string().optional(),
   institution: z.string().min(1, "Este campo é obrigatório"),
   graduationYear: z.string().min(1, "Este campo é obrigatório"),
   expectations: z.string().min(1, "Este campo é obrigatório"),
-  availability: z.string().min(1, "Este campo é obrigatório"),
+  availability: z.string().default("Nenhuma"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -73,10 +73,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
     setIsLoading(false);
     if (state.success) {
       toast("Perfeito", {
-        description: "Formulário enviado com sucesso. Você será redirecionado para o link do seu curso!",
+        description: "Formulário enviado com sucesso. Você será redirecionado para a tela de login.",
       });
       setTimeout(() => {
-        window.location.href = linkToRedirect;
+        // window.location.href = linkToRedirect;
+        window.location.href = "/login";
       }, 5000);
     }
 
@@ -428,12 +429,10 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
             <span className="text-3xl font-semibold">Informações profisionais</span>
             <FormField
               control={form.control}
-              name="professionalCouncil"
+              name="institution"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Conselho Profissional (um conselho que aparecerá para outros usuários da plataforma)
-                  </FormLabel>
+                  <FormLabel>Qual a sua profissão?</FormLabel>
                   <Input {...field} />
                   <FormMessage />
                 </FormItem>
@@ -444,18 +443,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
               name="specialization"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Quais suas melhores especializações?</FormLabel>
-                  <Input {...field} />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="institution"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Instituição de trabalho atual</FormLabel>
+                  <FormLabel>Tem alguma especialização? Se sim, qual?</FormLabel>
                   <Input {...field} />
                   <FormMessage />
                 </FormItem>
@@ -466,7 +454,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
               name="graduationYear"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Ano em que se formou na primeira graduação</FormLabel>
+                  <FormLabel>Ano em que se formou</FormLabel>
                   <Input
                     {...field}
                     type="text"
@@ -481,6 +469,17 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="professionalCouncil"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Faz parte de algum conselho? Se sim, qual?</FormLabel>
+                  <Input {...field} />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </>
         )}
 
@@ -491,8 +490,13 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
               name="expectations"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Quais suas expectativas em relação ao curso?</FormLabel>
-                  <Input {...field} />
+                  <FormLabel>
+                    Quais suas expectativas em relação ao curso e em qual contexto pretende aplicar a CST?
+                  </FormLabel>
+                  <Input
+                    {...field}
+                    placeholder="Exemplo: Clínica privada, serviço de saúde público, consultório particular, etc."
+                  />
                   <FormMessage />
                 </FormItem>
               )}

@@ -43,35 +43,45 @@ export const Header = () => {
             aria-label="Menu principal"
           >
             <button
-              onClick={() => scrollToSection("sobre")}
+              onClick={() => {
+                pathName == "/" ? scrollToSection("sobre") : (window.location.href = "/#sobre");
+              }}
               className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
               aria-label="Ir para a seção Sobre"
             >
               Sobre
             </button>
             <button
-              onClick={() => scrollToSection("modulos")}
+              onClick={() => {
+                pathName == "/" ? scrollToSection("modulos") : (window.location.href = "/#modulos");
+              }}
               className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
               aria-label="Ir para a seção Módulos"
             >
               Módulos
             </button>
             <button
-              onClick={() => scrollToSection("vantagens")}
+              onClick={() => {
+                pathName == "/" ? scrollToSection("vantagens") : (window.location.href = "/#vantagens");
+              }}
               className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
               aria-label="Ir para a seção Vantagens"
             >
               Vantagens
             </button>
             <button
-              onClick={() => scrollToSection("depoimentos")}
+              onClick={() => {
+                pathName == "/" ? scrollToSection("depoimentos") : (window.location.href = "/#depoimentos");
+              }}
               className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
               aria-label="Ir para a seção Depoimentos"
             >
               Depoimentos
             </button>
             <button
-              onClick={() => scrollToSection("equipe")}
+              onClick={() => {
+                pathName == "/" ? scrollToSection("equipe") : (window.location.href = "/#equipe");
+              }}
               className="px-3 py-2 rounded-lg text-branco-100 hover:bg-amarelo-100 hover:text-cinza-900"
               aria-label="Ir para a seção Equipe"
             >
@@ -84,7 +94,9 @@ export const Header = () => {
             >
               <Button
                 text="Entrar em contato"
-                onClick={() => scrollToSection("contato")}
+                onClick={() => {
+                  pathName == "/" ? scrollToSection("contato") : (window.location.href = "/contato");
+                }}
                 variant="contact"
                 aria-label="Entrar em contato"
               />

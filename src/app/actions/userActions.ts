@@ -44,6 +44,7 @@ export async function getLinkToRedirectAction(userProductId: string, tokenId: st
     console.log("minha data: ", data);
 
     const productRes = await findProductByUserProducId(userProductId, tokenId);
+    console.log("meu productRes", productRes.data);
     if (data) {
       console.log("meu productRes", productRes.data);
 
@@ -82,7 +83,7 @@ export async function getUserDetailsAction(): Promise<any> {
 
 export async function postSubmitSecondFormAction(prevState: FormState, data: FormData): Promise<FormState> {
   const formData = Object.fromEntries(data.entries()) as FormDataEntries;
-
+  console.log("Meu tokenId", formData.tokenId);
   const dto = {
     fullName: formData.fullName,
     dateOfBirth: formData.dateOfBirth,
@@ -109,7 +110,7 @@ export async function postSubmitSecondFormAction(prevState: FormState, data: For
     const res = await editUserDetaild(dto, formData.tokenId as string);
     console.log(res);
     return {
-      message: `Notícia cadastrada com sucesso.`,
+      message: `Usuário atualizado com sucesso.`,
       success: true,
     };
   } catch (error: any) {

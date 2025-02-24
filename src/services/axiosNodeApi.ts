@@ -21,12 +21,15 @@ api.interceptors.request.use(
   async (config: any) => {
     // Verifica se a requisição não requer o Bearer Token
     if (!config.headers["X-One-Access-Token"]) {
-      const token = await getAcessTokenServerAction();
-      if (token) {
-        config.headers = {
-          ...config.headers,
-          Authorization: `Bearer ${token.value}`,
-        };
+      console.log("teste1");
+      if (!config.headers["No-Auth"]) {
+        const token = await getAcessTokenServerAction();
+        if (token) {
+          config.headers = {
+            ...config.headers,
+            Authorization: `Bearer ${token.value}`,
+          };
+        }
       }
     }
 

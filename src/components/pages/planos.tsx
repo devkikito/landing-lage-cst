@@ -67,10 +67,10 @@ export const PlanosPage = () => {
               <div className="flex justify-between items-center mb-8 gap-2 sm:flex-nowrap flex-wrap">
                 <div>
                   <p className="text-xl text-cinza-900-branco">De R$ 3.500 por</p>
-                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.300</p>
+                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.150</p>
                 </div>
                 <p className="text-base text-cinza-900-branco justify-end">
-                  Ou em até 05x de R$460,00 <br />
+                  Ou em até 05x de R$ 518,93 <br />
                   no cartão de crédito
                 </p>
               </div>

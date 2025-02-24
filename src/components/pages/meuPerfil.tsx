@@ -8,7 +8,6 @@ import React from "react";
 import { DialogComponent } from "../ui/DialogComponent";
 import RedirectsPostForm from "../forms/redirects";
 import Link from "next/link";
-import { useAuth } from "@/context/AuthContext";
 import { getUserDetailsAction } from "@/app/actions/userActions";
 import { User } from "@/@types/types";
 import { Loader2 } from "lucide-react";

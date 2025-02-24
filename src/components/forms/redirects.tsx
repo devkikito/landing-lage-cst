@@ -11,6 +11,8 @@ import { MdOutlinePayment } from "react-icons/md";
 import { postSubmitFormAction } from "@/app/actions/selectedPlanAction";
 import { useFormState } from "react-dom";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select";
+import { Product } from "@/@types/types";
+import { getProductsAction } from "@/app/actions/producstAction";
 
 const schema = z
   .object({
@@ -34,7 +36,7 @@ type FormData = z.infer<typeof schema>;
 
 const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = React.useState<"pix_ticket" | "credit_debit" | undefined>(
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = React.useState<"pix_ticket" | "credit_card" | undefined>(
     undefined
   );
   const [errorMessage, setErrorMessage] = React.useState<string>("");
@@ -49,6 +51,19 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
     resolver: zodResolver(schema),
     defaultValues: {},
   });
+  const [products, setProducts] = React.useState<Product[] | []>([]);
+
+  React.useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const res = await getProductsAction();
+        setProducts(res);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProducts();
+  }, []);
 
   React.useEffect(() => {
     setIsLoading(false);
@@ -174,7 +189,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
               <button
                 type="button"
                 className={`px-4 py-6 flex gap-1 items-center border rounded-lg w-full transition-all ${
-                  selectedPaymentMethod === "pix_ticket" ? "border-amarelo-100" : "border-branco-100"
+                  selectedPaymentMethod === "pix_ticket" ? "border-amarelo-100" : "border-border"
                 }`}
                 onClick={() => setSelectedPaymentMethod("pix_ticket")}
               >
@@ -183,9 +198,9 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
               <button
                 type="button"
                 className={`px-4 py-6 flex gap-1 items-center border rounded-lg w-full transition-all ${
-                  selectedPaymentMethod === "credit_debit" ? "border-amarelo-100" : "border-branco-100"
+                  selectedPaymentMethod === "credit_card" ? "border-amarelo-100" : "border-border"
                 }`}
-                onClick={() => setSelectedPaymentMethod("credit_debit")}
+                onClick={() => setSelectedPaymentMethod("credit_card")}
               >
                 <MdOutlinePayment /> Pagar com cartão de crédito/débito
               </button>
@@ -216,16 +231,5 @@ const inputs = [
     label: "Seu email principal (Atenção! Esse e-mail que enviaremos seu acesso ao curso)",
     type: "text",
     placeholder: "Digite seu email aqui. Exemplo: juanmarcos@email.com",
-  },
-];
-
-const products = [
-  {
-    id: "c9380552-58dc-4782-ab97-0d5959530d19",
-    title: "21 de fevereiro de 2025",
-  },
-  {
-    id: "1678f941-f583-49a2-8140-0b0289413792",
-    title: "29 de março de 2025",
   },
 ];

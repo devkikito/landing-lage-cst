@@ -16,3 +16,7 @@ export async function findProductByUserProducId(
     },
   });
 }
+
+export async function findProducts(): Promise<AxiosResponse<Product[]>> {
+  return api.get("/product");
+}

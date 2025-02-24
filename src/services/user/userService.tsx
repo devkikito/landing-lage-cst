@@ -20,7 +20,11 @@ type verifyOneAccessTokenType = {
 };
 
 export async function registerUserService(formData: any): Promise<AxiosResponse<userWithPaymentType>> {
-  return await api.post("/user/register-with-payment", formData);
+  return await api.post("/user/register-with-payment", formData, {
+    headers: {
+      "No-Auth": "true",
+    },
+  });
 }
 
 export async function findFormStatusService(tokenId: string): Promise<AxiosResponse<User>> {
