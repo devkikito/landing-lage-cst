@@ -54,7 +54,7 @@ export default function HomePage() {
               <span className="font-bold"> Treinamento completo para estudantes e profissionais da saúde!</span>
             </h1>
             <h2 className="mt-2 mb-4 text-base text-branco-100 font-normal leading-7 tracking-wide max-w-[30rem]">
-              Primeiro tratamento para demência não medicamentoso, protocolizado e baseado em evidências científicas
+              Primeiro tratamento não medicamentoso para demência validado no Brasil.
             </h2>
             <div className="flex flex-col text-start gap-4 mb-4">
               <p className="text-base  text-branco-100 justify-end">
@@ -99,9 +99,9 @@ export default function HomePage() {
             <div className="mb-8 max-w-[44.125rem]">
               <p className="mb-4 text-cinza-900-branco">
                 A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em
-                vários países, incluindo o Brasil. Consiste em um protocolo com 14 sessões temáticas e divertidas para
-                estimular memória, linguagem, orientação e outros aspectos. Estudos mostram evidências de seus efeitos
-                benéficos para o quadro dos pacientes e redução dos níveis de sobrecarga dos cuidadores
+                vários países, incluindo no Brasil. Consiste em um protocolo com 14 sessões temáticas e divertidas para
+                estimular memória, linguagem, orientação e outras habilidades. Estudos apontam evidências de benefícios
+                para o quadro de pessoas com demência, extensivos aos cuidadores familiares.
               </p>
               <div className="flex flex-row justify-start gap-5">
                 <Button text="Saiba mais" variant="default" href="https://cstbrasil.com.br/web/index.php/projeto" />
@@ -125,14 +125,14 @@ export default function HomePage() {
           <div className="max-w-[39.938rem] mx-auto">
             <TitleDefault
               title="Capacitação para CST"
-              subtitle="Treinamento para se tornar um facilitador(a) da CST"
+              subtitle="Treinamento para se tornar um(a) facilitador(a) da CST"
               alignment="text-center"
               extraClassName="sm:hidden"
             />
 
             <TitleDefault
               title="CURSO DE CAPACITAÇÃO PARA CST"
-              subtitle="Treinamento para se tornar um facilitador(a) da CST"
+              subtitle="Treinamento para se tornar um(a) facilitador(a) da CST"
               alignment="text-center"
               extraClassName="hidden sm:block s"
             />
@@ -334,7 +334,7 @@ const faqData = [
   {
     question: "O que é a capacitação em CST?",
     answer:
-      "A capacitação em Terapia de Estimulação Cognitiva (CST) é um treinamento destinado a profissionais da saúde que desejam se especializar na aplicação dessa intervenção, reconhecida globalmente como um tratamento eficaz e baseado em evidências para pessoas com demência.",
+      "A capacitação em Terapia de Estimulação Cognitiva (CST) é um treinamento destinado a profissionais da saúde que desejam se especializar na aplicação dessa intervenção, reconhecida globalmente como um tratamento eficaz e baseado em princípios humanistas e centrada na pessoa.",
   },
   {
     question: "Quem pode participar do curso?",
@@ -410,7 +410,7 @@ const advantagesData = [
     id: 2,
     image: "/img/iconReconhecimentoDark.png",
     imageLight: "/img/iconReconhecimentoLight.png",
-    title: "Seja um dos primeiros a ofertar um tratamento inovador e mundialmente reconhecido no Brasil",
+    title: "Seja um dos primeiros a ofertar no Brasil um tratamento inovador e mundialmente reconhecido",
   },
   {
     id: 3,
@@ -422,7 +422,7 @@ const advantagesData = [
     id: 4,
     image: "/img/IconDark.png",
     imageLight: "/img/IconLight.png",
-    title: "Tenha acesso a um plano supervisões e certificações após a conclusão do curso",
+    title: "Tenha acesso a um plano de supervisões e certificações após a conclusão do curso",
   },
   {
     id: 5,

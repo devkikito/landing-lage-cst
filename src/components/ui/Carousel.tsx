@@ -34,12 +34,12 @@ export const ItemCarouselType1: React.FC<ItemCarouselType> = ({ image, texts }) 
 };
 
 export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) => {
-  const truncatedDescription = truncateText(texts.description, 140);
+  const truncatedDescription = truncateText(texts.description, 200);
   return (
     <div
       unselectable="on"
       onDragStart={(e) => e.preventDefault()}
-      className="relative flex justify-center flex-shrink-0 w-full max-w-[23.875rem] h-full"
+      className="relative flex justify-center flex-shrink-0 w-full max-w-[23.875rem] h-full select-none"
       role="group"
       aria-labelledby={`item-title-${texts.title}`}
     >
@@ -52,7 +52,7 @@ export const ItemCarouselType2: React.FC<ItemCarouselType> = ({ image, texts }) 
         width={400}
         height={400}
       />
-      <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0 w-full sm:w-[22rem] md:w-[18rem] h-[10rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
+      <div className="flex flex-col 2sm:mb-6 px-6 py-3 gap-2 rounded-lg absolute bottom-0 w-full sm:w-[22rem] md:w-[18rem] h-[12rem] justify-start backdrop-blur-sm bg-[#1D2C46]/80 text-start select-none">
         <div className="flex gap-1 flex-col justify-start">
           <h3 id={`item-title-${texts.title}`} className="title-card-medium text-branco-100">
             {texts.title}

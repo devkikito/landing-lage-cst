@@ -91,7 +91,7 @@ export const images = [
     texts: {
       title: "Módulo 01",
       description:
-        "Introdução - Panorama atual da demência, modelos de demência e tratamentos disponíveis para a condição.",
+        "Introdução - Panorama atual da demência, modelos de demência e tratamentos disponíveis para a condição;",
     },
   },
   {
@@ -105,7 +105,7 @@ export const images = [
     texts: {
       title: "Módulo 02",
       description:
-        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento",
+        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação e validação da CST no Brasil;",
     },
   },
   {
@@ -119,7 +119,7 @@ export const images = [
     texts: {
       title: "Módulo 03",
       description:
-        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação ",
+        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento, seus benefícios e vantagens econômicas e sociais;",
     },
   },
   {
@@ -132,7 +132,7 @@ export const images = [
     },
     texts: {
       title: "Módulo 04",
-      description: "Apresentação detalhada do tratamento - Princípios gerais do tratamento e apresentação das sessões.",
+      description: "Apresentação detalhada do tratamento - Princípios gerais do tratamento e apresentação das sessões;",
     },
   },
   {

@@ -24,23 +24,19 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Links Úteis</h3>
             <ul className="text-sm text-cinza-400 space-y-2">
               <li>
-                <button onClick={() => scrollToSection("sobre")} className="hover:text-branco-100 transition">
-                  Sobre a CST
+                <button
+                  onClick={() => (window.location.href = "/termos-uso-curso")}
+                  className="hover:text-branco-100 transition"
+                >
+                  Termos de Uso do Curso CST Formação de Facilitadores
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection("modulos")} className="hover:text-branco-100 transition">
-                  Módulos
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection("vantagens")} className="hover:text-branco-100 transition">
-                  Vantagens
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection("depoimentos")} className="hover:text-branco-100 transition">
-                  Depoimentos
+                <button
+                  onClick={() => (window.location.href = "/termos-uso-marca")}
+                  className="hover:text-branco-100 transition"
+                >
+                  Termos de Uso do Manual CST
                 </button>
               </li>
             </ul>
