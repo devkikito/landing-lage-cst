@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,6 +14,8 @@ import { useFormState } from "react-dom";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select";
 import { Product } from "@/@types/types";
 import { getProductsAction } from "@/app/actions/producstAction";
+import Link from "next/link";
+import { Checkbox } from "../ui/checkbox";
 
 const schema = z
   .object({
@@ -26,6 +29,12 @@ const schema = z
       .regex(/[a-z]/, "A senha deve ter pelo menos uma letra minúscula")
       .regex(/[0-9]/, "A senha deve ter pelo menos um número"),
     confirmPassword: z.string().min(6, "A confirmação de senha precisa ter pelo menos 6 caracteres"),
+    acceptCourseTerms: z.boolean().refine((val) => val === true, {
+      message: "Você deve aceitar os Termos de Uso do Curso",
+    }),
+    acceptManualTerms: z.boolean().refine((val) => val === true, {
+      message: "Você deve aceitar os Termos de Uso do Manual",
+    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "As senhas não coincidem",
@@ -49,7 +58,15 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
   const formRef = React.useRef<HTMLFormElement>(null);
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: {},
+    defaultValues: {
+      name: "",
+      email: "",
+      productId: "",
+      password: "",
+      confirmPassword: "",
+      acceptCourseTerms: false,
+      acceptManualTerms: false,
+    },
   });
   const [products, setProducts] = React.useState<Product[] | []>([]);
 
@@ -92,7 +109,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
       return;
     }
 
-    if (errorMessage == "") {
+    if (errorMessage === "") {
       const formData = new FormData(formRef.current!);
       formData.append("paymentMethod", selectedPaymentMethod);
       console.log("FormData antes do envio:", Array.from(formData.entries()));
@@ -117,7 +134,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
           {inputs.map((item) => (
             <FormField
               key={item.id}
-              control={form.control}
+              control={form.control as any}
               name={item.id as keyof FormData}
               render={({ field }) => (
                 <FormItem className="w-full flex flex-col gap-2 items-start">
@@ -179,6 +196,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
                     </SelectGroup>
                   </SelectContent>
                 </Select>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -206,12 +224,48 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
               </button>
             </div>
           </div>
+
+          {/* Checkbox para Termos de Uso do Curso */}
+          <FormField
+            control={form.control}
+            name="acceptCourseTerms"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-center gap-2">
+                <Checkbox checked={field.value} onCheckedChange={field.onChange} id="acceptCourseTerms" />
+                <FormLabel htmlFor="acceptCourseTerms" className="text-sm">
+                  Eu li e aceito os{" "}
+                  <Link href="/termos-uso-curso" target="_blank" className="text-blue-500 underline">
+                    Termos de Uso do Curso CST Formação de Facilitadores
+                  </Link>
+                </FormLabel>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Checkbox para Termos de Uso do Manual */}
+          <FormField
+            control={form.control}
+            name="acceptManualTerms"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-center gap-2">
+                <Checkbox checked={field.value} onCheckedChange={field.onChange} id="acceptManualTerms" />
+                <FormLabel htmlFor="acceptManualTerms" className="text-sm">
+                  Eu li e aceito os{" "}
+                  <Link href="/termos-uso-marca" target="_blank" className="text-blue-500 underline">
+                    Termos de Uso do Manual CST
+                  </Link>
+                </FormLabel>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
         <Button type="submit" className="mt-8 w-full" loading={isLoading}>
           Salvar alterações
         </Button>
 
-        {errorMessage}
+        {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
       </form>
     </Form>
   );

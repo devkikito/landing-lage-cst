@@ -36,11 +36,11 @@ export default function TrainingTermsPage() {
       <BackgroundImageWithTheme
         lightImage="/img/Banner.png"
         darkImage="/img/Banner.png"
-        className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center bg-right"
+        className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center bg-right  lg:grid md:grid-cols-2"
       >
-        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col justify-center gap-6 py-[7.938rem]">
+        <div className="max-w-[82.125rem] mx-auto 2sm:px-8 flex flex-col justify-center gap-6 py-[7.938rem]">
           <div className="flex flex-col basis-full bg-var-branco-100 rounded-bl-lg justify-center">
-            <h1 className="mt-10 sm:text-6xl text-4xl leading-tight text-branco-100 ">
+            <h1 className="flex flex-col mt-10 sm:text-6xl text-4xl leading-tight text-branco-100">
               Termos de Uso do Curso CST
               <span className="font-bold"> Formação de Facilitadores</span>
             </h1>
