@@ -6,33 +6,38 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
 import { setCookie } from "nookies";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { parseJwt } from "@/utils/parseJwt";
 import { useAuth } from "@/context/AuthContext";
-import Link from "next/link";
 
-const formSchema = z.object({
-  email: z.string().min(1, { message: "This field has to be filled." }).email("This is not a valid email."),
-  password: z.string(),
-});
+const passwordSchema = z
+  .string()
+  .min(8, "A senha deve ter no mínimo 8 caracteres.")
+  .regex(/[A-Z]/, "A senha deve conter pelo menos uma letra maiúscula.")
+  .regex(/[a-z]/, "A senha deve conter pelo menos uma letra minúscula.")
+  .regex(/[0-9]/, "A senha deve conter pelo menos um número.")
+  .regex(/[^A-Za-z0-9]/, "A senha deve conter pelo menos um caractere especial.");
+
+const formSchema = z
+  .object({
+    password: passwordSchema,
+    confirmPassword: z.string().min(1, "A confirmação de senha é obrigatória."),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "As senhas não coincidem.",
+    path: ["confirmPassword"],
+  });
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function UserAuthForm() {
+export default function RecorverAccessAuthForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const searchParams = useSearchParams();
   const { setAuthData } = useAuth();
 
-  const defaultValues = {
-    email: searchParams.get("email") || "",
-  };
-
   const form = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-    defaultValues,
+    resolver: zodResolver(formSchema as any),
   });
 
   function handleApiResponse(apiName: string, apiResponse: { success: boolean; message: string }) {
@@ -47,7 +52,7 @@ export default function UserAuthForm() {
     setIsLoading(true);
 
     try {
-      const [noderesponse] = await Promise.all([nodeLogin(values)]);
+      const [noderesponse] = await Promise.all([nodeLogin(values as any)]);
       handleApiResponse("API NODE", noderesponse);
       console.log(noderesponse);
       if (noderesponse.success) {
@@ -76,43 +81,40 @@ export default function UserAuthForm() {
   }
 
   return (
-    <>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-2">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="Insira seu email" disabled={isLoading} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Senha</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="Insira sua senha" disabled={isLoading} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Link href="/esqueci-senha" className="underline underline-offset-4 hover:text-primary w-fit ms-auto">
-            Esqueci a senha
-          </Link>
-          <Button disabled={isLoading} className="ml-auto w-full mt-4" type="submit">
-            Continue com Email
-          </Button>
-        </form>
-      </Form>
-    </>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-2">
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Senha</FormLabel>
+              <FormControl>
+                <Input type="text" placeholder="Insira sua senha" disabled={isLoading} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="confirmPassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Confirme sua senha</FormLabel>
+              <FormControl>
+                <Input type="text" placeholder="Confirme sua senha" disabled={isLoading} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button disabled={isLoading} className="ml-auto w-full mt-4" type="submit">
+          Confirmar
+        </Button>
+      </form>
+    </Form>
   );
 }
