@@ -118,8 +118,8 @@ importers:
         version: 3.24.1
     devDependencies:
       '@types/node':
-        specifier: ^20.14.9
-        version: 20.14.9
+        specifier: ^18.19.0
+        version: 18.19.83
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -1050,8 +1050,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.14.9':
-    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
+  '@types/node@18.19.83':
+    resolution: {integrity: sha512-D69JeR5SfFS5H6FLbUaS0vE4r1dGhmMBbG4Ed6BNS4wkDK8GZjsdCShT5LCN59vOHEUHnFCY9J4aclXlIphMkA==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -1305,6 +1305,7 @@ packages:
 
   'biomob-next-boilerplate@file:':
     resolution: {directory: '', type: directory}
+    engines: {node: 18.x}
 
   bl@4.1.0:
     resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
@@ -3941,7 +3942,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.14.9':
+  '@types/node@18.19.83':
     dependencies:
       undici-types: 5.26.5
 
@@ -3958,7 +3959,7 @@ snapshots:
 
   '@types/set-cookie-parser@2.4.9':
     dependencies:
-      '@types/node': 20.14.9
+      '@types/node': 18.19.83
 
   '@types/tailwindcss@3.1.0':
     dependencies:
@@ -5293,7 +5294,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.14.9
+      '@types/node': 18.19.83
       merge-stream: 2.0.0
       supports-color: 8.1.1
     optional: true
