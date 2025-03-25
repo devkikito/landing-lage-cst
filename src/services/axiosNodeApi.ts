@@ -10,6 +10,10 @@ const api: AxiosInstance = axios.create({
   withCredentials: true,
   withXSRFToken: true,
   baseURL: URL_API,
+  timeout: 10000, // 10 segundos de timeout
+  validateStatus: function (status) {
+    return status >= 200 && status < 500; // Rejeita apenas se o status for >= 500
+  },
   headers: {
     Accept: "application/json",
     "Content-type": "application/json",
@@ -17,6 +21,12 @@ const api: AxiosInstance = axios.create({
     Connection: "keep-alive",
     "Keep-Alive": "timeout=5, max=1000",
   },
+});
+
+// Adiciona contador de tentativas
+api.interceptors.request.use((config: any) => {
+  config.retryCount = config.retryCount || 0;
+  return config;
 });
 
 api.interceptors.request.use(
@@ -51,6 +61,17 @@ api.interceptors.response.use(
     // Verifica se é erro de timeout/conexão
     if (!error.response) {
       console.error("Erro de conexão:", error.message);
+      if (error.config.retryCount < 3) {
+        error.config.retryCount += 1;
+        return await new Promise((resolve) =>
+          setTimeout(() => resolve(api(error.config)), 1000 * error.config.retryCount)
+        );
+      }
+    }
+
+    // Verifica se é erro de timeout
+    if (error.code === "ECONNABORTED" || error.message.includes("timeout")) {
+      console.error("Timeout da requisição");
       if (error.config.retryCount < 3) {
         error.config.retryCount += 1;
         return await new Promise((resolve) =>
