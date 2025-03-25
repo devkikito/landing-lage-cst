@@ -12,16 +12,14 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { parseJwt } from "@/utils/parseJwt";
 import { useAuth } from "@/context/AuthContext";
-import Link from "next/link";
 
 const formSchema = z.object({
   email: z.string().min(1, { message: "This field has to be filled." }).email("This is not a valid email."),
-  password: z.string(),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function UserAuthForm() {
+export default function ForgotPasswordAuthForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const searchParams = useSearchParams();
   const { setAuthData } = useAuth();
@@ -31,7 +29,7 @@ export default function UserAuthForm() {
   };
 
   const form = useForm<FormData>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema as any),
     defaultValues,
   });
 
@@ -47,7 +45,7 @@ export default function UserAuthForm() {
     setIsLoading(true);
 
     try {
-      const [noderesponse] = await Promise.all([nodeLogin(values)]);
+      const [noderesponse] = await Promise.all([nodeLogin(values as any)]);
       handleApiResponse("API NODE", noderesponse);
       console.log(noderesponse);
       if (noderesponse.success) {
@@ -76,43 +74,26 @@ export default function UserAuthForm() {
   }
 
   return (
-    <>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-2">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="Insira seu email" disabled={isLoading} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Senha</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="Insira sua senha" disabled={isLoading} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Link href="/esqueci-senha" className="underline underline-offset-4 hover:text-primary w-fit ms-auto">
-            Esqueci a senha
-          </Link>
-          <Button disabled={isLoading} className="ml-auto w-full mt-4" type="submit">
-            Continue com Email
-          </Button>
-        </form>
-      </Form>
-    </>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-2">
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="Insira seu email" disabled={isLoading} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button disabled={isLoading} className="ml-auto w-full mt-4" type="submit">
+          Enviar código
+        </Button>
+      </form>
+    </Form>
   );
 }

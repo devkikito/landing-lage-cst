@@ -48,17 +48,18 @@ export default function SignInViewPage() {
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">Entrar </h1>
-            <p className="paragraph_01 text-muted-foreground">Insire seus dados para logar-se no sistema</p>
+            <p className="paragraph_01 text-muted-foreground">Insira seus dados para logar-se no sistema</p>
           </div>
           <UserAuthForm />
+
           <p className="px-8 text-center paragraph_01 text-muted-foreground">
             Ao clicar em continue você estará aceitando nossos{" "}
-            <Link href="/terms" className="underline underline-offset-4 hover:text-primary">
-              Termos de serviço
+            <Link href="/termos-uso-curso" className="underline underline-offset-4 hover:text-primary">
+              Termos de Uso do Curso CST Formação de Facilitadores
             </Link>{" "}
             e{" "}
-            <Link href="/privacy" className="underline underline-offset-4 hover:text-primary">
-              Políticas de privacidade
+            <Link href="/termos-uso-marca" className="underline underline-offset-4 hover:text-primary">
+              Termos de Uso do Manual CST
             </Link>
             .
           </p>
