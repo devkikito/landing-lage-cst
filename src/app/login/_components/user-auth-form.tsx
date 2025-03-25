@@ -107,7 +107,7 @@ export default function UserAuthForm() {
           <Link href="/esqueci-senha" className="underline underline-offset-4 hover:text-primary w-fit ms-auto">
             Esqueci a senha
           </Link>
-          <Button disabled={isLoading} className="ml-auto w-full mt-4" type="submit">
+          <Button disabled={isLoading} loading={isLoading} className="ml-auto w-full mt-4" type="submit">
             Continue com Email
           </Button>
         </form>

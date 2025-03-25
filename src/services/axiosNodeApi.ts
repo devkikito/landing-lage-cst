@@ -10,9 +10,9 @@ const api: AxiosInstance = axios.create({
   withCredentials: true,
   withXSRFToken: true,
   baseURL: URL_API,
-  timeout: 10000, // 10 segundos de timeout
+  timeout: 10000,
   validateStatus: function (status) {
-    return status >= 200 && status < 500; // Rejeita apenas se o status for >= 500
+    return status >= 200 && status < 500;
   },
   headers: {
     Accept: "application/json",
