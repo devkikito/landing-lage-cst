@@ -31,4 +31,11 @@ export default withSerwist({
     ],
     domains: ["i.ytimg.com", "biomobtinastorage.blob.core.windows.net", "img.youtube.com"],
   },
+  httpAgentOptions: {
+    keepAlive: false,
+  },
+  staticPageGenerationTimeout: 1000,
+  experimental: {
+    nodeOptions: ["--no-experimental-fetch"],
+  },
 });
