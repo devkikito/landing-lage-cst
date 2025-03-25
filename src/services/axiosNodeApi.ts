@@ -14,6 +14,8 @@ const api: AxiosInstance = axios.create({
     Accept: "application/json",
     "Content-type": "application/json",
     "X-API-Key": process.env.X_API_KEY,
+    Connection: "keep-alive",
+    "Keep-Alive": "timeout=5, max=1000",
   },
 });
 
@@ -44,10 +46,19 @@ let isRefreshing = false;
 let failedQueue: (() => void)[] = [];
 
 api.interceptors.response.use(
-  (res: any) => {
-    return res;
-  },
+  (res: any) => res,
   async (error) => {
+    // Verifica se é erro de timeout/conexão
+    if (!error.response) {
+      console.error("Erro de conexão:", error.message);
+      if (error.config.retryCount < 3) {
+        error.config.retryCount += 1;
+        return await new Promise((resolve) =>
+          setTimeout(() => resolve(api(error.config)), 1000 * error.config.retryCount)
+        );
+      }
+    }
+
     const originalConfig = error.config;
 
     if (error?.response) {
