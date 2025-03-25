@@ -282,7 +282,7 @@ const inputs = [
   },
   {
     id: "email",
-    label: "Seu email principal (Atenção! Esse e-mail que enviaremos seu acesso ao curso)",
+    label: "Seu email principal (Atenção! Para este e-mail enviaremos seu acesso ao curso)",
     type: "text",
     placeholder: "Digite seu email aqui. Exemplo: juanmarcos@email.com",
   },
