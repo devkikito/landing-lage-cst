@@ -49,15 +49,15 @@ export const PlanosPage = () => {
           <div className="p-6 sm:p-10 h-full flex justify-center items-center bg-cinza-900 ">
             <div className="flex flex-col justify-center items-center text-start gap-4 mb-4">
               <p className="text-base items-center  text-branco-100 justify-center text-start">
-                Já temos as datas para o primeiro semestre de 2025:
+                Já temos as datas para o segundo semestre de 2025:
               </p>
               <div className="grid grid-cols-3 w-full gap-1 ">
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">21/02</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">29/03</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">12/04</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">31/05</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">28/06</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">26/07</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">19/04</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">30/08</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">27/09</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">25/10</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">22/11</span>
+                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">20/12</span>
               </div>
             </div>
           </div>

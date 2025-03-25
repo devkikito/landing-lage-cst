@@ -267,13 +267,13 @@ const MainContent = React.memo(() => {
                 <p className="text-base text-cinza-900-branco justify-end">
                   Já temos as datas para o primeiro semestre de 2025:
                 </p>
-                <div className="flex flex-wrap justify-center w-full gap-1 [&>span]:cursor-pointer">
-                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">21/02</span>
-                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">29/03</span>
-                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">12/04</span>
-                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">31/05</span>
-                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">28/06</span>
-                  <span className="p-4 border border-black rounded-lg text-center text-cinza-900-branco">26/07</span>
+                <div className="grid grid-cols-3 w-full gap-1 ">
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">19/04</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">30/08</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">27/09</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">25/10</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">22/11</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">20/12</span>
                 </div>
                 <Button text="Quero fazer parte" variant="default" onClick={() => router.push("/planos")} />
               </div>
