@@ -1,6 +1,3 @@
-[build]
-node_version = "18"
-
 providers = ["node"]
 
 [phases.install]
