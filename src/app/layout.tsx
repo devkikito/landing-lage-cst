@@ -13,10 +13,10 @@ import { Toaster } from "sonner";
 import { Suspense } from "react";
 import { AuthProvider } from "@/context/AuthContext";
 
-const APP_NAME = "Demência";
-const APP_DEFAULT_TITLE = "Demência";
+const APP_NAME = "CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA";
+const APP_DEFAULT_TITLE = "CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA";
 const APP_TITLE_TEMPLATE = "%s";
-const APP_DESCRIPTION = "Demência!";
+const APP_DESCRIPTION = "CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA!";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000"),

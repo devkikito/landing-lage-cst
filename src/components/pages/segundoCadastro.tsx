@@ -14,43 +14,43 @@ export const SecondRegisterPage = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [linkToRedirect, setLinkToRedirect] = React.useState<string>("");
 
-  React.useEffect(() => {
-    async function fetch() {
-      if (!userProductId || !tokenId) {
-        return (window.location.href = "/");
-      }
+  // React.useEffect(() => {
+  //   async function fetch() {
+  //     if (!userProductId || !tokenId) {
+  //       return (window.location.href = "/");
+  //     }
 
-      try {
-        const verifyToken = await verifyOneAccessTokenAction(tokenId);
-        const tokenIsValid = verifyToken.success == true;
+  //     try {
+  //       const verifyToken = await verifyOneAccessTokenAction(tokenId);
+  //       const tokenIsValid = verifyToken.success == true;
 
-        const res = await getLinkToRedirectAction(userProductId, tokenId);
+  //       const res = await getLinkToRedirectAction(userProductId, tokenId);
 
-        if (res.formComplete && res.linkToRedirect) {
-          window.location.href = res.linkToRedirect;
-        } else {
-          if (!tokenIsValid) {
-            return (window.location.href = "/");
-          }
+  //       if (res.formComplete && res.linkToRedirect) {
+  //         window.location.href = res.linkToRedirect;
+  //       } else {
+  //         if (!tokenIsValid) {
+  //           return (window.location.href = "/");
+  //         }
 
-          setLinkToRedirect(res.linkToRedirect!);
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.error("Erro ao verificar o token ou buscar dados do usuário:", error);
-        setIsLoading(false);
-      }
-    }
-    fetch();
-  }, [userProductId, tokenId]);
+  //         setLinkToRedirect(res.linkToRedirect!);
+  //         setIsLoading(false);
+  //       }
+  //     } catch (error) {
+  //       console.error("Erro ao verificar o token ou buscar dados do usuário:", error);
+  //       setIsLoading(false);
+  //     }
+  //   }
+  //   fetch();
+  // }, [userProductId, tokenId]);
 
-  if (isLoading) {
-    return (
-      <div className="h-[80vh] w-screen flex items-center justify-center">
-        <Loader2 className={cn("h-12 w-12 animate-spin")} />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="h-[80vh] w-screen flex items-center justify-center">
+  //       <Loader2 className={cn("h-12 w-12 animate-spin")} />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="w-full flex flex-col py-32 px-4 md:px-40">

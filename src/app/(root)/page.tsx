@@ -1,88 +1,88 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import EmblaCarousel from "@/components/carousel/EmblaCarousel";
-import ImageWithTheme from "@/components/image/ImageWithTheme";
-import InstructorCarousel from "@/components/carousel/InstructorCarousel";
-import ResultsSection from "@/components/section/ResultSection";
-import TestimonialCarousel from "@/components/carousel/TestimonialCarousel";
-import { BackgroundImageWithTheme } from "@/components/image/BackgroundImageWithTheme";
-import { Button } from "@/components/button/Button";
-import { EmblaOptionsType } from "embla-carousel";
-import { TitleDefault } from "@/components/texts/TitleDefault";
-import { scrollToSection } from "@/utils/scrollToSection";
-import FaqItem from "@/components/ui/FaqItem";
+import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
+import { EmblaOptionsType } from "embla-carousel";
+import { scrollToSection } from "@/utils/scrollToSection";
 
-export default function HomePage() {
+// Dynamic imports com prioridade
+const BackgroundImageWithTheme = dynamic(
+  () => import("@/components/image/BackgroundImageWithTheme").then((mod) => mod.BackgroundImageWithTheme),
+  { ssr: false }
+);
+const Button = dynamic(() => import("@/components/button/Button").then((mod) => mod.Button), { ssr: false });
+
+// Dynamic imports com baixa prioridade
+const EmblaCarousel = dynamic(() => import("@/components/carousel/EmblaCarousel"), { ssr: false });
+const ImageWithTheme = dynamic(() => import("@/components/image/ImageWithTheme"), { ssr: false });
+const InstructorCarousel = dynamic(() => import("@/components/carousel/InstructorCarousel"), { ssr: false });
+const ResultsSection = dynamic(() => import("@/components/section/ResultSection"), { ssr: false });
+const TestimonialCarousel = dynamic(() => import("@/components/carousel/TestimonialCarousel"), { ssr: false });
+const TitleDefault = dynamic(() => import("@/components/texts/TitleDefault").then((mod) => mod.TitleDefault), {
+  ssr: false,
+});
+const FaqItem = dynamic(() => import("@/components/ui/FaqItem"), { ssr: false });
+
+// Memoized components
+const MemoizedEmblaCarousel = React.memo(EmblaCarousel);
+const MemoizedInstructorCarousel = React.memo(InstructorCarousel);
+const MemoizedTestimonialCarousel = React.memo(TestimonialCarousel);
+const MemoizedResultsSection = React.memo(ResultsSection);
+
+// Componente do Banner
+const Banner = React.memo(() => (
+  <BackgroundImageWithTheme
+    lightImage="/img/Banner.png"
+    darkImage="/img/Banner.png"
+    className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center mb-20 bg-right"
+  >
+    <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
+      <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
+        <h1 className="mt-10 sm:text-6xl text-4xl leading-tight text-branco-100">
+          CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA{" "}
+          <span className="font-bold">Treinamento completo para estudantes e profissionais da saúde!</span>
+        </h1>
+        <h2 className="mt-2 mb-4 text-base text-branco-100 font-normal leading-7 tracking-wide max-w-[30rem]">
+          Primeiro tratamento não medicamentoso para demência validado no Brasil.
+        </h2>
+        <div className="flex flex-col text-start gap-4 mb-4">
+          <p className="text-base text-branco-100 justify-end">Já temos as datas para o primeiro semestre de 2025:</p>
+          <div className="flex flex-wrap justify-start w-full gap-1">
+            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">21/02</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">29/03</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">12/04</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">31/05</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">28/06</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">26/07</span>
+          </div>
+        </div>
+        <div>
+          <Button text="Inscreva-se" variant="outlined" onClick={() => scrollToSection("inscricao")} />
+        </div>
+      </div>
+      <div className="flex flex-col basis-full lg:basis-1/2 mt-6 lg:mt-16"></div>
+    </div>
+  </BackgroundImageWithTheme>
+));
+Banner.displayName = "Banner";
+
+// Componente do conteúdo principal
+const MainContent = React.memo(() => {
+  const memoizedFaqData = React.useMemo(() => faqData, []);
+  const memoizedAdvantagesData = React.useMemo(() => advantagesData, []);
   const OPTIONS: EmblaOptionsType = { loop: true };
   const router = useRouter();
-  const [isMounted, setIsMounted] = React.useState<boolean>(false);
-  const searchParams = useSearchParams();
-
-  React.useEffect(() => {
-    setIsMounted(true);
-
-    const hash = searchParams.get("hash") || window.location.hash.slice(1);
-    if (hash) {
-      scrollToSection(hash);
-    }
-  }, []);
-
-  React.useEffect(() => {
-    const hash = searchParams.get("hash") || window.location.hash.slice(1);
-    if (hash) {
-      scrollToSection(hash);
-    }
-  }, [isMounted]);
-
-  if (!isMounted) {
-    return null;
-  }
 
   return (
-    <div>
-      <BackgroundImageWithTheme
-        lightImage="/img/Banner.png"
-        darkImage="/img/Banner.png"
-        className="bg-no-repeat bg-cover min-h-[21.75rem] flex justify-center items-center mb-20 bg-right"
-      >
-        <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8 flex flex-col lg:flex-row justify-center gap-6 mt-10 py-[7.938rem]">
-          <div className="flex flex-col basis-full lg:basis-1/2 bg-var-branco-100 rounded-bl-lg justify-center">
-            <h1 className="mt-10 sm:text-6xl text-4xl  leading-tight text-branco-100">
-              CST - TERAPIA DE ESTIMULAÇÃO COGNITIVA{" "}
-              <span className="font-bold"> Treinamento completo para estudantes e profissionais da saúde!</span>
-            </h1>
-            <h2 className="mt-2 mb-4 text-base text-branco-100 font-normal leading-7 tracking-wide max-w-[30rem]">
-              Primeiro tratamento não medicamentoso para demência validado no Brasil.
-            </h2>
-            <div className="flex flex-col text-start gap-4 mb-4">
-              <p className="text-base  text-branco-100 justify-end">
-                Já temos as datas para o primeiro semestre de 2025:
-              </p>
-              <div className="flex flex-wrap justify-start w-full gap-1 ">
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">21/02</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">29/03</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">12/04</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">31/05</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">28/06</span>
-                <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">26/07</span>
-              </div>
-            </div>
-            <div>
-              <Button text="Inscreva-se" variant="outlined" onClick={() => scrollToSection("inscricao")} />
-            </div>
-          </div>
-          <div className="flex flex-col basis-full lg:basis-1/2 mt-6 lg:mt-16"></div>
-        </div>
-      </BackgroundImageWithTheme>
+    <>
       <div id="sobre">
         <div className="mb-[2.375rem]">
           <div className="max-w-[70rem] mx-auto">
             <TitleDefault title="SOBRE A CST" subtitle="" alignment="text-center" />
           </div>
         </div>
-        <ResultsSection />
+        <MemoizedResultsSection />
       </div>
 
       <div className="bg-dark-900 text-branco-100 py-12">
@@ -101,7 +101,7 @@ export default function HomePage() {
                 A CST é um tratamento desenvolvido no Reino Unido, com base em evidências científicas e validado em
                 vários países, incluindo no Brasil. Consiste em um protocolo com 14 sessões temáticas e divertidas para
                 estimular memória, linguagem, orientação e outras habilidades. Estudos apontam evidências de benefícios
-                para o quadro de pessoas com demência, extensivos aos cuidadores familiares.
+                para o quadro de pessoas com demência, extensivos aos cuidadores familiares.
               </p>
               <div className="flex flex-row justify-start gap-5">
                 <Button text="Saiba mais" variant="default" href="https://cstbrasil.com.br/web/index.php/projeto" />
@@ -120,6 +120,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
       <div id="modulos" className="bg-azul-40/50">
         <div className="mb-[2.375rem]">
           <div className="max-w-[39.938rem] mx-auto">
@@ -148,7 +149,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
-          <EmblaCarousel type="2" options={OPTIONS} />
+          <MemoizedEmblaCarousel type="2" options={OPTIONS} />
         </div>
       </div>
 
@@ -166,7 +167,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 px-4 sm:px-8 md:px-24 lg:px-48 items-start">
-          {advantagesData.slice(0, 2).map((advantage) => (
+          {memoizedAdvantagesData.slice(0, 2).map((advantage) => (
             <div key={advantage.id} className="flex flex-col items-center text-center">
               <div className="flex items-center justify-center lg:min-h-[80px]">
                 <ImageWithTheme
@@ -183,7 +184,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start mt-8">
-          {advantagesData.slice(2).map((advantage, index) => (
+          {memoizedAdvantagesData.slice(2).map((advantage) => (
             <div key={advantage.id} className="flex flex-col items-center text-center">
               <div className="flex items-center justify-center min-h-[80px]">
                 <ImageWithTheme
@@ -200,7 +201,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="max-w-[82.125rem] mx-auto pt-12 px-3 2sm:px-8 flex justify-between items-center mb-10 gap-4  sm:flex-nowrap flex-wrap">
+      <div className="max-w-[82.125rem] mx-auto pt-12 px-3 2sm:px-8 flex justify-between items-center mb-10 gap-4 sm:flex-nowrap flex-wrap">
         <div id="depoimentos">
           <TitleDefault
             title="Depoimentos"
@@ -218,14 +219,14 @@ export default function HomePage() {
         <div className="max-w-[82.125rem] mx-auto sm:px-3 2sm:px-8">
           <div className="text-center mb-6">
             <div className="max-w-[50rem] mx-auto px-3 2sm:px-8 rounded-lg bg-[rgba(255,255,255,0.75)] dark:bg-[rgba(0,0,0,0.75)] select-none">
-              <TestimonialCarousel />
+              <MemoizedTestimonialCarousel />
             </div>
           </div>
         </div>
       </div>
 
       <div id="equipe" className="max-w-[82.125rem] mx-auto px-3 2sm:px-8">
-        <InstructorCarousel options={OPTIONS} />
+        <MemoizedInstructorCarousel options={OPTIONS} />
       </div>
 
       <div className="my-10 max-w-[46rem] mx-auto px-3" id="inscricao">
@@ -237,10 +238,10 @@ export default function HomePage() {
         />
       </div>
 
-      <div className=" py-12 sm:px-6 mb-[4rem]">
+      <div className="py-12 sm:px-6 mb-[4rem]">
         <div className="max-w-[82.125rem] sm:px-3 flex flex-col md:grid md:grid-cols-2 items-center mx-auto">
-          <div className="p-6 sm:p-10 h-full bg-cinza-900 ">
-            <div className=" flex flex-col  justify-between h-full gap-8">
+          <div className="p-6 sm:p-10 h-full bg-cinza-900">
+            <div className="flex flex-col justify-between h-full gap-8">
               <p className="text-3xl max-w-[27rem] text-branco-100 flex items-center my-16">
                 Inicie sua jornada e junte-se hoje mesmo ao nosso time de facilitadores da CST! Este não é um curso
                 gravado. As aulas são ministradas ao vivo por especialistas altamente capacitados, garantindo uma
@@ -288,7 +289,7 @@ export default function HomePage() {
               <TitleDefault title="Perguntas Frequentes (FAQ)" alignment="text-left" />
             </div>
             <div className="space-y-4 w-full">
-              {faqData.map((item, index) => (
+              {memoizedFaqData.map((item, index) => (
                 <FaqItem key={index} question={item.question} answer={item.answer} />
               ))}
             </div>
@@ -326,6 +327,59 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+    </>
+  );
+});
+MainContent.displayName = "MainContent";
+
+export default function HomePage() {
+  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+  const searchParams = useSearchParams();
+
+  React.useEffect(() => {
+    setIsMounted(true);
+    const hash = searchParams.get("hash") || window.location.hash.slice(1);
+    if (hash) {
+      scrollToSection(hash);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    const hash = searchParams.get("hash") || window.location.hash.slice(1);
+    if (hash) {
+      scrollToSection(hash);
+    }
+  }, [isMounted]);
+
+  if (!isMounted) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center bg-background dark:bg-dark-900">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-azul-500"></div>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <React.Suspense
+        fallback={
+          <div className="w-full h-[21.75rem] flex items-center justify-center bg-background dark:bg-dark-900">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-azul-500"></div>
+          </div>
+        }
+      >
+        <Banner />
+      </React.Suspense>
+
+      <React.Suspense
+        fallback={
+          <div className="w-full h-screen flex items-center justify-center bg-background dark:bg-dark-900">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-azul-500"></div>
+          </div>
+        }
+      >
+        <MainContent />
+      </React.Suspense>
     </div>
   );
 }
@@ -410,7 +464,7 @@ const advantagesData = [
     id: 2,
     image: "/img/iconReconhecimentoDark.png",
     imageLight: "/img/iconReconhecimentoLight.png",
-    title: "Seja um dos primeiros a ofertar no Brasil um tratamento inovador e mundialmente reconhecido",
+    title: "Seja um dos primeiros a ofertar no Brasil um tratamento inovador e mundialmente reconhecido",
   },
   {
     id: 3,

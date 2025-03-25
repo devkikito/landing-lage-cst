@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import { parseCookies, destroyCookie } from "nookies";
+import { destroyCookie } from "nookies";
 
 interface AuthContextType {
   user: UserPayload | null;

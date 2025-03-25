@@ -29,7 +29,6 @@ const schema = z.object({
   gender: z.string().min(1, "Este campo é obrigatório"),
   nationality: z.string().min(1, "Este campo é obrigatório"),
   phoneNumber: z.string().min(14, "Este campo é obrigatório"),
-  commercialPhone: z.string().optional(),
   neighborhood: z.string().min(1, "Este campo é obrigatório"),
   number: z.string().min(1, "Este campo é obrigatório"),
   street: z.string().min(1, "Este campo é obrigatório"),
@@ -40,9 +39,8 @@ const schema = z.object({
   professionalCouncil: z.string().optional(),
   specialization: z.string().optional(),
   institution: z.string().min(1, "Este campo é obrigatório"),
-  graduationYear: z.string().min(1, "Este campo é obrigatório"),
+  availability: z.string().min(1, "Este campo é obrigatório"),
   expectations: z.string().min(1, "Este campo é obrigatório"),
-  availability: z.string().default("Nenhuma"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -54,6 +52,7 @@ interface MultiStepFormProps {
 const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
   const [step, setStep] = React.useState(1);
   const [isLoading, setIsLoading] = React.useState(false);
+  const [sendSuccess, setSendSuccess] = React.useState(false);
   const multiStepFormRef = React.useRef<HTMLFormElement>(null);
   const searchParams = useSearchParams();
   const [state, formAction] = useFormState(postSubmitSecondFormAction, {
@@ -65,6 +64,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {},
+    mode: "onSubmit",
   });
 
   const { watch, trigger } = form;
@@ -72,11 +72,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
   React.useEffect(() => {
     setIsLoading(false);
     if (state.success) {
+      setSendSuccess(true);
       toast("Perfeito", {
         description: "Formulário enviado com sucesso. Você será redirecionado para a tela de login.",
       });
       setTimeout(() => {
-        // window.location.href = linkToRedirect;
         window.location.href = "/login";
       }, 5000);
     }
@@ -123,53 +123,46 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
   //   form.setValue("availability", "Nenhuma");
   // }, [form.setValue]);
 
-  const onSubmit = async (data: FormData) => {
-    setIsLoading(true);
-
-    console.log("Form data submitted:", data);
-
-    const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
-        formData.append(key, value.toString());
-      }
-    });
-    formData.append("tokenId", tokenId!);
-    console.log("FormData antes do envio:", Array.from(formData.entries()));
-
-    formAction(formData);
-  };
-
   const validateCurrentStep = async () => {
     let fieldsToValidate: (keyof FormData)[] = [];
 
     switch (step) {
       case 1:
-        fieldsToValidate = [
-          "fullName",
-          "dateOfBirth",
-          "gender",
-          "nationality",
-          "contactEmail",
-          "phoneNumber",
-          "commercialPhone",
-        ];
+        fieldsToValidate = ["fullName", "dateOfBirth", "gender", "nationality", "contactEmail", "phoneNumber"];
         break;
       case 2:
         fieldsToValidate = ["neighborhood", "number", "street", "city", "state", "zipCode"];
         break;
       case 3:
-        fieldsToValidate = ["professionalCouncil", "specialization", "institution", "graduationYear"];
-        break;
-      case 4:
-        fieldsToValidate = ["expectations", "availability"];
+        fieldsToValidate = ["professionalCouncil", "specialization", "institution", "availability", "expectations"];
         break;
       default:
         break;
     }
 
-    const result = await trigger(fieldsToValidate);
-    return result;
+    // Nas etapas 1, 2 e 3, apenas verifica se os campos estão preenchidos
+    if (step < 4) {
+      const values = form.getValues(fieldsToValidate);
+      const allFieldsFilled = Object.values(values).every((value) => value !== undefined && value !== "");
+
+      // Se os campos não estiverem preenchidos, exibe os erros
+      if (!allFieldsFilled) {
+        fieldsToValidate.forEach((field) => {
+          const value = form.getValues(field);
+          if (!value) {
+            form.setError(field, {
+              type: "manual",
+              message: "Este campo é obrigatório",
+            });
+          }
+        });
+      }
+
+      return allFieldsFilled;
+    }
+
+    // Na última etapa, não faz validação aqui
+    return true;
   };
 
   const nextStep = async () => {
@@ -212,6 +205,30 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
     } catch (error) {
       console.error("Erro ao buscar CEP:", error);
     }
+  };
+
+  const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
+
+    // Na última etapa, faz a validação completa
+    const isValid = await trigger();
+    if (!isValid) {
+      setIsLoading(false);
+      return;
+    }
+
+    console.log("Form data submitted:", data);
+
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        formData.append(key, value.toString());
+      }
+    });
+    formData.append("tokenId", tokenId!);
+    console.log("FormData antes do envio:", Array.from(formData.entries()));
+
+    formAction(formData);
   };
 
   return (
@@ -323,18 +340,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
               name="phoneNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Telefone</FormLabel>
-                  <Input format={formatPhoneNumber} {...field} />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="commercialPhone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Telefone Comercial</FormLabel>
+                  <FormLabel>Celular</FormLabel>
                   <Input format={formatPhoneNumber} {...field} />
                   <FormMessage />
                 </FormItem>
@@ -451,20 +457,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
             />
             <FormField
               control={form.control}
-              name="graduationYear"
+              name="availability"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Ano em que se formou</FormLabel>
-                  <Input
-                    {...field}
-                    type="text"
-                    maxLength={4}
-                    onChange={(e) => {
-                      const numericValue = e.target.value.replace(/\D/g, "");
-                      const truncatedValue = numericValue.slice(0, 4);
-                      field.onChange(truncatedValue);
-                    }}
-                  />
+                  <FormLabel>Trabalha ou já trabalhou com pessoas idosas?</FormLabel>
+                  <Input {...field} type="text" />
                   <FormMessage />
                 </FormItem>
               )}
@@ -480,19 +477,12 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
                 </FormItem>
               )}
             />
-          </>
-        )}
-
-        {step === 4 && (
-          <>
             <FormField
               control={form.control}
               name="expectations"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Quais suas expectativas em relação ao curso e em qual contexto pretende aplicar a CST?
-                  </FormLabel>
+                  <FormLabel>Em qual contexto pretende aplicar a CST?</FormLabel>
                   <Input
                     {...field}
                     placeholder="Exemplo: Clínica privada, serviço de saúde público, consultório particular, etc."
@@ -501,22 +491,21 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="availability"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Qual sua disponibilidade atual?</FormLabel>
-                  <Input {...field} />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
           </>
         )}
 
+        {step === 4 && (
+          <div className="flex flex-col items-center justify-center space-y-6 py-8">
+            <span className="text-3xl font-semibold text-center">Obrigado por se inscrever!</span>
+            <p className="text-center text-lg">
+              Agora que você preencheu todas as informações necessárias nosso sistema irá computar seu cadastro. Você
+              irá ser redirecionado para a página de acesso em alguns instantes.
+            </p>
+          </div>
+        )}
+
         <div className="flex justify-between">
-          {step > 1 && (
+          {step > 1 && step != 4 && (
             <Button type="button" onClick={prevStep}>
               Anterior
             </Button>
@@ -526,15 +515,8 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
               Próximo
             </Button>
           ) : (
-            <Button
-              type="submit"
-              loading={isLoading}
-              onClick={() => {
-                console.log("cliquei");
-                showFormErrors();
-              }}
-            >
-              Enviar
+            <Button type="submit" loading={isLoading} disabled={sendSuccess}>
+              {sendSuccess ? "Cadastro Finalizado" : "Enviar Cadastro"}
             </Button>
           )}
         </div>
