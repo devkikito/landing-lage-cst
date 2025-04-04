@@ -12,7 +12,7 @@ const api: AxiosInstance = axios.create({
   baseURL: URL_API,
   timeout: 10000,
   validateStatus: function (status) {
-    return status >= 200 && status < 500;
+    return status >= 200 && status < 300;
   },
   headers: {
     Accept: "application/json",

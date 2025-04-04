@@ -24,14 +24,15 @@ export async function postSubmitFormAction(prevState: FormState, data: FormData)
 
   try {
     const res = await registerUserService(dto);
-    console.log(res);
+    console.log("Resposta do servidor:", res);
     return {
       message: `Usuário cadastrado com sucesso.`,
       success: true,
       paymentUrl: res.data.paymentUrl,
     };
   } catch (error: any) {
-    console.log("error>: ", error);
+    console.log("Erro detalhado:", error);
+
     if (error.response) {
       const status = error.response.status;
       const message = error.response.data?.error || error.response.data?.message || "Erro desconhecido";
@@ -41,14 +42,15 @@ export async function postSubmitFormAction(prevState: FormState, data: FormData)
       return {
         message: `Erro ${status}: ${message}`,
         success: false,
-        issues: error.response.data?.issues || [message],
+        issues: [message],
       };
     } else {
       console.error("Erro desconhecido: ", error.message);
+      const errorMessage = error.message || "Erro desconhecido";
       return {
         message: `Erro desconhecido: ${error.message}`,
         success: false,
-        issues: ["Erro desconhecido"],
+        issues: [errorMessage],
       };
     }
   }

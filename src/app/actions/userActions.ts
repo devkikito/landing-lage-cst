@@ -74,10 +74,23 @@ export async function getLinkToRedirectAction(userProductId: string, tokenId: st
 export async function getUserDetailsAction(): Promise<any> {
   try {
     const res: any = await findUserDetails();
-    console.log(res.data);
-    return res.data;
+    if (res.status === 401) {
+      return {
+        message: "Usuário não encontrado",
+        sucess: false,
+      };
+    }
+    return {
+      message: "Usuário encontrado com sucesso",
+      sucess: true,
+      data: res.data,
+    };
   } catch (error) {
     console.log(error);
+    return {
+      message: "Usuário não encontrado",
+      sucess: false,
+    };
   }
 }
 

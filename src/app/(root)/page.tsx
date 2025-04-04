@@ -256,11 +256,10 @@ const MainContent = React.memo(() => {
               <div className="flex justify-between items-center mb-8 gap-2 sm:flex-nowrap flex-wrap">
                 <div>
                   <p className="text-xl text-cinza-900-branco">De R$ 3.500 por</p>
-                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.150</p>
+                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.300</p>
                 </div>
                 <p className="text-base text-cinza-900-branco justify-end">
-                  Ou em até 05x de R$ 518,93 <br />
-                  no cartão de crédito
+                  Ou em até 05x de R$ 470 <br /> no cartão de crédito
                 </p>
               </div>
               <div className="flex flex-col text-center gap-4">

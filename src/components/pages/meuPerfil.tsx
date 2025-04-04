@@ -12,19 +12,29 @@ import { getUserDetailsAction } from "@/app/actions/userActions";
 import { User } from "@/@types/types";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/context/AuthContext";
 
 export const MeuPerfilPage = () => {
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);
   const [userDetails, setUserDetails] = React.useState<User | undefined>(undefined);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const { user, logout } = useAuth();
 
   React.useEffect(() => {
     async function fetch() {
       try {
         const res = await getUserDetailsAction();
-        setUserDetails(res);
+        console.log("Minha res", res);
+        if (res.sucess) {
+          setUserDetails(res.data);
+        } else {
+          logout();
+          window.location.href = "/";
+        }
       } catch (error) {
         console.log(error);
+        logout();
+        window.location.href = "/";
       } finally {
         setIsLoading(false);
       }

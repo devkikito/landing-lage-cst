@@ -84,19 +84,22 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
 
   React.useEffect(() => {
     setIsLoading(false);
+    console.log("Estado atual:", state);
+
     if (state.success && state.paymentUrl) {
+      console.log("state.paymentUrl", state.paymentUrl);
       window.location.href = state.paymentUrl;
       triggerUpdate();
       setOpen(false);
     }
 
+    // Verificar se há erro
     if (!state.success && state.message) {
-      toast("Ops, tivemos um erro", {
-        description: state.issues?.map((issue) => (
-          <span key={issue} className="flex gap-1">
-            {issue}
-          </span>
-        )),
+      console.log("Erro detectado:", state.message, state.issues);
+
+      // Exibir toast de erro
+      toast.error("Ops, tivemos um erro", {
+        description: state.message,
       });
     }
   }, [setOpen, state, triggerUpdate]);
