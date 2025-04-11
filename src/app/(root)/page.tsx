@@ -49,12 +49,10 @@ const Banner = React.memo(() => (
         <div className="flex flex-col text-start gap-4 mb-4">
           <p className="text-base text-branco-100 justify-end">Já temos as datas para o primeiro semestre de 2025:</p>
           <div className="flex flex-wrap justify-start w-full gap-1">
-            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">21/02</span>
-            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">29/03</span>
-            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">12/04</span>
-            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">31/05</span>
-            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">28/06</span>
-            <span className="p-4 border border-branco-100 rounded-lg text-center text-branco-100">26/07</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">31/05</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">28/06</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">26/07</span>
+            <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">30/08</span>
           </div>
         </div>
         <div>
@@ -256,7 +254,7 @@ const MainContent = React.memo(() => {
               <div className="flex justify-between items-center mb-8 gap-2 sm:flex-nowrap flex-wrap">
                 <div>
                   <p className="text-xl text-cinza-900-branco">De R$ 3.500 por</p>
-                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.300</p>
+                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.200</p>
                 </div>
                 <p className="text-base text-cinza-900-branco justify-end">
                   Ou em até 05x de R$ 470 <br /> no cartão de crédito
@@ -267,12 +265,10 @@ const MainContent = React.memo(() => {
                   Já temos as datas para o primeiro semestre de 2025:
                 </p>
                 <div className="grid grid-cols-3 w-full gap-1 ">
-                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">19/04</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">31/05</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">28/06</span>
+                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">26/07</span>
                   <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">30/08</span>
-                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">27/09</span>
-                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">25/10</span>
-                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">22/11</span>
-                  <span className="p-4 border border-branco-100 rounded-lg text-center  text-branco-100">20/12</span>
                 </div>
                 <Button text="Quero fazer parte" variant="default" onClick={() => router.push("/planos")} />
               </div>
