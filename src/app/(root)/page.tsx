@@ -253,12 +253,14 @@ const MainContent = React.memo(() => {
               <p className="text-3xl mb-8 text-cinza-900-branco">Seu investimento</p>
               <div className="flex justify-between items-center mb-8 gap-2 sm:flex-nowrap flex-wrap">
                 <div>
-                  <p className="text-xl text-cinza-900-branco">De R$ 3.500 por</p>
-                  <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.200</p>
+                  <p className="text-xl text-cinza-900-branco">
+                    <b>R$ 2.350</b> em até 05x sem juros ou
+                  </p>
+                  <div className="flex gap-2 items-center">
+                    <p className="text-5xl font-semibold text-cinza-900-branco">R$ 2.200</p>
+                    <p className="text-base text-cinza-900-branco">no PIX</p>
+                  </div>
                 </div>
-                <p className="text-base text-cinza-900-branco justify-end">
-                  Ou em até 05x de R$ 470 <br /> no cartão de crédito
-                </p>
               </div>
               <div className="flex flex-col text-center gap-4">
                 <p className="text-base text-cinza-900-branco justify-end">
