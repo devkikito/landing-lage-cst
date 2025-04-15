@@ -70,45 +70,42 @@ export default function TermsPage() {
 
           <div className="space-y-6 text-cinza-900-branco text-base">
             <p>
-              A utilização deste manual é destinada exclusivamente a profissionais de saúde capacitados pela empresa{" "}
-              <strong>LUMEN CIENCIA E SAUDE LTDA</strong> (CNPJ: 46.474.737/0001-47) através do treinamento para
-              habilitação da entrega da <strong>Terapia de Estimulação Cognitiva (CST)</strong>.
+              Este manual é destinado exclusivamente a profissionais de saúde devidamente capacitados pela empresa LUMEN
+              Ciência e Saúde Ltda (CNPJ: 46.474.737/0001-47), por meio do treinamento para habilitação na aplicação da
+              Terapia de Estimulação Cognitiva (CST).
             </p>
 
             <p>
-              Os autores do Manual e a empresa <strong>LUMEN CIENCIA E SAUDE LTDA</strong> não serão responsáveis por
-              quaisquer danos sofridos por usuários ou terceiros que utilizem as informações contidas neste manual. O
-              usuário assume integralmente a responsabilidade pelo uso que fizer das informações contidas no manual.
+              As informações aqui contidas têm caráter educativo e informativo, não se configurando como serviço
+              profissional, consulta especializada, segunda opinião ou orientação médica direcionada a casos
+              individuais.
             </p>
 
             <p>
-              O usuário pode utilizar os dados disponíveis neste manual para uso pessoal, não sendo permitido
-              reproduzir, digitalizar, modificar, comercializar, publicar ou distribuir parte ou totalidade do conteúdo,
-              sem prévia e expressa autorização da equipe.
+              O uso do conteúdo deste manual deve ser realizado com responsabilidade, respeitando os princípios éticos e
+              técnicos da prática profissional. Os autores e a LUMEN Ciência e Saúde Ltda não se responsabilizam por
+              eventuais danos decorrentes da utilização inadequada das informações disponibilizadas.
             </p>
 
-            <p className="font-semibold">Em particular, não é permitido em hipótese alguma:</p>
+            <p className="font-semibold">
+              A reprodução, modificação, digitalização, comercialização, publicação ou distribuição, total ou parcial,
+              deste conteúdo não é permitida sem a autorização expressa da equipe responsável. Isso inclui, mas não se
+              limita a:
+            </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Redistribuir conteúdo (incluindo o uso de partes ou totalidade do conteúdo ou serviço similar);</li>
+              <li>Redistribuição do conteúdo ou de qualquer serviço baseado neste material;</li>
               <li>
-                Remover os sinais distintivos da marca <strong>CST-Brasil</strong> ou da empresa{" "}
-                <strong>LUMEN CIENCIA E SAUDE LTDA</strong> e os avisos de direitos autorais das páginas;
+                Remoção de marcas registradas ou avisos de direitos autorais associados à CST-Brasil ou à LUMEN Ciência
+                e Saúde Ltda;
               </li>
-              <li>Criar conteúdo através do conteúdo e/ou da propriedade intelectual do manual da CST Brasil;</li>
+              <li>Criação de novos materiais com base na propriedade intelectual contida neste manual.</li>
             </ul>
 
             <p>
-              A aquisição deste manual não permite a oferta de qualquer tipo de curso que reproduza o conteúdo e/ou a
-              propriedade intelectual do mesmo, particularmente cursos que tenham o intuito de formar pessoas para a
-              entrega da CST. Sendo este, direito exclusivo da empresa <strong>LUMEN CIENCIA E SAUDE LTDA</strong>. Caso
-              haja interesse por parte do usuário deste manual em se tornar um treinador nos cursos de capacitação
-              ofertados pela nossa empresa, entre em contato conosco.
-            </p>
-
-            <p>
-              Toda informação contida neste manual é oferecida com propósitos informativos e educacionais e não é
-              fornecida como um serviço profissional, segunda opinião, consulta ou como conselho médico para pacientes
-              específicos.
+              A aquisição deste material não autoriza a realização de cursos, treinamentos ou formações voltadas à
+              capacitação de terceiros na aplicação da CST, atividade que é de responsabilidade exclusiva da LUMEN
+              Ciência e Saúde Ltda. Caso haja interesse em atuar como instrutor(a) em nossos cursos de formação, pedimos
+              que entre em contato diretamente com nossa equipe.
             </p>
           </div>
 

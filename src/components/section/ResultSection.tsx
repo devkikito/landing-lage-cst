@@ -10,7 +10,7 @@ const data = [
   {
     image: "/img/iconHumanDark.png",
     imageLight: "/img/iconHumanLight.png",
-    title: "Resultados comprovados por evidências científicas",
+    title: "Resultados apoiados em evidências científicas",
   },
   {
     image: "/img/resultados_icone_3.png",
@@ -20,7 +20,7 @@ const data = [
   {
     image: "/img/resultados_icone_2.png",
     imageLight: "/img/resultados_icone_2-light.png",
-    title: "Baseado em princípios humanistas e centrado na pessoa",
+    title: "Tratamento centrado na pessoa, baseado em respeito e inclusão",
   },
 ];
 

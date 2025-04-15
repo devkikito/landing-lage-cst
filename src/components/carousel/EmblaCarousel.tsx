@@ -105,7 +105,7 @@ export const images = [
     texts: {
       title: "Módulo 02",
       description:
-        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo e o processo de adaptação e validação da CST no Brasil;",
+        "Visão geral do tratamento - O desenvolvimento da CST no Reino Unido e no mundo, apresentando as vantagens e benefícios da CST;",
     },
   },
   {
@@ -118,8 +118,7 @@ export const images = [
     },
     texts: {
       title: "Módulo 03",
-      description:
-        "Vantagens e benefícios da CST – Estudos científicos brasileiros e internacionais que indicam a eficácia do tratamento, seus benefícios e vantagens econômicas e sociais;",
+      description: "CST Brasil – adaptando e validando o protocolo para o contexto nacional;",
     },
   },
   {
@@ -132,7 +131,8 @@ export const images = [
     },
     texts: {
       title: "Módulo 04",
-      description: "Apresentação detalhada do tratamento - Princípios gerais do tratamento e apresentação das sessões;",
+      description:
+        "Apresentação detalhada do tratamento - Princípios gerais do tratamento e apresentação das sessões; ",
     },
   },
   {

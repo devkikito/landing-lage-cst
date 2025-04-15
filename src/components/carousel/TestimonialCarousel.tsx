@@ -4,40 +4,40 @@ import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 
 const testimonials = [
   {
-    title: "Carlos Souza",
-    text: "“Eu estava muito irritada, muito nervosa, e comecei a ficar com muita raiva porque meus irmãos não participam, mas aí eu comecei a me desprender, com este tratamento me deu uma sensação boa de eu poder fazer alguma coisa por mim, comecei a fazer exercícios, cuidar da minha coluna.”",
+    title: "Participante do grupo da CST",
+    text: "“Estava muito irritada e nervosa, com raiva porque meus irmãos não participavam. Com o tratamento, comecei a me desprender, senti uma sensação boa de poder fazer algo por mim. Comecei a fazer exercícios e a cuidar da minha coluna.”",
   },
   {
-    title: "Ana Clara Silva",
-    text: "“O que as pessoas ao redor, minha sobrinha, a faxineira, disseram [é] que ele está mais receptivo, está falando mais (...) conversando melhor, conversando [por] mais tempo, porque antes mais resmungava. Ele desenvolve mais os assuntos.”",
+    title: "Cuidador familiar de membro do grupo da CST",
+    text: "“As pessoas ao redor, como minha sobrinha e a faxineira, notaram que ele está mais receptivo e fala mais. Agora, ele conversa melhor, por mais tempo, desenvolvendo melhor os assuntos. Antes, ele mais resmungava.”",
   },
   {
-    title: "Lucas Oliveira",
-    text: "“A gente percebeu como [CST] era muito interessante, muito bom para ela, como ela estava conversando com todo mundo, o quanto ela gostava. Então, para nós, vê-la feliz e como tudo aconteceu nos deixou satisfeitos, também achamos interessante.”",
+    title: "Cuidador familiar de membro do grupo da CST",
+    text: "“Percebemos como o CST foi interessante e benéfico para ela. Ela conversava com todos, demonstrava gostar muito. Ver sua felicidade e o progresso nos deixou muito satisfeitos.”",
   },
   {
-    title: "Fernanda Costa",
-    text: "“Era um descanso que eu tinha aquele horário, então, automaticamente, (...) você fica mais bem-humorada, então melhora a gente.”",
+    title: "Participante do grupo da CST",
+    text: "“Aquele horário era um momento de descanso para mim. Isso me deixava mais bem-humorada, o que melhorava meu dia.”",
   },
   {
-    title: "Juliana Pereira",
-    text: "“Me deu uma sensação boa de saber que eu era capaz de fazer algo para ajudá-la, para melhorar a sua qualidade de vida.”",
+    title: "Cuidador familiar de membro do grupo da CST",
+    text: "“Senti uma sensação boa ao saber que eu era capaz de fazer algo para ajudá-la, melhorando sua qualidade de vida.”",
   },
   {
-    title: "Marcelo Santos",
-    text: "“Eu tava mais alegre, tava fazendo alguma coisa, uma atividade, você tá se alegrando. Anima, né?”",
+    title: "Participante do grupo da CST",
+    text: "“Eu estava mais alegre, fazendo uma atividade que me animava. Isso trazia ânimo, não é?”",
   },
   {
-    title: "Patrícia Lima",
-    text: "“Ótima. Faz relembrar, movimenta a memória, muito interessante. Muito bom. Porque desperta a memória. Força a lembrança também.”",
+    title: "Participante do grupo da CST",
+    text: "“Foi ótimo. A atividade estimula a memória, é muito interessante. Desperta lembranças e força a recordação.”",
   },
   {
-    title: "Roberto Almeida",
-    text: "“Ela está mais focada, os episódios em que ela pergunta 'O que que eu ia falar mesmo?’, porque ela tinha esquecido, têm sido menos frequentes. A palavra vem mais rápido na sua cabeça, e ela não fica tão nervosa como costumava ficar. Isso a deixa mais calma.”",
+    title: "Cuidador familiar de membro do grupo da CST",
+    text: "“Ela está mais focada. Os momentos em que pergunta ‘O que eu ia falar mesmo?’ têm sido menos frequentes. As palavras vêm mais rápido, e ela fica menos nervosa, o que a deixa mais calma.”",
   },
   {
-    title: "Mariana Ferreira",
-    text: "“Ele gostou tanto de participar do grupo que perguntou se poderia vir mais vezes”",
+    title: "Cuidador familiar de membro do grupo da CST",
+    text: "“Ele gostou tanto de participar do grupo que perguntou se poderia voltar mais vezes.”",
   },
 ];
 

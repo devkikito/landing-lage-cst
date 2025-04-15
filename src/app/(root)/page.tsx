@@ -129,17 +129,11 @@ const MainContent = React.memo(() => {
               extraClassName="sm:hidden"
             />
 
-            <TitleDefault
-              title="CURSO DE CAPACITAÇÃO PARA CST"
-              subtitle="Treinamento para se tornar um(a) facilitador(a) da CST"
-              alignment="text-center"
-              extraClassName="hidden sm:block s"
-            />
+            <TitleDefault title="Treinamento em CST" alignment="text-center" extraClassName="hidden sm:block s" />
           </div>
           <p className="px-5 lg:max-w-[65rem] mx-auto text-base text-center">
-            Treinamento realizado inteiramente online, oferecendo flexibilidade para se ajustar à sua agenda. Os
-            participantes receberão, através do serviço postal, o manual da CST para apoio adicional e certificado de
-            conclusão do curso.
+            Treinamento online, com envio de certificado. Os participantes receberão o manual da CST para apoio
+            adicional, por via postal.
             <br />
             <br />
             Oferecemos pacotes diferenciados para empresas interessadas na implementação da CST em seu serviço. Entre em
@@ -383,12 +377,12 @@ const faqData = [
   {
     question: "O que é a capacitação em CST?",
     answer:
-      "A capacitação em Terapia de Estimulação Cognitiva (CST) é um treinamento destinado a profissionais da saúde que desejam se especializar na aplicação dessa intervenção, reconhecida globalmente como um tratamento eficaz e baseado em princípios humanistas e centrada na pessoa.",
+      "O treinamento em Terapia de Estimulação Cognitiva (CST) é uma formação destinada a profissionais da saúde que desejam se especializar na aplicação dessa intervenção, reconhecida globalmente como um tratamento eficaz e centrada na pessoa.”",
   },
   {
     question: "Quem pode participar do curso?",
     answer:
-      "Este curso é direcionado a profissionais de saúde de todos os níveis, como psicólogos, terapeutas ocupacionais, enfermeiros, entre outros e alunos de graduação que estejam cursando o 8º período ou períodos mais avançados. Experiência com idosos é desejável, mas não obrigatória para participar.",
+      "Este curso é direcionado a profissionais de saúde de todos os níveis, como psicólogos, terapeutas ocupacionais, enfermeiros, entre outros e alunos de graduação que estejam cursando os dois últimos períodos. Experiência com idosos é desejável, mas não obrigatória para participar.",
   },
   {
     question: "Como o curso é estruturado?",
