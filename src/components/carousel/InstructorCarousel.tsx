@@ -32,6 +32,13 @@ const InstructorCarousel: React.FC<PropType> = (props) => {
                   />
                 </div>
                 <p className="mb-4 text-cinza-900-branco text-2xl">{profile.description}</p>
+                <ul className="list-disc pl-5">
+                  {profile.awards.map((award, idx) => (
+                    <li key={idx} className="mb-2 text-cinza-900-branco text-lg">
+                      {award}
+                    </li>
+                  ))}
+                </ul>
               </div>
               <div className="w-full md:w-1/3 mb-4 md:mb-0">
                 <Image src={profile.image} alt={profile.name} width={479} height={496} className="rounded-lg h-full" />
