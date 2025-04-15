@@ -32,13 +32,6 @@ const InstructorCarousel: React.FC<PropType> = (props) => {
                   />
                 </div>
                 <p className="mb-4 text-cinza-900-branco text-2xl">{profile.description}</p>
-                <ul className="list-disc pl-5">
-                  {profile.awards.map((award, idx) => (
-                    <li key={idx} className="mb-2 text-cinza-900-branco text-lg">
-                      {award}
-                    </li>
-                  ))}
-                </ul>
               </div>
               <div className="w-full md:w-1/3 mb-4 md:mb-0">
                 <Image src={profile.image} alt={profile.name} width={479} height={496} className="rounded-lg h-full" />
@@ -90,7 +83,7 @@ export const profiles = [
     topTitle: "Instrutora",
     name: "Renata Naylor",
     image: "/img/profile-renata.png",
-    description: `Psicóloga e Mestre em Psicologia e Neurociências, ambos pela PUC-Rio. Certificada em Terapia de Estimulação Cognitiva pela Aimee Spector via Dementia Pathfinders UK, participou dos estudos de validação e adaptação da CST no Brasil e é uma das coautoras do manual da versão brasileira do protocolo. Na clínica, trabalha com psicoterapia e reabilitação neuropsicológica exclusivamente para pessoas idosas.`,
+    description: `Psicóloga e mestre em Psicologia Clínica e Neurociências, ambos pela Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio). Autora do manual da CST, especialista em CST e professora do treinamento.`,
     awards: ["Uma das autoras do manual brasileiro da CST."],
   },
   {
