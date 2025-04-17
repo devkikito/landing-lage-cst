@@ -35,6 +35,7 @@ const schema = z
     acceptManualTerms: z.boolean().refine((val) => val === true, {
       message: "Você deve aceitar os Termos de Uso do Manual",
     }),
+    couponCode: z.string().optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "As senhas não coincidem",
@@ -53,6 +54,9 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
     message: "",
     paymentUrl: "",
     success: false,
+    fields: {},
+    issues: [],
+    requestDTO: {},
   });
   const { triggerUpdate } = useUpdate();
   const formRef = React.useRef<HTMLFormElement>(null);
@@ -64,6 +68,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
       productId: "",
       password: "",
       confirmPassword: "",
+      couponCode: "",
       acceptCourseTerms: false,
       acceptManualTerms: false,
     },
@@ -227,6 +232,18 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
               </button>
             </div>
           </div>
+
+          {/* <FormField
+            control={form.control}
+            name="couponCode"
+            render={({ field }) => (
+              <FormItem className="w-full flex flex-col gap-2 items-start">
+                <FormLabel>Código do cupom (Opcional)</FormLabel>
+                <Input type="text" placeholder="Digite seu código do cupom aqui. Exemplo: CUPOM10" {...field} />
+                <FormMessage />
+              </FormItem>
+            )}
+          /> */}
 
           {/* Checkbox para Termos de Uso do Curso */}
           <FormField

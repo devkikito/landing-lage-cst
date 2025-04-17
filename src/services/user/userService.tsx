@@ -10,7 +10,11 @@ interface userWithPaymentType {
     role: string;
     createdAt: string;
   };
-  paymentUrl: string;
+  paymentUrl?: {
+    init_point: string;
+    discountApplied: string;
+    couponApplied: string;
+  };
 }
 
 type verifyOneAccessTokenType = {

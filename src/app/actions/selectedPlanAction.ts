@@ -20,6 +20,7 @@ export async function postSubmitFormAction(prevState: FormState, data: FormData)
     password: formData.password,
     paymentMethod: formData.paymentMethod,
     productId: formData.productId,
+    couponCode: formData.couponCode,
   };
 
   try {
@@ -28,7 +29,7 @@ export async function postSubmitFormAction(prevState: FormState, data: FormData)
     return {
       message: `Usuário cadastrado com sucesso.`,
       success: true,
-      paymentUrl: res.data.paymentUrl,
+      paymentUrl: res.data.paymentUrl?.init_point,
     };
   } catch (error: any) {
     console.log("Erro detalhado:", error);
