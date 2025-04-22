@@ -233,7 +233,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
             </div>
           </div>
 
-          {/* <FormField
+          <FormField
             control={form.control}
             name="couponCode"
             render={({ field }) => (
@@ -243,7 +243,7 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
 
           {/* Checkbox para Termos de Uso do Curso */}
           <FormField
