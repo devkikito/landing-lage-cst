@@ -64,7 +64,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {},
-    mode: "onSubmit",
+    mode: "onChange",
   });
 
   const { watch, trigger } = form;
@@ -91,15 +91,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
       });
     }
   }, [state]);
-
-  React.useEffect(() => {
-    const subscription = watch((value, { name }) => {
-      if (name) {
-        trigger(name);
-      }
-    });
-    return () => subscription.unsubscribe();
-  }, [watch, trigger]);
 
   // React.useEffect(() => {
   //   form.setValue("fullName", "Juan Marcos");
@@ -279,7 +270,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
                   <Select
                     onValueChange={(value: string) => {
                       form.setValue("gender", value);
-                      trigger("gender"); // Revalida o campo após a seleção
+                      // trigger("gender"); // Revalida o campo após a seleção
                     }}
                     {...field}
                   >
@@ -310,7 +301,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
                   <Select
                     onValueChange={(value: string) => {
                       form.setValue("nationality", value);
-                      trigger("nationality"); // Revalida o campo após a seleção
+                      // trigger("nationality"); // Revalida o campo após a seleção
                     }}
                     {...field}
                   >
