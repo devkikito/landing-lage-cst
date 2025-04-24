@@ -5,11 +5,8 @@ import { cookies } from "next/headers";
 
 export async function actionRefreshToken() {
   try {
-    console.log("Rodando o refreshToken");
     const data = await RefreshToken();
     const tokens = await data.json();
-
-    console.log("acessToken em processo", tokens);
 
     const setCookieHeader = data.headers.get("Set-Cookie");
 
@@ -26,8 +23,6 @@ export async function actionRefreshToken() {
       httpOnly: true,
       sameSite: "none" as const,
     };
-
-    console.log("Tentando fazer o set dos cookies", tokens);
 
     cookies().set("biomob-pd.token", tokens.accessToken, accessTokenOptions);
     cookies().set("biomob-pd.refresh-token", tokens.refreshToken, refreshTokenOptions);

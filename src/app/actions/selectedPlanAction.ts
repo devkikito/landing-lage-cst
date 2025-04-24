@@ -25,7 +25,6 @@ export async function postSubmitFormAction(prevState: FormState, data: FormData)
 
   try {
     const res = await registerUserService(dto);
-    console.log("Resposta do servidor:", res);
     return {
       message: `Usuário cadastrado com sucesso.`,
       success: true,

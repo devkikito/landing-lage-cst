@@ -41,13 +41,9 @@ export async function getLinkToRedirectAction(userProductId: string, tokenId: st
   try {
     const res = await findFormStatusService(tokenId);
     const data = res.data;
-    console.log("minha data: ", data);
 
     const productRes = await findProductByUserProducId(userProductId, tokenId);
-    console.log("meu productRes", productRes.data);
     if (data) {
-      console.log("meu productRes", productRes.data);
-
       return {
         message: "Usuário encontrado com sucesso",
         sucess: true,
@@ -96,7 +92,6 @@ export async function getUserDetailsAction(): Promise<any> {
 
 export async function postSubmitSecondFormAction(prevState: FormState, data: FormData): Promise<FormState> {
   const formData = Object.fromEntries(data.entries()) as FormDataEntries;
-  console.log("Meu tokenId", formData.tokenId);
   const dto = {
     fullName: formData.fullName,
     dateOfBirth: formData.dateOfBirth,
@@ -153,7 +148,6 @@ export async function postSubmitSecondFormAction(prevState: FormState, data: For
 export async function verifyOneAccessTokenAction(tokenId: string): Promise<VerifyActionType> {
   try {
     const res = await verifyOneAccessTokenService(tokenId);
-    console.log("res.data", res.data);
     return {
       decoded: res.data,
       success: true,

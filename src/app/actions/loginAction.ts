@@ -21,8 +21,6 @@ export async function nodeLogin(loginProps: loginInterface): Promise<FormState> 
     body: JSON.stringify(loginProps),
   });
 
-  console.log(response);
-
   if (!response.ok) {
     return {
       success: false,
@@ -31,7 +29,6 @@ export async function nodeLogin(loginProps: loginInterface): Promise<FormState> 
   }
 
   const data = await response.json();
-  console.log(data);
   return {
     message: "Login realizado com sucesso. Aguarde o redirecionamento.",
     success: true,

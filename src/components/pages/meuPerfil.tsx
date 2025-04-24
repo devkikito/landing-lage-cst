@@ -24,7 +24,6 @@ export const MeuPerfilPage = () => {
     async function fetch() {
       try {
         const res = await getUserDetailsAction();
-        console.log("Minha res", res);
         if (res.sucess) {
           setUserDetails(res.data);
         } else {

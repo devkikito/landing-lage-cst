@@ -54,7 +54,6 @@ export default function RecorverAccessAuthForm() {
     try {
       const [noderesponse] = await Promise.all([nodeLogin(values as any)]);
       handleApiResponse("API NODE", noderesponse);
-      console.log(noderesponse);
       if (noderesponse.success) {
         setCookie(undefined, "biomob-pd.token", noderesponse.data.accessToken, {
           maxAge: 60 * 60 * 24,
@@ -67,7 +66,6 @@ export default function RecorverAccessAuthForm() {
       }
       setAuthData(noderesponse.data.accessToken);
       const claims = parseJwt(noderesponse.data.accessToken);
-      console.log(claims);
 
       window.location.href = `/meu-perfil`;
     } catch (error: any) {

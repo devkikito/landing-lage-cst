@@ -79,7 +79,10 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
     async function fetchProducts() {
       try {
         const res = await getProductsAction();
-        setProducts(res);
+        const sortedProducts = [...res].sort(
+          (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+        );
+        setProducts(sortedProducts);
       } catch (error) {
         console.log(error);
       }
@@ -89,10 +92,8 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
 
   React.useEffect(() => {
     setIsLoading(false);
-    console.log("Estado atual:", state);
 
     if (state.success && state.paymentUrl) {
-      console.log("state.paymentUrl", state.paymentUrl);
       window.location.href = state.paymentUrl;
       triggerUpdate();
       setOpen(false);
@@ -120,7 +121,6 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
     if (errorMessage === "") {
       const formData = new FormData(formRef.current!);
       formData.append("paymentMethod", selectedPaymentMethod);
-      console.log("FormData antes do envio:", Array.from(formData.entries()));
       formAction(formData);
     }
   };

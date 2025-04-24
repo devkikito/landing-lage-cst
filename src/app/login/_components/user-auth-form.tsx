@@ -62,7 +62,6 @@ export default function UserAuthForm() {
       }
       setAuthData(noderesponse.data.accessToken);
       const claims = parseJwt(noderesponse.data.accessToken);
-      console.log(claims);
       window.location.href = `/meu-perfil`;
     } catch (error: any) {
       console.error("Erro ao submeter o formulário:", error);

@@ -217,8 +217,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
       return;
     }
 
-    console.log("Form data submitted:", data);
-
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
@@ -226,7 +224,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
       }
     });
     formData.append("tokenId", tokenId!);
-    console.log("FormData antes do envio:", Array.from(formData.entries()));
 
     formAction(formData);
   };
