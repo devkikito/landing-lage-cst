@@ -23,7 +23,7 @@ export default function page() {
         <Button
           text="Whatsapp"
           variant="default"
-          onClick={() => window.open("https://wa.me/552498192132?text=Olá, gostaria de entrar em contato!", "_blank")}
+          onClick={() => window.open("https://wa.me/21998866511?text=Olá, gostaria de entrar em contato!", "_blank")}
         />
         <Button
           text="Instagram"

@@ -74,7 +74,7 @@ export const BarTools = () => {
             </Link>
 
             <Link
-              href="https://wa.me/552498192132?text=Olá, gostaria de entrar em contato!"
+              href="https://wa.me/21998866511?text=Olá, gostaria de entrar em contato!"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Abrir WhatsApp para entrar em contato com CST Brasil em uma nova aba"
