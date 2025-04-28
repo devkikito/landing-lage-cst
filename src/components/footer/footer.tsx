@@ -49,7 +49,7 @@ export default function Footer() {
               <strong>Email:</strong> treinamento@cstbrasil.com.br
             </p>
             <p className="text-sm text-cinza-400 mt-2">
-              <strong>Telefone:</strong> (24) 9819-2132
+              <strong>Telefone:</strong> (21) 99886-6511
             </p>
             <div className="flex mt-4 space-x-4">
               <Link
