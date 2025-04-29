@@ -22,6 +22,8 @@ import { useFormState } from "react-dom";
 import { postSubmitSecondFormAction } from "@/app/actions/userActions";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
+import { formatCPF } from "@/utils/formatCPF";
+import { validateCPF } from "@/utils/validateCPF";
 
 const schema = z.object({
   fullName: z.string().min(8, "Este campo é obrigatório"),
@@ -41,6 +43,12 @@ const schema = z.object({
   institution: z.string().min(1, "Este campo é obrigatório"),
   availability: z.string().min(1, "Este campo é obrigatório"),
   expectations: z.string().min(1, "Este campo é obrigatório"),
+  cpf: z
+    .string()
+    .min(1, "Este campo é obrigatório")
+    .refine((cpf) => validateCPF(cpf), {
+      message: "CPF inválido",
+    }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -239,6 +247,25 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ linkToRedirect }) => {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="cpf"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>CPF</FormLabel>
+                  <Input
+                    {...field}
+                    onChange={(e) => {
+                      const formattedValue = formatCPF(e.target.value);
+                      field.onChange(formattedValue);
+                    }}
+                    maxLength={14}
+                  />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <FormField
               control={form.control}
               name="contactEmail"

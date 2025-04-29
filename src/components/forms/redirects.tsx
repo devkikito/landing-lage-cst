@@ -99,6 +99,12 @@ const RedirectsPostForm: React.FC<{ setOpen: any }> = ({ setOpen }) => {
       setOpen(false);
     }
 
+    if (state.success && state.sucessUrl) {
+      window.location.href = `/redirecionamento-final?userProductId=${state.userProductId}&id=${state.sucessUrl}`;
+      triggerUpdate();
+      setOpen(false);
+    }
+
     // Verificar se há erro
     if (!state.success && state.message) {
       console.log("Erro detectado:", state.message, state.issues);

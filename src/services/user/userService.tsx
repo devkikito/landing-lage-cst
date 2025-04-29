@@ -15,6 +15,10 @@ interface userWithPaymentType {
     discountApplied: string;
     couponApplied: string;
   };
+  updatedProduct?: {
+    successLink: string;
+    id: string;
+  };
 }
 
 type verifyOneAccessTokenType = {

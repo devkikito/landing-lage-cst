@@ -104,6 +104,7 @@ export async function postSubmitSecondFormAction(prevState: FormState, data: For
     city: formData.city,
     state: formData.state,
     zipCode: formData.zipCode,
+    address: `${formData.street}, ${formData.number} - ${formData.neighborhood} - ${formData.city} - ${formData.state} - ${formData.zipCode}`,
     contactEmail: formData.contactEmail,
     professionalCouncil: formData.professionalCouncil,
     specialization: formData.specialization,
@@ -112,6 +113,7 @@ export async function postSubmitSecondFormAction(prevState: FormState, data: For
     expectations: formData.expectations,
     availability: formData.availability,
     formComplete: true,
+    cpf: formData.cpf,
   };
 
   try {

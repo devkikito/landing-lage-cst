@@ -5,6 +5,8 @@ type FormState = {
   message: string;
   success: boolean;
   paymentUrl?: string;
+  sucessUrl?: string;
+  userProductId?: string;
   fields?: Record<string, FormDataEntryValue>;
   issues?: string[];
   requestDTO?: any;
@@ -25,11 +27,20 @@ export async function postSubmitFormAction(prevState: FormState, data: FormData)
 
   try {
     const res = await registerUserService(dto);
-    return {
-      message: `Usuário cadastrado com sucesso.`,
-      success: true,
-      paymentUrl: res.data.paymentUrl?.init_point,
-    };
+    if (res.data.updatedProduct) {
+      return {
+        message: `Usuário cadastrado com sucesso.`,
+        success: true,
+        sucessUrl: res.data.updatedProduct?.successLink,
+        userProductId: res.data.updatedProduct?.id,
+      };
+    } else {
+      return {
+        message: `Usuário cadastrado com sucesso.`,
+        success: true,
+        paymentUrl: res.data.paymentUrl?.init_point,
+      };
+    }
   } catch (error: any) {
     console.log("Erro detalhado:", error);
 
