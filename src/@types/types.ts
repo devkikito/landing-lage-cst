@@ -97,6 +97,7 @@ export type UserProduct = {
   paymentLink: string;
   product: Product;
   successLink: string;
+  password: string;
 };
 
 export type User = {

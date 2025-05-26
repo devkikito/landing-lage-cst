@@ -177,7 +177,7 @@ export const MeuPerfilPage = () => {
                           <span className="text-sm text-var-cinza-900-branco">
                             {product.status.toLowerCase() === "pendente"
                               ? "Finalize o pagamento para liberar o acesso"
-                              : "Seu acesso já está liberado"}
+                              : `Seu acesso já está liberado. Use a senha ${product.password} para acessar o curso. `}
                           </span>
                         </div>
 
