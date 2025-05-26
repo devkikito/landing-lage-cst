@@ -71,7 +71,7 @@ export default function RootLayout({
       suppressHydrationWarning
       lang="pt-BR"
     >
-      <Script defer data-domain="biomob.org" src="https://plausible.biomob.app/js/script.js" />
+      <Script defer data-domain="cstbrasil.com" src="https://plausible.biomob.xyz/js/script.js" />
       <body className={`${epilogue.variable}`}>
         <WindowSizeProvider>
           <HtmlFontSizeProvider>
